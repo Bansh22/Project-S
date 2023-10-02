@@ -6,7 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     //testcode0001 by banshee001 
     //이게 ces 에 만 들어가면 성공입니다
-
+    //수정
     // Start is called before the first frame update
     void Start()
     {
