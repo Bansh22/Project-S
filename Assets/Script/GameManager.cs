@@ -16,13 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        ConfigReader configreaders = new ConfigReader();
-        configreaders.Initialize(configreaders.GetfilePath());
-        configreaders.MakeDiction("Sap Wappon");
-
-        object rowdata = configreaders.GetDictionaryValue("damage");
-        Debug.Log(rowdata.ToString());
-
+      
         instance = this;
         
 

@@ -8,8 +8,8 @@ public class Enemy0 : MonoBehaviour
     EnemyFuntion funtion;
 
     float speed = 2.5f;
-    int hp = 100;
-    int damage = 10;
+    float hp = 100;
+    float damage = 10;
     bool isLive = true;
     Vector3 moveVec;
     Vector3 currentVelocity; // 현재 속도
@@ -44,13 +44,24 @@ public class Enemy0 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            //anim.SetTrigger("Hit");
-        }
-        if (collision.gameObject.CompareTag("Player"))
+        SapWappon sappon = new SapWappon();
+        if (!collision.gameObject.CompareTag("Bullet"))
+            return;
+
+        hp -= sappon.Getdamage();
+
+        if (hp > 0)
         {
 
         }
+        else
+        {
+            //Dead();
+        }
+
+    }
+    void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }
