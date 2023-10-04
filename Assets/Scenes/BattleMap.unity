@@ -306,8 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d404276d2f7174c985982e71fc1cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  inputVec: {x: 0, y: 0, z: 0}
 --- !u!1 &492331639
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +478,6 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &492331645
-
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,8 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c4bb99cda0eae429aaa89c36f45848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 239398447}
   speed: 5
+  player: {fileID: 239398447}
 --- !u!1 &1284008664
 GameObject:
   m_ObjectHideFlags: 0
