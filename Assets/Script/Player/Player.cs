@@ -9,10 +9,6 @@ public class Player : MonoBehaviour
     public float speed;
     public Vector2 inputVec;
     Animator anim;
-    Rigidbody2D rigid;
-
-    float speed;
-    public Vector3 inputVec;
 
     // Start is called before the first frame update
     Rigidbody2D rigid;
@@ -27,31 +23,22 @@ public class Player : MonoBehaviour
     {
 
         trans = GetComponent<Transform>();
-        //spriteì˜ ë¬¼ë¦¬ì  íŠ¹ì„± (ìœ„ì¹˜ í¬ê¸° íšŒì „)
+        //spriteÀÇ ¹°¸®Àû Æ¯¼º (À§Ä¡ Å©±â È¸Àü)
         anim = GetComponent<Animator>();
-        rigid = GetComponent<Rigidbody2D>();
+       
     }
     // Update is called once per frame
-    void Update()
-    {
-        speed = GameManager.instance.speed;
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
-        //Rawì˜ ê²½ìš° 0,1ë¡œ ì´ì§„ê°’ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” ì¥ì¹˜
-    }
+   
 
     private void FixedUpdate()
     {
         anim.SetFloat("Speed", inputVec.magnitude);
         Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
-        //í•©ì‚°ëœ ë²¡í„° ê³„ì‚°, normalizedì˜ ê²½ìš° x,y ë²¡í„°ì˜ í•©ì´ 1ì´ìƒì´ ë˜ê¸°ë•Œë¬¸ì— 1ë¡œ ê³ ì •
-        //fixedDeltaTimeì˜ ê²½ìš° ë‹¬ë¼ì§€ëŠ” í”„ë ˆì„ ëŒ€ë¹„
+        //ÇÕ»êµÈ º¤ÅÍ °è»ê, normalizedÀÇ °æ¿ì x,y º¤ÅÍÀÇ ÇÕÀÌ 1ÀÌ»óÀÌ µÇ±â¶§¹®¿¡ 1·Î °íÁ¤
+        //fixedDeltaTimeÀÇ °æ¿ì ´Ş¶óÁö´Â ÇÁ·¹ÀÓ ´ëºñ
         rigid.MovePosition(rigid.position + nextVec);
         trans.Translate(nextVec);
-
-        //ìœ„ì¹˜ ì´ë™
-
-        rigid.velocity = Vector3.zero;
+        //À§Ä¡ ÀÌµ¿
     }
 
 
