@@ -6,14 +6,14 @@ using UnityEngine;
 public class SapWappon : MonoBehaviour
 {
 
-    private Dictionary<string, Dictionary<string, string>> configData;
+  
 
     public void Init(){
-        ConfigReader configreader = new ConfigReader();
+        ConfigReader configreaders = new ConfigReader();
 
-        ConfigReader.Initialize(configreader.GetfilePath());
+        configreaders.Initialize(configreaders.GetfilePath());
 
-        Dictionary<string, string> sapData = configreader.GetDiction("Sap Wappon");
+       /*
 
         if (sapData.ContainsKey("damage"))
         {
@@ -31,6 +31,7 @@ public class SapWappon : MonoBehaviour
                 Debug.Log("per: " + per);
             }
         }
+       */
 
 
     }
