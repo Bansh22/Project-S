@@ -13,8 +13,8 @@ public class Enemy0 : MonoBehaviour
     int damage;
     bool isLive = true;
     Vector3 moveVec;
-    Vector3 currentVelocity; // ÇöÀç ¼Óµµ
-    Vector3 targetVelocity; // ¸ñÇ¥ ¼Óµµ
+    Vector3 currentVelocity; // Ã‡Ã¶Ã€Ã§ Â¼Ã“ÂµÂµ
+    Vector3 targetVelocity; // Â¸Ã±Ã‡Â¥ Â¼Ã“ÂµÂµ
 
     // Start is called before the first frame update
     void Start()
@@ -51,13 +51,24 @@ public class Enemy0 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            //anim.SetTrigger("Hit");
-        }
-        if (collision.gameObject.CompareTag("Player"))
+        SapWappon sappon = new SapWappon();
+        if (!collision.gameObject.CompareTag("Bullet"))
+            return;
+
+        hp -= sappon.Getdamage();
+
+        if (hp > 0)
         {
 
         }
+        else
+        {
+            //Dead();
+        }
+
+    }
+    void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }
