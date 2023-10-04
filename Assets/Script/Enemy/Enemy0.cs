@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTrace : MonoBehaviour
+public class Enemy0 : MonoBehaviour
 {
     Player tracePlayer;
     Animator anim;
@@ -31,6 +31,10 @@ public class PlayerTrace : MonoBehaviour
     {
         moveVec = (tracePlayer.transform.position - trans.position).normalized;
         targetVelocity = moveVec * speed;
+        if (hp <= 0)
+        {
+            anim.SetTrigger("Dead");
+        }
     }
 
     private void FixedUpdate()
@@ -40,5 +44,16 @@ public class PlayerTrace : MonoBehaviour
 
         // Rigidbody에 속도 적용
         rigid.velocity = currentVelocity;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            anim.SetTrigger("Hit");
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
 }
