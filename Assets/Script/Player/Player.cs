@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
     Transform trans;
     Animator anim;
+    Rigidbody2D rigid;
+
+    float speed;
+    Vector3 inputVec;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +18,7 @@ public class Player : MonoBehaviour
         trans = GetComponent<Transform>();
         //sprite의 물리적 특성 (위치 크기 회전)
         anim = GetComponent<Animator>();
-       
+        rigid = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
 
