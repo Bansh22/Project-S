@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class Enemy0 : MonoBehaviour
 {
-    new CapsuleCollider2D collider;
     EnemyFuntion funtion;
-    Dictionary data;
+    ConfigReader data;
 
     float speed;
-    int hp;
-    int damage;
+    float hp;
+    float damage;
     bool isLive = true;
     Vector3 moveVec;
     Vector3 currentVelocity; // ÇöÀç ¼Óµµ
     Vector3 targetVelocity; // ¸ñÇ¥ ¼Óµµ
 
-    // Start is called before the first frame update
+    // Start is called before the first frame updated
     void Start()
     {
-        data = new Dictionary("Enemy0");
-        speed = data.Init<float>("speed");
-        hp= data.Init<int>("hp");
-        damage= data.Init<int>("damage");
+        data = new ConfigReader("Enemy0");
+        speed = data.Search<float>("speed");
+        hp= data.Search<float>("hp");
+        damage= data.Search<float>("damage");
+        Debug.Log(damage);
 
         funtion = new EnemyFuntion(gameObject);
         funtion.setTracePlayer(GameManager.instance.player);
         funtion.setSpeed(speed);
 
-        collider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +40,6 @@ public class Enemy0 : MonoBehaviour
         if (hp <= 0)
         {
             //anim.SetTrigger("Dead");
-            collider.enabled = false;
             isLive = false;
         }
         if (!isLive)

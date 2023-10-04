@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using UnityEditor.U2D.Aseprite;
+using System.ComponentModel;
 
 
 /*
@@ -15,6 +16,9 @@ using UnityEditor.U2D.Aseprite;
     ConfigReader configreaders = new ConfigReader();
     configreaders.Initialize(configreaders.GetfilePath());
     configreaders.MakeDiction(""); <--여기 참조 할 값을 넣어라! config.ini 에  [ ] 안에 들어갈 값이다! //대소문자 구별필!
+    
+    >>>추가점
+    ConfigReader configreaders = new ConfigReader(title) <-- 위의 과정을 하나로 압축했으며 위의 방식도 가능, config.ini에서 [title] 형태의 값
 
 **********************************************************************************************
 
@@ -33,8 +37,12 @@ using UnityEditor.U2D.Aseprite;
 
     5.문자형 외로 변환하기 
     T typedata = configreaders.ConvertToNumeric<T>(rowdata); <원하는 타입으로 변환시킨다, T에 원하는 형식을 넣어라!
-    
+
     ex) int intdata = configreaders.ConvertToNumeric<int>(rowdata);
+
+    6.원하는 문자형으로 받기
+    T data= configreaders.Search<T>(key);  < 원하는 ket(이름)으로 받을 수 있지만 틀린 형태 or 없는 key(이름)일 경우 디버그 창에 나오니 확인.
+    ex)float damage= configreaders.Search<float>("damage");
 
    */
 public class ConfigReader 
@@ -45,6 +53,13 @@ public class ConfigReader
     private static Dictionary<string, string> resultDict;
     //configfilepath의 Config 전부 들고오기 
 
+    //생성자
+    public ConfigReader() { }
+    public ConfigReader(string sapName)
+    {
+        this.Initialize(this.GetfilePath());
+        this.MakeDiction(sapName);
+    }
 
     public void Initialize(string filePath)
     {
@@ -193,10 +208,40 @@ public class ConfigReader
         }
     }
 
+    public T Search<T>(string key)
+    {
+        Dictionary<string, string> data=resultDict;
+        if (data.ContainsKey(key))
+        {
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+            if (converter != null)
+            {
+                // Cast ConvertFromString(string text) : object to (T)
+                T result;
+                try
+                {
+                    result = (T)converter.ConvertFromString(data[key]);
+                    return result;
+                }
+                catch
+                {
+                    Debug.Log("WrongType");
+                    return default(T);
+                }
 
-
-
-
+            }
+            else
+            {
+                Debug.Log("NoneExist");
+                return default(T);
+            }
+        }
+        else
+        {
+            Debug.Log("WrongKey");
+            return default(T);
+        }
+    }
 
 
 }
