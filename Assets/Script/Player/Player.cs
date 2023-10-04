@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     Transform trans;
+    public float speed;
+    public Vector2 inputVec;
     Animator anim;
     Rigidbody2D rigid;
 
@@ -12,11 +15,19 @@ public class Player : MonoBehaviour
     public Vector3 inputVec;
 
     // Start is called before the first frame update
+    Rigidbody2D rigid;
+
+    private void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
+
+
     void Start()
     {
 
         trans = GetComponent<Transform>();
-        //spriteÀÇ ¹°¸®Àû Æ¯¼º (À§Ä¡ Å©±â È¸Àü)
+        //spriteì˜ ë¬¼ë¦¬ì  íŠ¹ì„± (ìœ„ì¹˜ í¬ê¸° íšŒì „)
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
     }
@@ -26,19 +37,25 @@ public class Player : MonoBehaviour
         speed = GameManager.instance.speed;
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
-        //RawÀÇ °æ¿ì 0,1·Î ÀÌÁø°ªÀ¸·Î ¹Ù²ãÁÖ´Â ÀåÄ¡
+        //Rawì˜ ê²½ìš° 0,1ë¡œ ì´ì§„ê°’ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” ì¥ì¹˜
     }
 
     private void FixedUpdate()
     {
         anim.SetFloat("Speed", inputVec.magnitude);
-        Vector3 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
-        //ÇÕ»êµÈ º¤ÅÍ °è»ê, normalizedÀÇ °æ¿ì x,y º¤ÅÍÀÇ ÇÕÀÌ 1ÀÌ»óÀÌ µÇ±â¶§¹®¿¡ 1·Î °íÁ¤
-        //fixedDeltaTimeÀÇ °æ¿ì ´Ş¶óÁö´Â ÇÁ·¹ÀÓ ´ëºñ
+        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
+        //í•©ì‚°ëœ ë²¡í„° ê³„ì‚°, normalizedì˜ ê²½ìš° x,y ë²¡í„°ì˜ í•©ì´ 1ì´ìƒì´ ë˜ê¸°ë•Œë¬¸ì— 1ë¡œ ê³ ì •
+        //fixedDeltaTimeì˜ ê²½ìš° ë‹¬ë¼ì§€ëŠ” í”„ë ˆì„ ëŒ€ë¹„
+        rigid.MovePosition(rigid.position + nextVec);
         trans.Translate(nextVec);
 
-        //À§Ä¡ ÀÌµ¿
+        //ìœ„ì¹˜ ì´ë™
 
         rigid.velocity = Vector3.zero;
+    }
+
+
+    void OnMove(InputValue val){
+        inputVec = val.Get<Vector2>();
     }
 }
