@@ -6,10 +6,11 @@ public class Enemy0 : MonoBehaviour
 {
     new CapsuleCollider2D collider;
     EnemyFuntion funtion;
+    Dictionary data;
 
-    float speed = 2.5f;
-    int hp = 100;
-    int damage = 10;
+    float speed;
+    int hp;
+    int damage;
     bool isLive = true;
     Vector3 moveVec;
     Vector3 currentVelocity; // 현재 속도
@@ -18,10 +19,16 @@ public class Enemy0 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<CapsuleCollider2D>();
+        data = new Dictionary("Enemy0");
+        speed = data.Init<float>("speed");
+        hp= data.Init<int>("hp");
+        damage= data.Init<int>("damage");
+
         funtion = new EnemyFuntion(gameObject);
         funtion.setTracePlayer(GameManager.instance.player);
         funtion.setSpeed(speed);
+
+        collider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
