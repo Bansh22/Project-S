@@ -33,7 +33,7 @@ public class EnemyFuntion
     {
         this.tracePlayer = player;
     }
-    public async void  trace()
+    public void  trace()
     {
         Vector3 targetVelocity; // 목표 속도
         Vector3 moveVec = (tracePlayer.transform.position - trans.position).normalized;
