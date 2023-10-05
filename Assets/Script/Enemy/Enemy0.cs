@@ -51,4 +51,10 @@ public class Enemy0 : EnemyType0
     {
         gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        setTracePlayer(GameManager.instance.player);
+        
+    }
 }
