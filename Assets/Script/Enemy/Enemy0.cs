@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class Enemy0 : MonoBehaviour
 {
-    new CapsuleCollider2D collider;
     EnemyFuntion funtion;
+    ConfigReader data;
 
-    float speed = 2.5f;
-    int hp = 100;
-    int damage = 10;
+    float speed;
+    float hp;
+    float damage;
     bool isLive = true;
     Vector3 moveVec;
-    Vector3 currentVelocity; // ÇöÀç ¼Óµµ
-    Vector3 targetVelocity; // ¸ñÇ¥ ¼Óµµ
+    Vector3 currentVelocity; // Ã‡Ã¶Ã€Ã§ Â¼Ã“ÂµÂµ
+    Vector3 targetVelocity; // Â¸Ã±Ã‡Â¥ Â¼Ã“ÂµÂµ
 
-    // Start is called before the first frame update
+    // Start is called before the first frame updated
     void Start()
     {
-        collider = GetComponent<CapsuleCollider2D>();
+        data = new ConfigReader("Enemy0");
+        speed = data.Search<float>("speed");
+        hp= data.Search<float>("hp");
+        damage= data.Search<float>("damage");
+        Debug.Log(damage);
+
         funtion = new EnemyFuntion(gameObject);
         funtion.setTracePlayer(GameManager.instance.player);
         funtion.setSpeed(speed);
+
     }
 
     // Update is called once per frame
@@ -34,7 +40,6 @@ public class Enemy0 : MonoBehaviour
         if (hp <= 0)
         {
             //anim.SetTrigger("Dead");
-            collider.enabled = false;
             isLive = false;
         }
         if (!isLive)
@@ -44,13 +49,24 @@ public class Enemy0 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            //anim.SetTrigger("Hit");
-        }
-        if (collision.gameObject.CompareTag("Player"))
+        SapWappon sappon = new SapWappon();
+        if (!collision.gameObject.CompareTag("Bullet"))
+            return;
+
+        hp -= sappon.Getdamage();
+
+        if (hp > 0)
         {
 
         }
+        else
+        {
+            //Dead();
+        }
+
+    }
+    void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }

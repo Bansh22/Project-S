@@ -183,3 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d404276d2f7174c985982e71fc1cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputVec: {x: 0, y: 0, z: 0}
