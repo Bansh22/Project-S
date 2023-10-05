@@ -5,7 +5,7 @@ using UnityEngine;
 [SerializeField]
 public class EnemyType0 : EnemyParent
 { 
-    public GameObject mine;
+    private GameObject mine;
     private ConfigReader reader;
     private Player tracePlayer;
 
