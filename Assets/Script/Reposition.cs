@@ -41,7 +41,6 @@ public class Reposition : MonoBehaviour
                 {
                     transform.Translate(Vector3.up * (transform.position.y < collision.transform.position.y ? 1 : -1) * 40);
                 }
-                Debug.Log("그라운드 실행");
                 break;
             case "Enemy":
                 if (coll.enabled)
@@ -55,7 +54,6 @@ public class Reposition : MonoBehaviour
                     transform.position = playerPos + 10 * spawnRadian;
                     //유저 기준으로 반지름 10인 원 테두리에서 스폰(설정된 각도에서만)
                 }
-                Debug.Log("에너미 실행");
                 break;
         }
 

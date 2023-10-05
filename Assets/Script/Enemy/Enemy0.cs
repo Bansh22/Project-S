@@ -55,6 +55,5 @@ public class Enemy0 : EnemyType0
     private void OnEnable()
     {
         setTracePlayer(GameManager.instance.player);
-        
     }
 }
