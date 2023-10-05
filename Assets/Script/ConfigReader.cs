@@ -12,12 +12,12 @@ using System.ComponentModel;
    // 사용법!(중요!) 아래 세 줄을 클래스 아래에 입력해서 생성자를 만든다! //
 **********************************************************************************************
     
-    
+    방법1
     ConfigReader configreaders = new ConfigReader();
     configreaders.Initialize(configreaders.GetfilePath());
     configreaders.MakeDiction(""); <--여기 참조 할 값을 넣어라! config.ini 에  [ ] 안에 들어갈 값이다! //대소문자 구별필!
     
-    >>>추가점
+    방법2(추천)
     ConfigReader configreaders = new ConfigReader(title) <-- 위의 과정을 하나로 압축했으며 위의 방식도 가능, config.ini에서 [title] 형태의 값
 
 **********************************************************************************************
@@ -61,6 +61,7 @@ public class ConfigReader
         this.MakeDiction(sapName);
     }
 
+    //초기화
     public void Initialize(string filePath)
     {
         sapData= IniFileReader.ReadIniFile(filePath);
@@ -207,6 +208,7 @@ public class ConfigReader
             return default(T);
         }
     }
+    
 
     public T Search<T>(string key)
     {
