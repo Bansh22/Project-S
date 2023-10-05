@@ -31,26 +31,17 @@ public class Enemy0 : EnemyType0
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SapWappon sappon = new SapWappon();
+        Wappon_Manager collisuonWappon = new();
         if (!collision.gameObject.CompareTag("Bullet"))
+
             return;
+        Debug.Log(collision.gameObject.name);
+        takeDamage(collisuonWappon.GetDamage());
 
-        takeDamage(sappon.Getdamage());
-
-        if (getHp() > 0)
-        {
-
-        }
-        else
-        {
-            //Dead();
-        }
+        
 
     }
-    void Dead()
-    {
-        gameObject.SetActive(false);
-    }
+    
 
     private void OnEnable()
     {
