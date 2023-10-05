@@ -40,6 +40,10 @@ public class EnemyType0 : EnemyParent
     }
     public void playerTrace()
     {
+        if (!mine)
+        {
+            setObject(gameObject);
+        }
         Vector3 targetVelocity; // 목표 속도
         Vector3 moveVec = (tracePlayer.transform.position - trans.position).normalized;
       
