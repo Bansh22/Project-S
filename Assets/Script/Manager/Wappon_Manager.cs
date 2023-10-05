@@ -39,14 +39,19 @@ public class Wappon_Manager : MonoBehaviour
 
     void Batch()
     {
-        Debug.Log("배치 돌아감!");
+        
         for (int index = 0; index < Count; index++)
         {
-            Debug.Log("for문 안에 들어옴!!");
+           
             Transform BulletTrans = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
             BulletTrans.parent = transform;
+
+            Vector3 rotVec = Vector3.forward * 360 * index / Count;
+            BulletTrans.Rotate(rotVec);
+            BulletTrans.Translate(BulletTrans.up * 1.5f, Space.World);
+            
             BulletTrans.GetComponent<SapWappon>().Init(Damage, -1);
-            Debug.Log("생성됨!");
+           
         }
     }
     public float GetDamage()
