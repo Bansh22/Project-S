@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
    
     public static GameManager instance;
     public Pool_Manager_Script PolManage;
+    public Wappon_Pool_Manager_Script WaPolManage;
     public float speed=5;
     public Player player;
 
