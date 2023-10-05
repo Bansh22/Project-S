@@ -2,32 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy0 : MonoBehaviour
+public class Enemy0 : EnemyType0
 {
-    EnemyFuntion funtion;
-    ConfigReader data;
-
-    float speed;
-    float hp;
-    float damage;
-    bool isLive = true;
-    Vector3 moveVec;
-    Vector3 currentVelocity; // ÇöÀç ¼Óµµ
-    Vector3 targetVelocity; // ¸ñÇ¥ ¼Óµµ
-
     // Start is called before the first frame updated
     void Start()
     {
-        data = new ConfigReader("Enemy0");
-        speed = data.Search<float>("speed");
-        hp= data.Search<float>("hp");
-        damage= data.Search<float>("damage");
-        Debug.Log(damage);
-
-        funtion = new EnemyFuntion(gameObject);
-        funtion.setTracePlayer(GameManager.instance.player);
-        funtion.setSpeed(speed);
-
+        setObject(gameObject);
+        setTracePlayer(GameManager.instance.player);
     }
 
     // Update is called once per frame
@@ -37,15 +18,15 @@ public class Enemy0 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (hp <= 0)
+        if (getHp() <= 0)
         {
             //anim.SetTrigger("Dead");
-            isLive = false;
+            setLive(false);
         }
-        if (!isLive)
+        if (!getLive())
             return;
 
-        funtion.trace();    
+        playerTrace();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -53,9 +34,9 @@ public class Enemy0 : MonoBehaviour
         if (!collision.gameObject.CompareTag("Bullet"))
             return;
 
-        hp -= sappon.Getdamage();
+        takeDamage(sappon.Getdamage());
 
-        if (hp > 0)
+        if (getHp() > 0)
         {
 
         }

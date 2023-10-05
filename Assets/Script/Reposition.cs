@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    Collider2D coll;
+    ConfigReader reader;
+    float angle;
+    //몹 스폰 범위 각도
+    private void Awake()
+    {
+        coll = GetComponent<Collider2D>();
+        reader = new ConfigReader("Reposition");
+        angle = reader.Search<float>("angle");
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area"))
             return;
-
-        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Player player = GameManager.instance.player;
+        Vector3 playerPos = player.transform.position;
         Vector3 myPos = transform.position;
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
-        Vector3 playerDir = GameManager.instance.player.inputVec;
+        Vector3 playerDir = player.inputVec;
 
         float dirX = playerDir.x < 0 ? -1 : 1;
         float dirY = playerDir.y < 0 ? -1 : 1;
@@ -31,7 +41,17 @@ public class Reposition : MonoBehaviour
                 }
                 break;
             case "Enemy":
-
+                if (coll.enabled)
+                {
+                    Vector3 unitPly = playerDir.normalized;
+                    //대각선에 의해 크기가 1보다 커지는 것을 대비
+                    float radian = Random.Range(-angle, angle) * Mathf.PI / 180.0f;
+                    //각도를 라디안으로 변환
+                    Vector3 spawnRadian = new Vector3(unitPly.x * Mathf.Cos(radian) - unitPly.y * Mathf.Sin(radian), unitPly.x * Mathf.Sin(radian) + unitPly.y * Mathf.Cos(radian));
+                    //유저 이동하는 방향(단위벡터)에서 램덤 각도로 회전 
+                    transform.position = playerPos + 10 * spawnRadian;
+                    //유저 기준으로 반지름 10인 원 테두리에서 스폰(설정된 각도에서만)
+                }
                 break;
         }
 
