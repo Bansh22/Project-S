@@ -5,34 +5,25 @@ using UnityEngine;
 
 public class SapWappon : MonoBehaviour
 {
+    private float damage = 0.0f;
+    private int per = 0;
 
-    private Dictionary<string, Dictionary<string, string>> configData;
-
-    public void Init(){
-        ConfigReader configreader = new ConfigReader();
-
-        ConfigReader.Initialize(configreader.GetfilePath());
-
-        Dictionary<string, string> sapData = configreader.GetDiction("Sap Wappon");
-
-        if (sapData.ContainsKey("damage"))
-        {
-            if (float.TryParse(sapData["damage"], out float damageValue))
-            {
-                float damage = damageValue;
-                Debug.Log("damage: " + damage);
-            }
-        }
-        if (sapData.ContainsKey("per"))
-        {
-            if (int.TryParse(sapData["per"], out int perValue))
-            {
-                int per = perValue;
-                Debug.Log("per: " + per);
-            }
-        }
+    private void Init(){
+        ConfigReader configreaders = new ConfigReader();
+        configreaders.Initialize(configreaders.GetfilePath());
+        configreaders.MakeDiction("Sap Wappon");
+        damage = configreaders.ConvertToNumeric<float>(configreaders.GetDictionaryValue("damage")); ;
+        per = configreaders.ConvertToNumeric<int>(configreaders.GetDictionaryValue("per")); ;
 
 
+
+
+    }
+
+
+    public float Getdamage()
+    {
+        return damage;
     }
 }
 
