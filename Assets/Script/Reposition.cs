@@ -33,13 +33,13 @@ public class Reposition : MonoBehaviour
         switch (transform.tag)
         {
             case "Ground":
-                if (diffX > diffY)
+                if ( diffX > diffY)
                 {
-                    transform.Translate(Vector3.right * dirX * 40);
+                    transform.Translate(Vector3.right * (transform.position.x < collision.transform.position.x ? 1:-1) * 40);
                 }
                 else if (diffX < diffY)
                 {
-                    transform.Translate(Vector3.up * dirY * 40);
+                    transform.Translate(Vector3.up * (transform.position.y < collision.transform.position.y ? 1 : -1) * 40);
                 }
                 Debug.Log("그라운드 실행");
                 break;
