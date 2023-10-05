@@ -24,6 +24,8 @@ public class Reposition : MonoBehaviour
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
         Vector3 playerDir = player.inputVec;
+        //if playerDir 이게 0,0 이면 저장된 playerDir(가상)을 사용한다 
+
 
         float dirX = playerDir.x < 0 ? -1 : 1;
         float dirY = playerDir.y < 0 ? -1 : 1;
@@ -39,6 +41,7 @@ public class Reposition : MonoBehaviour
                 {
                     transform.Translate(Vector3.up * dirY * 40);
                 }
+                Debug.Log("그라운드 실행");
                 break;
             case "Enemy":
                 if (coll.enabled)
@@ -52,6 +55,7 @@ public class Reposition : MonoBehaviour
                     transform.position = playerPos + 10 * spawnRadian;
                     //유저 기준으로 반지름 10인 원 테두리에서 스폰(설정된 각도에서만)
                 }
+                Debug.Log("에너미 실행");
                 break;
         }
 
