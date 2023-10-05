@@ -47,7 +47,8 @@ public class EnemyParent : MonoBehaviour
         this.hp -= damage;
         if (hp <= 0)
         {
-            this.isLive = false;
+            gameObject.SetActive(false);
+            
         }
     }
 }
