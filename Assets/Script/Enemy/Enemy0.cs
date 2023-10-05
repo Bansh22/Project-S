@@ -12,8 +12,8 @@ public class Enemy0 : MonoBehaviour
     float damage;
     bool isLive = true;
     Vector3 moveVec;
-    Vector3 currentVelocity; // ÇöÀç ¼Óµµ
-    Vector3 targetVelocity; // ¸ñÇ¥ ¼Óµµ
+    Vector3 currentVelocity; // 
+    Vector3 targetVelocity; // 
 
     // Start is called before the first frame updated
     void Start()
