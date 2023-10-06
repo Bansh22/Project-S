@@ -47,4 +47,5 @@ public class Player : MonoBehaviour
         rigid.velocity = Vector3.zero;
 
     }
+    
 }
