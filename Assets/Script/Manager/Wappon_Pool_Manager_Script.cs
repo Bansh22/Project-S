@@ -17,23 +17,13 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
         {
             Wappon_Pools[index]= new List<GameObject>();
         }
+
     }
 
 
     public GameObject GetPoolsPrefabs(int index) {
 
         GameObject Select = null;
-
-        foreach(GameObject item in Wappon_Pools[index])
-        {
-            if (!item.activeSelf)
-            {
-                Select = item;
-                Select.SetActive(true);
-                break;
-            }
-
-        }
 
         if(!Select)
         {
