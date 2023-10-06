@@ -5,7 +5,7 @@ using UnityEngine;
 [SerializeField]
 public class EnemyType0 : EnemyParent
 { 
-    public GameObject mine;
+    private GameObject mine;
     private ConfigReader reader;
     private Player tracePlayer;
 
@@ -40,9 +40,13 @@ public class EnemyType0 : EnemyParent
     }
     public void playerTrace()
     {
+        if (!mine)
+        {
+            setObject(gameObject);
+        }
         Vector3 targetVelocity; // 목표 속도
         Vector3 moveVec = (tracePlayer.transform.position - trans.position).normalized;
-
+      
         targetVelocity = moveVec * getSpeed();
         // 현재 속도를 부드럽게 조절하기
         currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref currentVelocity, smoothTime);

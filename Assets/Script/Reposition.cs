@@ -24,6 +24,8 @@ public class Reposition : MonoBehaviour
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
         Vector3 playerDir = player.inputVec;
+        //if playerDir 이게 0,0 이면 저장된 playerDir(가상)을 사용한다 
+
 
         float dirX = playerDir.x < 0 ? -1 : 1;
         float dirY = playerDir.y < 0 ? -1 : 1;
@@ -31,13 +33,13 @@ public class Reposition : MonoBehaviour
         switch (transform.tag)
         {
             case "Ground":
-                if (diffX > diffY)
+                if ( diffX > diffY)
                 {
-                    transform.Translate(Vector3.right * dirX * 40);
+                    transform.Translate(Vector3.right * (transform.position.x < collision.transform.position.x ? 1:-1) * 40);
                 }
                 else if (diffX < diffY)
                 {
-                    transform.Translate(Vector3.up * dirY * 40);
+                    transform.Translate(Vector3.up * (transform.position.y < collision.transform.position.y ? 1 : -1) * 40);
                 }
                 break;
             case "Enemy":
