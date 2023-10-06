@@ -9,6 +9,7 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
     List<GameObject>[] Wappon_Pools;
 
+    public Transform[] WapponPoints;
     // 풀 담당하는 리스트 
     private void Awake()
     {
@@ -20,20 +21,12 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
     }
 
 
+
     public GameObject GetPoolsPrefabs(int index) {
 
         GameObject Select = null;
 
-        foreach(GameObject item in Wappon_Pools[index])
-        {
-            if (!item.activeSelf)
-            {
-                Select = item;
-                Select.SetActive(true);
-                break;
-            }
-
-        }
+       
 
         if(!Select)
         {
@@ -43,4 +36,5 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
         return Select;
     }
+
 }

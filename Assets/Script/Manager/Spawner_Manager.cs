@@ -6,10 +6,12 @@ public class Spawner_Manager : MonoBehaviour
 {
     public Transform[] SpawnerPoint;
     float timer;
+
     // Update is called once per frame
     private void Awake()
     {
         SpawnerPoint = GetComponentsInChildren<Transform>();
+        
         Vector3 parentPosition = transform.position;
 
         // 360도를 원형으로 나누어 포인트 배치
@@ -21,6 +23,7 @@ public class Spawner_Manager : MonoBehaviour
             // 반지름 10의 원 주위에 점 배치
             float x = parentPosition.x + 10 * Mathf.Cos(radians);
             float y = parentPosition.y + 10 * Mathf.Sin(radians);
+            
             SpawnerPoint[i].position = new Vector3(x, y, parentPosition.z);
         }
     }
@@ -41,6 +44,7 @@ public class Spawner_Manager : MonoBehaviour
     void SpawnMod(int number) //실제 몹생성 코드 (number에 값 여러개 넣어서 써라!)
     {
        GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number);
-        enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+       enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+        
     }
 }
