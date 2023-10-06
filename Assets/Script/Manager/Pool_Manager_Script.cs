@@ -20,16 +20,22 @@ public class Pool_Manager_Script : MonoBehaviour
     }
 
 
+    //폴생성, 및 리바이브 코드 
+
     public GameObject GetPoolsPrefabs(int index) {
 
         GameObject Select = null;
 
+        //죽어있으면 살린다 
         foreach(GameObject item in Pools[index])
         {
             if (!item.activeSelf)
             {
                 Select = item;
-                Select.SetActive(true);
+               
+
+                Select.GetComponent<Enemy0>().Revive();
+               
                 break;
             }
 
