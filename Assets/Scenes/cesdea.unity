@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5d33fe42696384aa5a2509bec74e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &427437811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8221958127310277688, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
+  m_PrefabInstance: {fileID: 9010917778141187499}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a43c227a4069e4e88fabc1f6f1dde4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &556351162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347590350596056985, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 347590350596056985, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -193,6 +204,14 @@ PrefabInstance:
     - target: {fileID: 4998353612227430747, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466889263888417589, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
+      propertyPath: m_Size.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466889263888417589, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
+      propertyPath: m_Size.y
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -593,6 +612,10 @@ PrefabInstance:
       propertyPath: WaPolManage
       value: 
       objectReference: {fileID: 38432338}
+    - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 427437811}
     - target: {fileID: 8094189621269508357, guid: 77db32dbdc6236a46b2da5854ed1258d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -656,7 +679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2098866793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +814,14 @@ PrefabInstance:
     - target: {fileID: 6664510069836996712, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221958127310277688, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
+      propertyPath: bgmVolume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221958127310277688, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
+      propertyPath: sfxVolume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -31,8 +31,6 @@ public class AudioManageer : MonoBehaviour
     {
         instance = this;
         Init();
-        PlayBgm();
-        //PlaySfx(Sfx.Hit);
     }
     void Init()
     {

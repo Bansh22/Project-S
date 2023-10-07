@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy0 : EnemyType0
 {
     private readonly ConfigReader reader;
-
     public Enemy0()
     {
         reader = new ConfigReader("Enemy0");
@@ -22,7 +21,8 @@ public class Enemy0 : EnemyType0
     }
     public void startfun()
     {
-        setObject(gameObject);
+        setKnock(true);
+        setObject();
         setTracePlayer(GameManager.instance.player);
         playerTrace();
     }
@@ -34,27 +34,28 @@ public class Enemy0 : EnemyType0
     private void FixedUpdate()
     {
         
-        if (!getLive())
-        {
-           
+        if (!getLive() || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        { 
             return;
         }
         setTracePlayer(GameManager.instance.player);
         playerTrace();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Wappon_Manager collisuonWappon = new();
+
         if (!collision.gameObject.CompareTag("Bullet"))
-
             return;
-        Debug.Log(collision.gameObject.name);
-        takeDamage(collisuonWappon.GetDamage());
 
-        
+        SapWappon collisuonWappon = collision.gameObject.GetComponent<SapWappon>();
+
+        GameManager.instance.AudioManager.PlaySfx(AudioManageer.Sfx.Hit);
+        takeDamage(collisuonWappon.Getdamage());
+
 
     }
-    
+
 
     private void OnEnable()
     {
