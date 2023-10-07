@@ -4,60 +4,73 @@ using UnityEngine;
 [SerializeField]
 public class EnemyParent : MonoBehaviour
 {
+    //ì»´í¬ë„ŒíŠ¸ ê¸°ëŠ¥ Getí•¨ìˆ˜ë¡œ ë°˜í™˜
+    private GameObject mine;
+    private Transform trans;
+    private Rigidbody2D rigid;
+    private SpriteRenderer render;
+    private Animator anim;
+    private Collider2D coll;
 
-    //Set ,Get ÀÖ´Â Ä£±¸µé , ²¨³»¿À°í , °ªÀ» ¼öÁ¤ÇÏ´Â ÇÔ¼ö°¡ ÀÖ´Ù 
+    //Set ,Get ìˆëŠ” ì¹œêµ¬ë“¤ , êº¼ë‚´ì˜¤ê³  , ê°’ì„ ìˆ˜ì •í•˜ëŠ” í•¨ìˆ˜ê°€ ìˆë‹¤ 
     private float speed;
     private float MaxHp;
     private float hp;
    
     private float damage;
 
-    // Set, Get ÀÌ ÀÖ°í Change°¡ ÀÖ´Â ÇÔ¼ö, 
+    // Set, Get ì´ ìˆê³  Changeê°€ ìˆëŠ” í•¨ìˆ˜, 
     private bool isLive;
 
-
-    // Set, Get ÀÌ ÀÖ°í KnockBack°¡ ÀÖ´Â ÇÔ¼ö,
-    private bool isKnock;
+    // Set, Get ì´ ìˆê³  KnockBackì™€ ê´€ë ¨ ìˆëŠ” í•¨ìˆ˜,
+    private bool isKnock;//ë„‰ë°±
+    private float KnockForce;
     WaitForFixedUpdate wait;
 
     //
-    //TakeDamage º¯¼ö : damage  ¹Ş¾Æ¼­, hp¸¦ ±ğ´Â´Ù 
-    //hp °¡ 0º¸´Ù ÀÛÀ¸¸é  gameobject ¸¦ ºñÈ°¼ºÈ­ ½ÃÅ²´Ù 
-    //hp °¡ 0º¸´Ù Å©¸é hit ¾Ö´Ï¸ŞÀÌ¼Ç ÀÛµ¿ ÈÄ ÀÏÁ¤ °Å¸® ³Ë¹éÇÑ´Ù.
+    //TakeDamage ë³€ìˆ˜ : damage  ë°›ì•„ì„œ, hpë¥¼ ê¹ëŠ”ë‹¤ 
+    //hp ê°€ 0ë³´ë‹¤ ì‘ìœ¼ë©´  gameobject ë¥¼ ë¹„í™œì„±í™” ì‹œí‚¨ë‹¤ 
+    //hp ê°€ 0ë³´ë‹¤ í¬ë©´ hit ì• ë‹ˆë©”ì´ì…˜ ì‘ë™ í›„ ì¼ì • ê±°ë¦¬ ë„‰ë°±í•œë‹¤.
     public void takeDamage(float damage)
     {
-        this.hp -= damage; // µ¥¹ÌÁö ¹Ş´Â´Ù
+        this.hp -= damage; // ë°ë¯¸ì§€ ë°›ëŠ”ë‹¤
 
-        Collider2D coll = this.gameObject.GetComponent<Collider2D>();
-        Animator anim = gameObject.GetComponent<Animator>();
+        //ë³€ìˆ˜ì— ë”°ë¼ ë„‰ë°± ì‘ë™
         if (isKnock)
         {
+            //ì½”ë£¨í‹´ ì‘ë™
             StartCoroutine(KnockBack());
         }
-        if (hp <= 0) //0º¸´Ù ÀÛÀ¸¸é 
+        if (hp <= 0) //0ë³´ë‹¤ ì‘ìœ¼ë©´ 
         {
-            //Á×¾îÀÖ´Â ½ÃÃ¼¿ÍÀÇ »óÈ£ÀÛ¿ë ÇØÁ¦
-            coll.enabled = false;
             
-            
-            this.gameObject.SetActive(false); // °ÔÀÓ ¿ÀºêÁ§Æ®¸£ ºñÈ°¼ºÈ­ ÇÑ´Ù 
+            this.gameObject.SetActive(false); // ê²Œì„ ì˜¤ë¸Œì íŠ¸ë¥´ ë¹„í™œì„±í™” í•œë‹¤ 
             setLive(false);
         }else if (hp > 0)
         {
+            //hit ì• ë‹ˆë©”ì´ì…˜ ì‘ë™
             anim.SetTrigger("Hit");
         }
     }
+    //ì½”ë£¨í‹´ìœ¼ë¡œ ë„‰ë°± ì‘ë™
+    //í˜„ì¬ ìœ ì € ìœ„ì¹˜ì™€ ë°˜ëŒ€ë¡œ ë°€ë¦¼
+    //KnockForceë¡œ ë°€ë¦¬ëŠ” ì •ë„ ì¡°ì ˆê°€ëŠ¥
+
     IEnumerator KnockBack()
     {
+        //FixedUpdate ì‹œê°„ ë§Œí¼ ì •ì§€
         yield return wait;
+        //í”Œë ˆì´ì–´ ìœ„ì¹˜
         Vector3 plyPos = GameManager.instance.player.transform.position;
+        //í˜„ ìœ„ì¹˜ - í”Œë ˆì´ì–´ ìœ„ì¹˜
         Vector3 dirVec = transform.position - plyPos;
-        Rigidbody2D rigid= gameObject.GetComponent<Rigidbody2D>();
-        rigid.AddForce(dirVec.normalized * 2, ForceMode2D.Impulse);
+        //ë¬¼ë¦¬ ì»´í¬ë„ŒíŠ¸
+        //ForceMode2D.Impulseìœ¼ë¡œ ìˆœê°„ì ì¸ í˜ ì ìš©
+        rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
     }
 
 
-    //Revive ÇÔ¼ö , º¯¼ö¸¦ hp ·Î ¹Ş¾Æ¼­ ÃÖ´ëÃ¼·ÂÀ¸·Î ÇöÀç hp ¸¦ ¸¸µé¾îÁØ´Ù 
+    //Revive í•¨ìˆ˜ , ë³€ìˆ˜ë¥¼ hp ë¡œ ë°›ì•„ì„œ ìµœëŒ€ì²´ë ¥ìœ¼ë¡œ í˜„ì¬ hp ë¥¼ ë§Œë“¤ì–´ì¤€ë‹¤ 
     
     public void Revive()
     {
@@ -66,7 +79,7 @@ public class EnemyParent : MonoBehaviour
         setLive(true);
     }
 
-    //Speed °ü·Ã ÄÚµå 
+    //Speed ê´€ë ¨ ì½”ë“œ 
     public void setSpeed(float speed)
     {
         this.speed = speed;
@@ -76,7 +89,7 @@ public class EnemyParent : MonoBehaviour
         return this.speed;
     }
 
-    //MaxHp °ü·Ã ÄÚµå 
+    //MaxHp ê´€ë ¨ ì½”ë“œ 
     public void setMaxHp(float MaxHp)
     {
         this.MaxHp = MaxHp;
@@ -86,7 +99,7 @@ public class EnemyParent : MonoBehaviour
         return this.MaxHp;
     }
 
-    //Hp °ü·Ã ÄÚµå 
+    //Hp ê´€ë ¨ ì½”ë“œ 
     public void setHp(float hp)
     {
         this.hp = hp;
@@ -95,7 +108,7 @@ public class EnemyParent : MonoBehaviour
     {
         return this.hp;
     }
-    //Damage °ü·Ã ÄÚµå 
+    //Damage ê´€ë ¨ ì½”ë“œ 
     public void setDamage(float damage)
     {
         this.damage = damage;
@@ -104,7 +117,7 @@ public class EnemyParent : MonoBehaviour
     {
         return this.damage;
     }
-    // Live °ü·Ã ÄÚµå 
+    // Live ê´€ë ¨ ì½”ë“œ 
     public void setLive(bool live)
     {
         this.isLive = live;
@@ -119,7 +132,7 @@ public class EnemyParent : MonoBehaviour
         isLive = !isLive;
     }
     
-    //KnockBack °ü·Ã ÇÔ¼ö
+    //KnockBack ê´€ë ¨ í•¨ìˆ˜
     public void setKnock(bool Knock)
     {
         this.isKnock = Knock;
@@ -127,5 +140,50 @@ public class EnemyParent : MonoBehaviour
     public bool getKnock()
     {
         return this.isKnock;
+    }
+    public void setKnockForce(float KnockForce)
+    {
+        this.KnockForce = KnockForce;
+    }
+    public float getKnockForce()
+    {
+        return this.KnockForce;
+    }
+
+    //ì»´í¬ë„ŒíŠ¸ ì„¤ì •
+    public void setObject()
+    {
+        //ì»´í¬ë„ŒíŠ¸ ì„¤ì •ë˜ì–´ìˆëŠ” í™•ì¸ìš©
+        mine = gameObject;
+        //ë²¡í„° ì»´í¬ë„ŒíŠ¸
+        trans = gameObject.GetComponent<Transform>();
+        //ì• ë‹ˆë©” ì»´í¬ë„ŒíŠ¸
+        anim = gameObject.GetComponent<Animator>();
+        //ëœë” ì»´í¬ë„ŒíŠ¸
+        render = gameObject.GetComponent<SpriteRenderer>();
+        //ë¬¼ë¦¬ ì»´í¬ë„ŒíŠ¸
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+        //ì¶©ëŒ ì»´í¬ë„ŒíŠ¸
+        coll = gameObject.GetComponent<Collider2D>();
+    }
+    public Transform getTransform()
+    {
+        return trans;
+    }
+    public Animator getAnimator()
+    {
+        return anim;
+    }
+    public SpriteRenderer getSpriteRenderer()
+    {
+        return render;
+    }
+    public Rigidbody2D getRigidbody2D()
+    {
+        return rigid;
+    }
+    public Collider2D getCollider2D()
+    {
+        return coll;
     }
 }
