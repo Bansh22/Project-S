@@ -72,13 +72,11 @@ public class Wappon_Manager : MonoBehaviour
        
         for (int index = 1; index < bullset.Length; index++)
         {
-            Debug.Log(index);
             Vector3 rotVec = Vector3.forward * 360 * (index-1) / (bullset.Length-1);
-            Debug.Log(rotVec.z);
+          
             bullset[index].rotation = scrptTrsfrom.rotation;
             bullset[index].position = scrptTrsfrom.position;
             bullset[index].Rotate(rotVec);
-            Debug.Log(bullset[index].up);
             bullset[index].position=bullset[index].position+ bullset[index].up * 0.5f * (Count-1) ;
 
           

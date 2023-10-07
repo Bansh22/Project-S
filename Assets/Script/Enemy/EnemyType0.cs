@@ -15,11 +15,10 @@ public class EnemyType0 : EnemyParent
 
     private Vector3 currentVelocity;
     private float smoothTime = 0.1f; // 관성을 부드럽게 만들기 위한 시간 설정
-
-  
-    public void setObject(GameObject obj)
+    
+    public void setObject()
     {
-        this.mine = obj;
+        this.mine = gameObject;
         anim    = mine.GetComponent<Animator>();
         trans   = mine.GetComponent<Transform>();
         rigid   = mine.GetComponent<Rigidbody2D>();
@@ -38,7 +37,7 @@ public class EnemyType0 : EnemyParent
     {
         if (!mine)
         {
-            setObject(gameObject);
+            setObject();
         }
         Vector3 targetVelocity; // 목표 속도
         Vector3 moveVec = (tracePlayer.transform.position - trans.position).normalized;
@@ -47,10 +46,17 @@ public class EnemyType0 : EnemyParent
         targetVelocity = moveVec * getSpeed();
         // 현재 속도를 부드럽게 조절하기
         currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref currentVelocity, smoothTime);
-
         // Rigidbody에 속도 적용
-        rigid.velocity = currentVelocity;
+        rigid.MovePosition(currentVelocity * Time.fixedDeltaTime + trans.position);
+        rigid.velocity = Vector3.zero;
+
+        //포인트 이동
+        //trans.Translate(moveVec * getSpeed() * Time.fixedDeltaTime);
         render.flipX = moveVec.x < 0;
-         
+
+    }
+    public Animator getAnimator()
+    {
+        return this.anim;
     }
 }

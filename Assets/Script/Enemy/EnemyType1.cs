@@ -25,9 +25,9 @@ public class EnemyType1 : EnemyParent
         setDamage(reader.Search<float>("damage"));
         setLive(true);
     }
-    public void setObject(GameObject obj)
+    public void setObject()
     {
-        this.mine = obj;
+        this.mine = gameObject;
         anim = mine.GetComponent<Animator>();
         trans = mine.GetComponent<Transform>();
         rigid = mine.GetComponent<Rigidbody2D>();
