@@ -81,6 +81,7 @@ public class EnemyParent : MonoBehaviour
     IEnumerator Dead()
     {
         rigid.velocity = Vector3.zero;
+        GameManager.instance.catchEnemy++;
         while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             yield return wait;
