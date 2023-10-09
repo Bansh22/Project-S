@@ -252,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 2750123455015980080, guid: ded394605e9fde14e879f3a4bfccd3dc, type: 3}
       propertyPath: Prefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 2993219727800843429, guid: 7d859b9a7402ad04798f3660b104a811, type: 3}
+      objectReference: {fileID: 2993219727800843429, guid: 618ded52fba24694cac808a142c057e6, type: 3}
     - target: {fileID: 6464709260596657207, guid: ded394605e9fde14e879f3a4bfccd3dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -503,6 +503,10 @@ PrefabInstance:
     - target: {fileID: 4894119950937083913, guid: 7e2ddcf5ecbe62a43b7a919022f67208, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056076352887288658, guid: 7e2ddcf5ecbe62a43b7a919022f67208, type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -817,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8221958127310277688, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
       propertyPath: bgmVolume
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8221958127310277688, guid: c397b6d2da53b874f84fcfd0ce7f02e5, type: 3}
       propertyPath: sfxVolume

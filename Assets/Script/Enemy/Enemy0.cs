@@ -49,7 +49,7 @@ public class Enemy0 : EnemyType0
     {
         //죽어있으면 작동정지 || Hit 태그 가진 애니메이션 끝날때 까지 작동 정지
         if (!getLive() || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
-        { 
+        {
             return;
         }
         //추적 대상 설정
@@ -61,18 +61,18 @@ public class Enemy0 : EnemyType0
     //접촉 코드(무기 데미지 충돌) #삽이 트리거로 작동되고 있음
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //충돌 대상이 총알 아닐때 이벤트 종료
-        if (!collision.gameObject.CompareTag("Bullet"))
+        //충돌 대상이 총알 아닐때 이벤트 종료 || 살아있을때 || 히트애니메이션가 유지되지않을때
+        if (!collision.gameObject.CompareTag("Bullet")||!getLive()|| getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
             return;
-
         //충돌 대상의 Component에서 스크립트 소환 #아 삽한정으로 하면안되지 #수정필요
         SapWappon collisuonWappon = collision.gameObject.GetComponent<SapWappon>();
 
-        //사운드 소환
         GameManager.instance.AudioManager.PlaySfx(AudioManageer.Sfx.Hit);
-
+        
         //데미지 부여
         takeDamage(collisuonWappon.Getdamage());
+
+
     }
 
 
