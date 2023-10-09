@@ -27,29 +27,38 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
+    //오브젝트 계층
+    private int order;
+
+
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
     public void takeDamage(float damage)
     {
-        this.hp -= damage; // 데미지 받는다
+        hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
-        if (isKnock)
-        {
-            //코루틴 작동
-            StartCoroutine(KnockBack());
-        }
+        
         if (hp <= 0) //0보다 작으면 
         {
-            
-            this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
+            order = render.sortingOrder;
+            anim.SetTrigger("Dead");
+            render.sortingOrder = order-1;// 시체가 몹가리는거 방지
             setLive(false);
+            coll.enabled=false;//시체 충돌 무시
+            StartCoroutine(Dead());
+            
         }else if (hp > 0)
         {
             //hit 애니메이션 작동
             anim.SetTrigger("Hit");
+            if (isKnock)
+            {
+                //코루틴 작동
+                StartCoroutine(KnockBack());
+            }
         }
     }
     //코루틴으로 넉백 작동
@@ -69,13 +78,26 @@ public class EnemyParent : MonoBehaviour
         rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
     }
 
+    IEnumerator Dead()
+    {
+        rigid.velocity = Vector3.zero;
+        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        {
+            yield return wait;
+        }
+        this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
+    }
+
 
     //Revive 함수 , 변수를 hp 로 받아서 최대체력으로 현재 hp 를 만들어준다 
-    
+
     public void Revive()
     {
         this.hp = this.MaxHp;
+        render.sortingOrder = order;// 살아나면서 order 증가
+        anim.SetTrigger("Live");
         gameObject.SetActive(true);
+        coll.enabled = true;//충돌 허용
         setLive(true);
     }
 
