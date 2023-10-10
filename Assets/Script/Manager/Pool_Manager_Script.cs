@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Pool_Manager_Script : MonoBehaviour
 {
-    //ÇÁ¸®Æé º¸°ü º¯¼ö 
+    //í”„ë¦¬í© ë³´ê´€ ë³€ìˆ˜ 
     public GameObject[] Prefabs;
 
     List<GameObject>[] Pools;
 
-    // Ç® ´ã´çÇÏ´Â ¸®½ºÆ® 
+    // í’€ ë‹´ë‹¹í•˜ëŠ” ë¦¬ìŠ¤íŠ¸ 
     private void Awake()
     {
         Pools = new List<GameObject>[Prefabs.Length];
@@ -20,13 +20,13 @@ public class Pool_Manager_Script : MonoBehaviour
     }
 
 
-    //Æú»ı¼º, ¹× ¸®¹ÙÀÌºê ÄÚµå 
+    //í´ìƒì„±, ë° ë¦¬ë°”ì´ë¸Œ ì½”ë“œ 
 
     public GameObject GetPoolsPrefabs(int index) {
 
         GameObject Select = null;
 
-        //Á×¾îÀÖÀ¸¸é »ì¸°´Ù 
+        //ì£½ì–´ìˆìœ¼ë©´ ì‚´ë¦°ë‹¤ 
         foreach(GameObject item in Pools[index])
         {
             if (!item.activeSelf)

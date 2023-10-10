@@ -71,8 +71,6 @@ public class Enemy0 : EnemyType0
         
         //데미지 부여
         takeDamage(collisuonWappon.Getdamage());
-
-
     }
 
 
