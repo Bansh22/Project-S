@@ -38,13 +38,11 @@ public class Wappon_Manager : MonoBehaviour
         Batch();
         Batch();
         Batch();
-        Batch();
-        Batch();
         SetPosition();
     }
     public void CountUp()
     {
-        Batch();
+        Batch(); 
         SetPosition();
     }
 
