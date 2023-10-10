@@ -73,11 +73,17 @@ public class PlayerParent : MonoBehaviour
     {
         rigid.velocity = Vector3.zero;
         GameManager.instance.catchEnemy++;
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        yield return wait;
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 3))
         {
             yield return wait;
         }
-        this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
+        //정산용 코드 필요 
+        AudioManageer.instance.StopBgm();
+        Time.timeScale = 1f;
+        Application.Quit();
+        //에러 대비용 0f 코드 
+        Time.timeScale = 0f;
     }
 
 
