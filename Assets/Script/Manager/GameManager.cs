@@ -8,24 +8,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager instance;
 
    [Header("#Manager")]
     public Pool_Manager_Script PolManage;
     public Wappon_Pool_Manager_Script WaPolManage;
     public AudioManageer AudioManager;
+    public UIManager uiManger;
 
     [Header("#PlayerInfo")]
     public Player player;
     public float speed=5;
 
-    [HideInInspector]
-    public float catchEnemy=0;
+    [HideInInspector] public float catchEnemy=0;
+    [HideInInspector] public float maxGameTime;
+    [HideInInspector] public float gameTime=0;
+    private ConfigReader reader;
+
 
     private void Awake()
     {
+        reader = new ConfigReader("Timer");
+        maxGameTime = reader.Search<float>("maxTime");
         instance = this;
+    }
+ 
+    private void FixedUpdate()
+    {
+        gameTime += Time.fixedDeltaTime;
     }
 }
 

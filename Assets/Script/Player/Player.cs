@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer render;
 
+    ConfigReader reader;
+    public float hp;
+    public float maxHp;
     float speed;
     public Vector3 inputVec;
 
@@ -21,6 +24,10 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
+
+        reader = new ConfigReader("Player");
+        maxHp = reader.Search<float>("maxHp");
+        hp = maxHp;
     }
     // Update is called once per frame
 

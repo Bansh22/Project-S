@@ -27,7 +27,7 @@ public class Wappon_Manager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * Speed * Time.deltaTime);
 
@@ -38,13 +38,11 @@ public class Wappon_Manager : MonoBehaviour
         Batch();
         Batch();
         Batch();
-        Batch();
-        Batch();
         SetPosition();
     }
     public void CountUp()
     {
-        Batch();
+        Batch(); 
         SetPosition();
     }
 

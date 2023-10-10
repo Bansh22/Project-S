@@ -30,7 +30,7 @@ public class Spawner_Manager : MonoBehaviour
 
 
 
-    void Update() // 시간에 따른 몹생성 
+    void FixedUpdate() // 시간에 따른 몹생성 
     {
         timer += Time.deltaTime;
 
@@ -43,8 +43,10 @@ public class Spawner_Manager : MonoBehaviour
 
     void SpawnMod(int number) //실제 몹생성 코드 (number에 값 여러개 넣어서 써라!)
     {
-       GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number);
-       enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+        
+        GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number);
+
+        enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
         
     }
 }
