@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 3377527762851842918}
+  - {fileID: 1904446012827822460, guid: d94e2431eb369c04ea01006ce55e1c81, type: 3}
 --- !u!1001 &3797255851456012826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,11 +229,6 @@ PrefabInstance:
 --- !u!224 &2128509162748902009 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2971086964863850595, guid: d94e2431eb369c04ea01006ce55e1c81, type: 3}
-  m_PrefabInstance: {fileID: 3797255851456012826}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3377527762851842918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1904446012827822460, guid: d94e2431eb369c04ea01006ce55e1c81, type: 3}
   m_PrefabInstance: {fileID: 3797255851456012826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5327270951723594906
