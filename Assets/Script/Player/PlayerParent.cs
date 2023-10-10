@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [SerializeField]
-public class EnemyParent : MonoBehaviour
+public class PlayerParent : MonoBehaviour
 {
     //컴포넌트 기능 Get함수로 반환
     private GameObject mine;
@@ -16,9 +16,6 @@ public class EnemyParent : MonoBehaviour
     private float speed;
     private float MaxHp;
     private float hp;
-    private bool hpBar=true;
-   
-    private float damage;
 
     // Set, Get 이 있고 Change가 있는 함수, 
     private bool isLive;
@@ -28,9 +25,6 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
-    //오브젝트 계층
-    private int order;
-    
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -40,25 +34,17 @@ public class EnemyParent : MonoBehaviour
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
-        
+
         if (hp <= 0) //0보다 작으면 
         {
-            order = render.sortingOrder;
-            setLive(false);
             anim.SetTrigger("Dead");
-            render.sortingOrder = order-1;// 시체가 몹가리는거 방지
-            coll.enabled=false;//시체 충돌 무시
+            setLive(false);
+            coll.enabled = false;//시체 충돌 무시
             StartCoroutine(Dead());
-            
-        }else if (hp > 0)
+
+        }
+        else if (hp > 0)
         {
-            //첫 타격에만 생성
-            if (hpBar)
-            {
-                //hpBar 생성
-                GameManager.instance.uiManger.addUI(0, gameObject);
-                hpBar = false;//타격이후 생성 차단
-            }
 
             //hit 애니메이션 작동
             anim.SetTrigger("Hit");
@@ -85,7 +71,7 @@ public class EnemyParent : MonoBehaviour
         //ForceMode2D.Impulse으로 순간적인 힘 적용
         rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
     }
-
+    //플레이어 죽임
     IEnumerator Dead()
     {
         rigid.velocity = Vector3.zero;
@@ -99,15 +85,19 @@ public class EnemyParent : MonoBehaviour
 
 
     //Revive 함수 , 변수를 hp 로 받아서 최대체력으로 현재 hp 를 만들어준다 
-
+    //초기화 목록
+    //hp
+    //isLive
+    //HpBarUI
+    //setActive
+    //coll.enabled
     public void Revive()
     {
+        GameManager.instance.uiManger.addUI(0, gameObject);
         this.hp = this.MaxHp;
-        render.sortingOrder = order;// 살아나면서 order 증가
         anim.SetTrigger("Live");
         gameObject.SetActive(true);
         coll.enabled = true;//충돌 허용
-        hpBar = true;//hpBar 생성허용
         setLive(true);
     }
 
@@ -140,15 +130,7 @@ public class EnemyParent : MonoBehaviour
     {
         return this.hp;
     }
-    //Damage 관련 코드 
-    public void setDamage(float damage)
-    {
-        this.damage = damage;
-    }
-    public float getDamage()
-    {
-        return this.damage;
-    }
+
     // Live 관련 코드 
     public void setLive(bool live)
     {
@@ -163,7 +145,7 @@ public class EnemyParent : MonoBehaviour
     {
         isLive = !isLive;
     }
-    
+
     //KnockBack 관련 함수
     public void setKnock(bool Knock)
     {
@@ -219,4 +201,3 @@ public class EnemyParent : MonoBehaviour
         return coll;
     }
 }
-    
