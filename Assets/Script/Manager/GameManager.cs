@@ -9,12 +9,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+
+
     public static GameManager instance;
 
    [Header("#Manager")]
     public Pool_Manager_Script PolManage;
     public Wappon_Pool_Manager_Script WaPolManage;
     public AudioManageer AudioManager;
+    public static bool ispause = false;
 
     [Header("#PlayerInfo")]
     public Player player;

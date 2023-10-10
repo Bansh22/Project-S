@@ -30,7 +30,8 @@ public class Spawner_Manager : MonoBehaviour
 
 
 
-    void Update() // 시간에 따른 몹생성 
+    void FixedUpdate() // 시간에 따른 몹생성 
+
     {
         timer += Time.deltaTime;
 
