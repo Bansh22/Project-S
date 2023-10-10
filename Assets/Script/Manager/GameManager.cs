@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public float speed=5;
 
+    [HideInInspector]
+    public float catchEnemy=0;
 
     private void Awake()
     {

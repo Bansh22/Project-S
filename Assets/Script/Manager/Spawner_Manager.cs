@@ -31,12 +31,13 @@ public class Spawner_Manager : MonoBehaviour
 
 
     void FixedUpdate() // 시간에 따른 몹생성 
+
     {
         timer += Time.deltaTime;
 
         if(timer > 0.2f) //0.2초에 1번! 1번몹 생성!
         {
-            SpawnMod(1);
+            SpawnMod(Random.Range(0,GameManager.instance.PolManage.Prefabs.Length));
             timer = 0f;
         }
     }
