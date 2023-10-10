@@ -53,10 +53,7 @@ public class EnemyType0 : EnemyParent
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (GameManager.instance.player.hp > 0)
-            {
-                GameManager.instance.player.hp -= getDamage();
-            }
+            GameManager.instance.player.takeDamage(getDamage());
         }
     }
 }

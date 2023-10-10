@@ -53,7 +53,16 @@ public class HUD : MonoBehaviour
                 {
                     case "Player":
                         Player player = parentUI.target.GetComponentInParent<Player>(); ;
-                        mySlilder.value = GameManager.instance.player.hp/ GameManager.instance.player.maxHp;
+                        if (!player.getLive())
+                        {
+                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
+                            follow.destroythis();
+                            return;
+                        }
+                        else
+                        {
+                            mySlilder.value = player.getHp() / player.getMaxHp();
+                        }
                         break;
                     case "Enemy":
                         EnemyParent enemy= parentUI.target.GetComponentInParent<EnemyParent>();
