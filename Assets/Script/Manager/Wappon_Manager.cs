@@ -27,7 +27,7 @@ public class Wappon_Manager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * Speed * Time.deltaTime);
 

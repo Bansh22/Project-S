@@ -14,13 +14,13 @@ public class Spawner_Manager : MonoBehaviour
         
         Vector3 parentPosition = transform.position;
 
-        // 360µµ¸¦ ¿øÇüÀ¸·Î ³ª´©¾î Æ÷ÀÎÆ® ¹èÄ¡
+        // 360ë„ë¥¼ ì›í˜•ìœ¼ë¡œ ë‚˜ëˆ„ì–´ í¬ì¸íŠ¸ ë°°ì¹˜
         for (int i = 0; i < SpawnerPoint.Length; i++)
         {
             float angle = (float)i / SpawnerPoint.Length * 360.0f;
             float radians = angle * Mathf.PI / 180.0f;
 
-            // ¹İÁö¸§ 10ÀÇ ¿ø ÁÖÀ§¿¡ Á¡ ¹èÄ¡
+            // ë°˜ì§€ë¦„ 10ì˜ ì› ì£¼ìœ„ì— ì  ë°°ì¹˜
             float x = parentPosition.x + 10 * Mathf.Cos(radians);
             float y = parentPosition.y + 10 * Mathf.Sin(radians);
             
@@ -30,18 +30,18 @@ public class Spawner_Manager : MonoBehaviour
 
 
 
-    void Update() // ½Ã°£¿¡ µû¸¥ ¸÷»ı¼º 
+    void FixedUpdate() // ì‹œê°„ì— ë”°ë¥¸ ëª¹ìƒì„± 
     {
         timer += Time.deltaTime;
 
-        if(timer > 0.2f) //0.2ÃÊ¿¡ 1¹ø! 1¹ø¸÷ »ı¼º!
+        if(timer > 0.2f) //0.2ì´ˆì— 1ë²ˆ! 1ë²ˆëª¹ ìƒì„±!
         {
             SpawnMod(1);
             timer = 0f;
         }
     }
 
-    void SpawnMod(int number) //½ÇÁ¦ ¸÷»ı¼º ÄÚµå (number¿¡ °ª ¿©·¯°³ ³Ö¾î¼­ ½á¶ó!)
+    void SpawnMod(int number) //ì‹¤ì œ ëª¹ìƒì„± ì½”ë“œ (numberì— ê°’ ì—¬ëŸ¬ê°œ ë„£ì–´ì„œ ì¨ë¼!)
     {
        GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number);
        enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
