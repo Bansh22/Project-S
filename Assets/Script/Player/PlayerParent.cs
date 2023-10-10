@@ -45,9 +45,6 @@ public class PlayerParent : MonoBehaviour
         }
         else if (hp > 0)
         {
-
-            //hit 애니메이션 작동
-            anim.SetTrigger("Hit");
             if (isKnock)
             {
                 //코루틴 작동
