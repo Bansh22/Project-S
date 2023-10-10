@@ -30,7 +30,7 @@ public class EnemyParent : MonoBehaviour
 
     //오브젝트 계층
     private int order;
-    
+
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -90,7 +90,8 @@ public class EnemyParent : MonoBehaviour
     {
         rigid.velocity = Vector3.zero;
         GameManager.instance.catchEnemy++;
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        yield return wait;
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=3))
         {
             yield return wait;
         }
