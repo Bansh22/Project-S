@@ -16,6 +16,7 @@ public class EnemyParent : MonoBehaviour
     private float speed;
     private float MaxHp;
     private float hp;
+    private bool hpBar=true;
    
     private float damage;
 
@@ -29,8 +30,7 @@ public class EnemyParent : MonoBehaviour
 
     //오브젝트 계층
     private int order;
-
-
+    
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -52,6 +52,14 @@ public class EnemyParent : MonoBehaviour
             
         }else if (hp > 0)
         {
+            //첫 타격에만 생성
+            if (hpBar)
+            {
+                //hpBar 생성
+                GameManager.instance.uiManger.addUI(0, gameObject);
+                hpBar = false;//타격이후 생성 차단
+            }
+
             //hit 애니메이션 작동
             anim.SetTrigger("Hit");
             if (isKnock)
@@ -99,6 +107,7 @@ public class EnemyParent : MonoBehaviour
         anim.SetTrigger("Live");
         gameObject.SetActive(true);
         coll.enabled = true;//충돌 허용
+        hpBar = true;//hpBar 생성허용
         setLive(true);
     }
 

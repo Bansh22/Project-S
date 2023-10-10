@@ -8,13 +8,19 @@ public class HUD : MonoBehaviour
     public enum InfoType { Exp,Level,Kill,Time,Health}
     public InfoType type;
 
+    RectTransform rect;
     Text myText;
     Slider mySlilder;
 
+    float height;
+
     private void Awake()
     {
+        rect = GetComponent<RectTransform>();
         mySlilder = GetComponent<Slider>();
         myText = GetComponent<Text>();
+
+        height = rect.sizeDelta.y;
     }
 
     private void LateUpdate()
@@ -36,8 +42,34 @@ public class HUD : MonoBehaviour
                 myText.text = string.Format("{0:F0}", GameManager.instance.catchEnemy);
                 break;
             case InfoType.Time:
+                float remainTime = GameManager.instance.maxGameTime - GameManager.instance.gameTime;
+                int min = Mathf.FloorToInt(remainTime / 60);
+                int sec = Mathf.FloorToInt(remainTime % 60);
+                myText.text = string.Format("{0:D2}:{1:D2}", min, sec);
                 break;
             case InfoType.Health:
+                FollowUI parentUI= gameObject.GetComponentInParent<FollowUI>();
+                switch (parentUI.target.tag)
+                {
+                    case "Player":
+                        Player player = parentUI.target.GetComponentInParent<Player>(); ;
+                        mySlilder.value = GameManager.instance.player.hp/ GameManager.instance.player.maxHp;
+                        break;
+                    case "Enemy":
+                        EnemyParent enemy= parentUI.target.GetComponentInParent<EnemyParent>();
+
+                        if (!enemy.getLive())
+                        {
+                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
+                            follow.destroythis();
+                            return;
+                        }
+                        else
+                        {
+                            mySlilder.value = enemy.getHp() / enemy.getMaxHp();
+                        }
+                        break;
+                }
                 break;
         }
     }
