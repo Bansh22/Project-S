@@ -5,54 +5,47 @@ using UnityEngine;
 [SerializeField]
 public class EnemyType0 : EnemyParent
 { 
-    private GameObject mine;
-    private ConfigReader reader;
+    //추적 대상 변수
     private Player tracePlayer;
-
-    private Transform trans;
-    private Rigidbody2D rigid;
-    private SpriteRenderer render;
-    private Animator anim;
-    //a
+    //현재 속도
     private Vector3 currentVelocity;
-    private float smoothTime = 0.1f; // ������ �ε巴�� ����� ���� �ð� ����
-
-    public EnemyType0()
-    {
-        reader = new ConfigReader("Enemy0");
-        setSpeed(reader.Search<float>("speed"));
-        setHp(reader.Search<float>("hp"));
-        setDamage(reader.Search<float>("damage"));
-        setLive(true);
-    }
-    public void setObject(GameObject obj)
-    {
-        this.mine = obj;
-        anim    = mine.GetComponent<Animator>();
-        trans   = mine.GetComponent<Transform>();
-        rigid   = mine.GetComponent<Rigidbody2D>();
-        render  = mine.GetComponent<SpriteRenderer>();
-    }
+    private float smoothTime = 0.1f; // 관성을 부드럽게 만들기 위한 시간 설정
     
+    //추적대상 수정
     public void setTracePlayer(Player player)
     {
         this.tracePlayer = player;
     }
+    //현재 추적 대상 반환
+    public Player getTarget()
+    {
+        return this.tracePlayer;
+    }
+    //추적대상 추적
     public void playerTrace()
     {
-        if (!mine)
+        //component 세팅 안되어있는경우 세팅
+        if (getTransform()==null)
         {
-            setObject(gameObject);
+            setObject();
         }
-        Vector3 targetVelocity; // ��ǥ �ӵ�
-        Vector3 moveVec = (tracePlayer.transform.position - trans.position).normalized;
+        Vector3 targetVelocity; // 목표 속도
+        //현재 추적 대상 방향(현위치 - 대상위치) normalized:스칼라 1로 수정
+        Vector3 moveVec = (tracePlayer.transform.position - getTransform().position).normalized;
       
+        //목표속도= 방향 * 설정된 속도
         targetVelocity = moveVec * getSpeed();
-        // ���� �ӵ��� �ε巴�� �����ϱ�
+        // 현재 속도를 부드럽게 조절하기
         currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref currentVelocity, smoothTime);
+        // Rigidbody에 속도 적용
+        getRigidbody2D().MovePosition(currentVelocity * Time.fixedDeltaTime + getTransform().position);
+        //가속되는 속도 삭제
+        getRigidbody2D().velocity = Vector3.zero;
 
-        // Rigidbody�� �ӵ� ����
-        rigid.velocity = currentVelocity;
-        render.flipX = moveVec.x < 0;
+        //가는 방향으로 몸 위치 변환
+        getSpriteRenderer().flipX = moveVec.x < 0;
+
+        ////포인트 이동(서브 이동방법)
+        //getTransform().Translate(moveVec * getSpeed() * Time.fixedDeltaTime);
     }
 }

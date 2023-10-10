@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Wappon_Pool_Manager_Script : MonoBehaviour
 {
-    //ÇÁ¸®Æé º¸°ü º¯¼ö 
+    //í”„ë¦¬íŽ© ë³´ê´€ ë³€ìˆ˜ 
     public GameObject[] Prefabs;
 
     List<GameObject>[] Wappon_Pools;
 
-    // Ç® ´ã´çÇÏ´Â ¸®½ºÆ® 
+    public Transform[] WapponPoints;
+    // í’€ ë‹´ë‹¹í•˜ëŠ” ë¦¬ìŠ¤íŠ¸ 
     private void Awake()
     {
         Wappon_Pools = new List<GameObject>[Prefabs.Length];
@@ -17,23 +18,14 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
         {
             Wappon_Pools[index]= new List<GameObject>();
         }
+
     }
+
 
 
     public GameObject GetPoolsPrefabs(int index) {
 
         GameObject Select = null;
-
-        foreach(GameObject item in Wappon_Pools[index])
-        {
-            if (!item.activeSelf)
-            {
-                Select = item;
-                Select.SetActive(true);
-                break;
-            }
-
-        }
 
         if(!Select)
         {
@@ -43,4 +35,5 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
         return Select;
     }
+
 }

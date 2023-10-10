@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 496554310642183790}
   - component: {fileID: 5249304432852415358}
   - component: {fileID: 8080341983936418573}
-  - component: {fileID: 1322846990172878242}
   - component: {fileID: 4943015985260089788}
   - component: {fileID: 4108412899157563160}
+  - component: {fileID: -8005990182804055304}
   m_Layer: 0
   m_Name: Enemy0
   m_TagString: Enemy
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 613658156, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 2993219727800843429}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c80ad222dc61a064490a73776ccc4f84, type: 2}
+  m_Controller: {fileID: 22100000, guid: d9f90f5ae9863f1488f1dae4582a320d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -137,7 +137,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1322846990172878242
+--- !u!114 &4943015985260089788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993219727800843429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2de605ab287644e9f4495b4d3d7172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4108412899157563160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993219727800843429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96624b2bc38e4c4fb0ca6b41c2abc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &-8005990182804055304
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,33 +190,9 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &4943015985260089788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993219727800843429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2de605ab287644e9f4495b4d3d7172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4108412899157563160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993219727800843429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96624b2bc38e4c4fb0ca6b41c2abc08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

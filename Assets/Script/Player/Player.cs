@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.instance.AudioManager.PlayBgm();
         trans = GetComponent<Transform>();
         //sprite의 물리적 특성 (위치 크기 회전)
         anim = GetComponent<Animator>();
@@ -47,4 +47,5 @@ public class Player : MonoBehaviour
         rigid.velocity = Vector3.zero;
 
     }
+    
 }

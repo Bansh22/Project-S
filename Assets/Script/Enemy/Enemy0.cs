@@ -4,14 +4,42 @@ using UnityEngine;
 
 public class Enemy0 : EnemyType0
 {
-
-    // Start is called before the first frame updated
-    void Start()
+    //ì‚¬ì „ í´ë˜ìŠ¤
+    private readonly ConfigReader reader;
+    public Enemy0()
     {
-        setObject(gameObject);
-        setTracePlayer(GameManager.instance.player);
+        //Enemy0 ì‚¬ì „ ì—´ê¸°
+        reader = new ConfigReader("Enemy0");
+        //ì†ë„ ì„¤ì •
+        setSpeed(reader.Search<float>("speed"));
+        //MaxHp ì„¤ì •
+        setMaxHp(reader.Search<float>("hp"));
+        //Hp ì„¤ì •
+        setHp(reader.Search<float>("hp"));
+        //ì£¼ëŠ” ë°ë¯¸ì§€ ì„¤ì •
+        setDamage(reader.Search<float>("damage"));
+        //í˜„ì¬ ì‚´ì•„ìˆëŠ” ìƒíƒœ ì„¤ì •
+        setLive(true);
     }
-
+    // Start is called before the first frame updated
+    private void Start()
+    {
+        //ì‹œì‘ ì„¤ì • í•¨ìˆ˜ ì‹¤í–‰
+        startfun();
+    }
+    public void startfun()
+    {
+        //ë„‰ë°±ë˜ëŠ”ì§€ ì•ˆë˜ëŠ”ì§€
+        setKnock(true);
+        //ë„‰ë°±ë˜ëŠ” ì •ë„
+        setKnockForce(2);
+        //object ê¸°ë³¸ ì„¸íŒ…
+        setObject();
+        //í”Œë ˆì´ì–´ ì¶”ì  ëŒ€ìƒ ì„¤ì •
+        setTracePlayer(GameManager.instance.player);
+        //í”Œë ˆì´ì–´ ì¶”ì 
+        playerTrace();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -19,43 +47,39 @@ public class Enemy0 : EnemyType0
 
     private void FixedUpdate()
     {
-        if (getHp() <= 0)
+        //ì£½ì–´ìˆìœ¼ë©´ ì‘ë™ì •ì§€ || Hit íƒœê·¸ ê°€ì§„ ì• ë‹ˆë©”ì´ì…˜ ëë‚ ë•Œ ê¹Œì§€ ì‘ë™ ì •ì§€
+        if (!getLive() || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
         {
-            //anim.SetTrigger("Dead");
-            setLive(false);
-        }
-        if (!getLive())
             return;
-
+        }
+        //ì¶”ì  ëŒ€ìƒ ì„¤ì •
+        setTracePlayer(GameManager.instance.player);
+        //í”Œë ˆì´ì–´ ì¶”ì 
         playerTrace();
     }
 
+    //ì ‘ì´‰ ì½”ë“œ(ë¬´ê¸° ë°ë¯¸ì§€ ì¶©ëŒ) #ì‚½ì´ íŠ¸ë¦¬ê±°ë¡œ ì‘ë™ë˜ê³  ìˆìŒ
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (!collision.CompareTag("Bullet"))
-        {
+        //ì¶©ëŒ ëŒ€ìƒì´ ì´ì•Œ ì•„ë‹ë•Œ ì´ë²¤íŠ¸ ì¢…ë£Œ || ì‚´ì•„ìˆì„ë•Œ || íˆíŠ¸ì• ë‹ˆë©”ì´ì…˜ê°€ ìœ ì§€ë˜ì§€ì•Šì„ë•Œ
+        if (!collision.gameObject.CompareTag("Bullet")||!getLive()|| getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
             return;
-        }
+        //ì¶©ëŒ ëŒ€ìƒì˜ Componentì—ì„œ ìŠ¤í¬ë¦½íŠ¸ ì†Œí™˜ #ì•„ ì‚½í•œì •ìœ¼ë¡œ í•˜ë©´ì•ˆë˜ì§€ #ìˆ˜ì •í•„ìš”
+        SapWappon collisuonWappon = collision.gameObject.GetComponent<SapWappon>();
 
-        SapWappon sapWappon = collision.GetComponent<SapWappon>();
+        GameManager.instance.AudioManager.PlaySfx(AudioManageer.Sfx.Hit);
+        
+        //ë°ë¯¸ì§€ ë¶€ì—¬
+        takeDamage(collisuonWappon.Getdamage());
 
-        // "SapWappon" ½ºÅ©¸³Æ®°¡ Á¸ÀçÇÏ´Â °æ¿ì
-        if (sapWappon != null)
-        {
-            // "SapWappon" ½ºÅ©¸³Æ®ÀÇ Getdamage() ÇÔ¼ö¸¦ È£ÃâÇÏ¿© Damage º¯¼ö °¡Á®¿À±â
-            float damage = sapWappon.Getdamage();
 
-            // ÀÌÁ¦ 'damage' º¯¼ö¿¡ µ¥¹ÌÁö °ªÀÌ ÀúÀåµÇ¾úÀ¸¹Ç·Î ¿øÇÏ´Â ÀÛ¾÷À» ¼öÇàÇÒ ¼ö ÀÖÀ½
-            takeDamage(damage);
-
-            // µ¥¹ÌÁö¸¦ ¾î¶»°Ô Ã³¸®ÇÒÁö ¿©±â¿¡ Ãß°¡ ÀÛ¾÷À» ¼öÇà
-        }
     }
-    
+
 
     private void OnEnable()
     {
+        //ë‹¤ì‹œ ë‚˜íƒ€ë‚ ë•Œ ì¶”ì ëŒ€ìƒ ì„¤ì •
         setTracePlayer(GameManager.instance.player);
     }
+  
 }

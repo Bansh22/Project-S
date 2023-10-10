@@ -14,20 +14,15 @@ public class SapWappon : MonoBehaviour
 
         this.per = per;
         this.damage = damage;
-
-
-
     }
 
 
     public float Getdamage()
     {
-
-
         return damage;
     }
-  
 
+   
 }
 
 
