@@ -7,14 +7,14 @@ public class PauseUI : MonoBehaviour
    
 {
     [SerializeField]
-    private GameObject ThisUI;
+    private GameObject Panel;
    
 
     // Start is called before the first frame update
 
     void Start()
     {
-        ThisUI.SetActive(false);
+        Panel.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -28,14 +28,14 @@ public class PauseUI : MonoBehaviour
     }
     private void CallMenu()
     {
-        ThisUI.SetActive(true);
+        Panel.SetActive(true);
         Time.timeScale = 0f;
     }
     private void CloseMenu()
     {
-        
+
         //GameManager.ispause = false;
-        ThisUI.SetActive(false);
+        Panel.SetActive(false);
         Time.timeScale = 1f;
     }
 
