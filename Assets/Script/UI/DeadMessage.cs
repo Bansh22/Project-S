@@ -6,8 +6,7 @@ public class DeadMessage : MonoBehaviour
 {
     Player player;
     bool onetime = true;
-    public GameObject child;
-    WaitForFixedUpdate wait;
+    public GameObject Finsh;
     private void Start()
     {
         player = GameManager.instance.player;
@@ -19,20 +18,11 @@ public class DeadMessage : MonoBehaviour
         if(!player.getLive() && onetime)
         {
             onetime = false;
-            StartCoroutine(WaitMessage());
+            Finsh.SetActive(true);
         }
-        else
+        else if(player.getLive())
         {
             onetime = true;
         }
-    }
-    IEnumerator WaitMessage()
-    {
-        yield return wait;
-        while (!(player.getAnimator().GetCurrentAnimatorStateInfo(0).normalizedTime >= player.getDeadMotion()))
-        {
-            yield return wait;
-        }
-        child.SetActive(true);
     }
 }

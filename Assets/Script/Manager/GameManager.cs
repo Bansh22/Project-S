@@ -35,7 +35,11 @@ public class GameManager : MonoBehaviour
         maxGameTime = reader.Search<float>("maxTime");
         instance = this;
     }
- 
+    private void Start()
+    {
+        AudioManageer.instance.PlayBgm();
+    }
+
     private void FixedUpdate()
     {
         gameTime += Time.fixedDeltaTime;
