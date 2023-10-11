@@ -37,19 +37,19 @@ public class Spawner_Manager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 0.2f) //0.2초에 1번! 1번몹 생성!
+        if(timer > 0.2f) //0.2초에 1번! 1번몹 생성! 0.02보다 빨라지면 문제생김
         {
-            SpawnMod(Random.Range(0,GameManager.instance.PolManage.Prefabs.Length));
+            int num = Random.Range(0, GameManager.instance.PolManage.Prefabs.Length);
+            SpawnMod(num);
             timer = 0f;
         }
     }
 
     void SpawnMod(int number) //실제 몹생성 코드 (number에 값 여러개 넣어서 써라!)
     {
-        
         GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number);
-
-        enemy.transform.position = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+        Vector3 pos = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+        enemy.transform.position = pos;
         
     }
 }
