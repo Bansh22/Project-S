@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadMessage : MonoBehaviour
+public class FinshMessage : MonoBehaviour
 {
     Player player;
     bool onetime = true;
@@ -23,6 +23,10 @@ public class DeadMessage : MonoBehaviour
         else if(player.getLive())
         {
             onetime = true;
+        }
+        if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime)
+        {
+            Finsh.SetActive(true);
         }
     }
 }

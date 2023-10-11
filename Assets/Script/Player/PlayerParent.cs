@@ -97,9 +97,6 @@ public class PlayerParent : MonoBehaviour
         }
         //정산용 코드 필요 
         AudioManageer.instance.StopBgm();
-        Time.timeScale = 0f;
-        //에러 대비용 0f 코드 
-        //Time.timeScale = 0f;
     }
 
 
