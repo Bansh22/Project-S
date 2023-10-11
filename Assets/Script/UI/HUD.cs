@@ -55,19 +55,6 @@ public class HUD : MonoBehaviour
                 }
                 switch (parentUI.target.tag)
                 {
-                    case "Player":
-                        Player player = parentUI.target.GetComponentInParent<Player>(); ;
-                        if (!player.getLive())
-                        {
-                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
-                            follow.destroythis();
-                            return;
-                        }
-                        else
-                        {
-                            mySlilder.value = player.getHp() / player.getMaxHp();
-                        }
-                        break;
                     case "Enemy":
                         EnemyParent enemy= parentUI.target.GetComponentInParent<EnemyParent>();
 
@@ -80,6 +67,19 @@ public class HUD : MonoBehaviour
                         else
                         {
                             mySlilder.value = enemy.getHp() / enemy.getMaxHp();
+                        }
+                        break;
+                    case "Player":
+                        Player player = parentUI.target.GetComponentInParent<Player>(); ;
+                        if (!player.getLive())
+                        {
+                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
+                            follow.destroythis();
+                            return;
+                        }
+                        else
+                        {
+                            mySlilder.value = player.getHp() / player.getMaxHp();
                         }
                         break;
                 }
