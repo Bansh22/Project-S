@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType {Level,Kill,Time,Health}
+    public enum InfoType {Level,Kill,Time,Health,Result}
     public InfoType type;
 
     RectTransform rect;
@@ -31,6 +31,17 @@ public class HUD : MonoBehaviour
                 //Text에 들어갈 문자 
                 //Format의 작성방식 ("형태", 변수) {0:F0}> 0번째 변수, F0 0개의 소수점
                 myText.text = string.Format("LV.{0:F0}",GameManager.instance.speed);
+                break;
+            case InfoType.Result:
+                //Text에 들어갈 문자 
+                if (GameManager.instance.player.getLive())
+                {
+                    myText.text = "Live";
+                }
+                else
+                {
+                    myText.text = "Dead";
+                }
                 break;
             case InfoType.Kill:
                 //Text에 들어갈 문자 
