@@ -15,7 +15,7 @@ public class EnemyParent : MonoBehaviour
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     private float speed;
     private float MaxHp;
-    private float hp;
+    public float hp;
     private bool hpBar=true;
     
     private float damage;
@@ -33,7 +33,7 @@ public class EnemyParent : MonoBehaviour
     private int order;
 
 
-    private float fixedProbability = 0.5f;
+    private float fixedProbability = 2.5f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
