@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1630646641}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: Create
+        m_TargetAssemblyTypeName: GoogleSignInExample, Assembly-CSharp
+        m_MethodName: CreateAccountWithEmailPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -760,8 +760,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1630646641}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: login
+        m_TargetAssemblyTypeName: GoogleSignInExample, Assembly-CSharp
+        m_MethodName: SignInWithGoogle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1817,6 +1817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a991fa3cca2cb4fa930e634449ac08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  email: {fileID: 1214212093}
+  password: {fileID: 1244438227}
 --- !u!1 &1752227109
 GameObject:
   m_ObjectHideFlags: 0
