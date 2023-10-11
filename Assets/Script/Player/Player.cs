@@ -22,6 +22,7 @@ public class Player : PlayerParent
     // Start is called before the first frame update
     void Start()
     {
+
         //시작 설정 함수 실행
         startfun();
     }
