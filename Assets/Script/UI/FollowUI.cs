@@ -6,15 +6,17 @@ public class FollowUI : MonoBehaviour
 {
     RectTransform rect;
     public GameObject target;
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
     private void FixedUpdate()
     {
-        rect.position = Camera.main.WorldToScreenPoint(position: target.transform.position);
+        followTarget(target);
+    }
+    public void followTarget(GameObject obj) {
+        rect.position = Camera.main.WorldToScreenPoint(obj.transform.position);
     }
     public void destroythis()
     {

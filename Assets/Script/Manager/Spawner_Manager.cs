@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Spawner_Manager : MonoBehaviour
 {
     public Transform[] SpawnerPoint;
     float timer;
+  
 
     // Update is called once per frame
     private void Awake()
     {
         SpawnerPoint = GetComponentsInChildren<Transform>();
-        
+      
         Vector3 parentPosition = transform.position;
 
         // 360도를 원형으로 나누어 포인트 배치

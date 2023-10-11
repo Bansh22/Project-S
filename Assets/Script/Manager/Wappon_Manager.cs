@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Wappon_Manager : MonoBehaviour
 {
     private ConfigReader reader;
@@ -11,6 +11,7 @@ public class Wappon_Manager : MonoBehaviour
     private int Count;
     private float Speed;
     Transform scrptTrsfrom;
+    public static Action CountTarget;
     private void Start()
     {
         // = GetComponent<Transform>();
@@ -23,7 +24,10 @@ public class Wappon_Manager : MonoBehaviour
 
        
     }
-
+    private void Awake()
+    {
+        CountTarget = () => { CountUp(); };
+    }
 
 
     // Update is called once per frame
@@ -82,18 +86,7 @@ public class Wappon_Manager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (!collision.CompareTag("Gem"))
-        {
-            return;
-        }
-       
-        Debug.Log(collision.name);
-        collision.gameObject.SetActive(false);
-        CountUp();
-    }
+ 
 
     public float GetDamage()
     {
