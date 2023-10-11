@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp,Level,Kill,Time,Health}
+    public enum InfoType {Level,Kill,Time,Health}
     public InfoType type;
 
     RectTransform rect;
@@ -27,11 +27,7 @@ public class HUD : MonoBehaviour
     {
         switch (type)
         {
-            case InfoType.Exp:
-                float subject=1000;
-                mySlilder.value=GameManager.instance.catchEnemy/subject;
-                break;
-            case InfoType.Level:
+           case InfoType.Level:
                 //Text에 들어갈 문자 
                 //Format의 작성방식 ("형태", 변수) {0:F0}> 0번째 변수, F0 0개의 소수점
                 myText.text = string.Format("LV.{0:F0}",GameManager.instance.speed);
@@ -43,27 +39,22 @@ public class HUD : MonoBehaviour
                 break;
             case InfoType.Time:
                 float remainTime = GameManager.instance.maxGameTime - GameManager.instance.gameTime;
+                if (remainTime < 0)
+                    remainTime = 0;
                 int min = Mathf.FloorToInt(remainTime / 60);
                 int sec = Mathf.FloorToInt(remainTime % 60);
                 myText.text = string.Format("{0:D2}:{1:D2}", min, sec);
                 break;
             case InfoType.Health:
                 FollowUI parentUI= gameObject.GetComponentInParent<FollowUI>();
+                if (!parentUI)
+                {
+                    Player player = GameManager.instance.player;
+                    mySlilder.value = player.getHp() / player.getMaxHp();
+                    return;
+                }
                 switch (parentUI.target.tag)
                 {
-                    case "Player":
-                        Player player = parentUI.target.GetComponentInParent<Player>(); ;
-                        if (!player.getLive())
-                        {
-                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
-                            follow.destroythis();
-                            return;
-                        }
-                        else
-                        {
-                            mySlilder.value = player.getHp() / player.getMaxHp();
-                        }
-                        break;
                     case "Enemy":
                         EnemyParent enemy= parentUI.target.GetComponentInParent<EnemyParent>();
 
@@ -76,6 +67,19 @@ public class HUD : MonoBehaviour
                         else
                         {
                             mySlilder.value = enemy.getHp() / enemy.getMaxHp();
+                        }
+                        break;
+                    case "Player":
+                        Player player = parentUI.target.GetComponentInParent<Player>(); ;
+                        if (!player.getLive())
+                        {
+                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
+                            follow.destroythis();
+                            return;
+                        }
+                        else
+                        {
+                            mySlilder.value = player.getHp() / player.getMaxHp();
                         }
                         break;
                 }
