@@ -17,7 +17,7 @@ public class EnemyParent : MonoBehaviour
     private float MaxHp;
     private float hp;
     private bool hpBar=true;
-   
+    
     private float damage;
 
     // Set, Get 이 있고 Change가 있는 함수, 
@@ -28,10 +28,13 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
+    public GameObject gemPrefab;
     //오브젝트 계층
     private int order;
-    
-    //
+
+
+    private float fixedProbability = 0.5f;
+
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
@@ -44,9 +47,9 @@ public class EnemyParent : MonoBehaviour
         if (hp <= 0) //0보다 작으면 
         {
             order = render.sortingOrder;
+            setLive(false);
             anim.SetTrigger("Dead");
             render.sortingOrder = order-1;// 시체가 몹가리는거 방지
-            setLive(false);
             coll.enabled=false;//시체 충돌 무시
             StartCoroutine(Dead());
             
@@ -90,9 +93,17 @@ public class EnemyParent : MonoBehaviour
     {
         rigid.velocity = Vector3.zero;
         GameManager.instance.catchEnemy++;
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        yield return wait;
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=3))
         {
             yield return wait;
+        }
+        if (gemPrefab != null)
+        {
+            float randomValue = Random.Range(0f, 100f);
+            if (randomValue <= fixedProbability) { 
+                Instantiate(gemPrefab, transform.position, Quaternion.identity);
+            }
         }
         this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
     }
@@ -219,3 +230,4 @@ public class EnemyParent : MonoBehaviour
         return coll;
     }
 }
+    

@@ -17,6 +17,7 @@ public class AudioManageer : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
 
+
     public enum Sfx { 
         Dead,
         Hit,
@@ -34,17 +35,17 @@ public class AudioManageer : MonoBehaviour
     }
     void Init()
     {
-        //¹è°æÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­
-        GameObject bgmObject = new GameObject("BgmPlayer");//ÁöÁ¤ÇÏ·Á¸é °ıÈ£¾È¿¡
+        //ë°°ê²½ìŒ í”Œë ˆì´ì–´ ì´ˆê¸°í™”
+        GameObject bgmObject = new GameObject("BgmPlayer");//ì§€ì •í•˜ë ¤ë©´ ê´„í˜¸ì•ˆì—
         bgmObject.transform.parent = transform;
-        bgmPlayer = bgmObject.AddComponent<AudioSource>(); //ÄÄÆ÷³ÍÆ® ÁöÁ¤
-        bgmPlayer.playOnAwake = false; //¹Ù·Î ÀÛµ¿µÇ´Â°Å Â÷´Ü.ÇÑ¹ø¸¸ Ãâ·ÂX
-        bgmPlayer.loop = true; //¹İº¹
+        bgmPlayer = bgmObject.AddComponent<AudioSource>(); //ì»´í¬ë„ŒíŠ¸ ì§€ì •
+        bgmPlayer.playOnAwake = false; //ë°”ë¡œ ì‘ë™ë˜ëŠ”ê±° ì°¨ë‹¨.í•œë²ˆë§Œ ì¶œë ¥X
+        bgmPlayer.loop = true; //ë°˜ë³µ
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
         
 
-        //È¿°úÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­
+        //íš¨ê³¼ìŒ í”Œë ˆì´ì–´ ì´ˆê¸°í™”
         GameObject sfxObject = new GameObject("sfxPlayer");
         sfxObject.transform.parent = transform;
         sfxPlayers = new AudioSource[channels];
@@ -52,7 +53,7 @@ public class AudioManageer : MonoBehaviour
         for (int index=0; index < sfxPlayers.Length; index++)
         {
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
-            sfxPlayers[index].playOnAwake = false; //¹Ù·Î ÀÛµ¿µÇ´Â°Å Â÷´Ü.ÇÑ¹ø¸¸ Ãâ·ÂX
+            sfxPlayers[index].playOnAwake = false; //ë°”ë¡œ ì‘ë™ë˜ëŠ”ê±° ì°¨ë‹¨.í•œë²ˆë§Œ ì¶œë ¥X
             sfxPlayers[index].volume = sfxVolume;
         }
     }
@@ -62,7 +63,7 @@ public class AudioManageer : MonoBehaviour
         for (int index = 0; index < sfxPlayers.Length; index++)
         {
             int loopIndex = (index + channelIndex) % sfxPlayers.Length;
-            
+
             if (sfxPlayers[loopIndex].isPlaying)
             {
                 continue;
@@ -72,11 +73,14 @@ public class AudioManageer : MonoBehaviour
             sfxPlayers[loopIndex].Play();
             break;
         }
-
     }
 
     public void PlayBgm()
     {
         bgmPlayer.Play();
+    }
+    public void StopBgm()
+    {
+        bgmPlayer.Stop();
     }
 }
