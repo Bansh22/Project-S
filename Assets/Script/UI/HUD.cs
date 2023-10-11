@@ -36,11 +36,11 @@ public class HUD : MonoBehaviour
                 //Text에 들어갈 문자 
                 if (GameManager.instance.player.getLive())
                 {
-                    myText.text = "Win";
+                    myText.text = "Live";
                 }
                 else
                 {
-                    myText.text = "Lose";
+                    myText.text = "Dead";
                 }
                 break;
             case InfoType.Kill:
