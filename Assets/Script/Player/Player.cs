@@ -22,7 +22,7 @@ public class Player : PlayerParent
     // Start is called before the first frame update
     void Start()
     {
-        //GameManager.instance.AudioManager.PlayBgm();
+
         //시작 설정 함수 실행
         startfun();
     }
@@ -49,7 +49,6 @@ public class Player : PlayerParent
 
     private void FixedUpdate()
     {
-        setObject();
         getAnimator().SetFloat("Speed", inputVec.magnitude);
 
         Vector3 nextVec = inputVec.normalized * getSpeed() * Time.fixedDeltaTime;

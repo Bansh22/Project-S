@@ -13,17 +13,26 @@ public class PlayerParent : MonoBehaviour
     private Collider2D coll;
 
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
-    private float speed;
-    private float MaxHp;
-    private float hp;
+    //player 스피드
+    private float speed; //(config 등록)
+    //player 최대 체력
+    private float MaxHp; 
+    //player 체력
+    private float hp; //(config 등록)
 
     // Set, Get 이 있고 Change가 있는 함수, 
-    private bool isLive;
+    private bool isLive; 
 
     // Set, Get 이 있고 KnockBack와 관련 있는 함수,
+    //knock back이 되는지
     private bool isKnock;//넉백
+    //knock back 물리적 힘
     private float KnockForce;
+    //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
+
+    //get이 있고 dead 애니메이션 반복횟수 (config 등록)
+    private float deadMotion;
 
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
@@ -45,6 +54,7 @@ public class PlayerParent : MonoBehaviour
         }
         else if (hp > 0)
         {
+            StartCoroutine(HitColor());
             if (isKnock)
             {
                 //코루틴 작동
@@ -68,22 +78,28 @@ public class PlayerParent : MonoBehaviour
         //ForceMode2D.Impulse으로 순간적인 힘 적용
         rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
     }
+    IEnumerator HitColor()
+    {
+        render.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        render.color = Color.white;
+    }
     //플레이어 죽임
     IEnumerator Dead()
     {
+        deadMotion = new ConfigReader("Player").Search<float>("DeadMotion");
         rigid.velocity = Vector3.zero;
         GameManager.instance.catchEnemy++;
         yield return wait;
-        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 3))
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >=deadMotion))
         {
             yield return wait;
         }
         //정산용 코드 필요 
         AudioManageer.instance.StopBgm();
-        Time.timeScale = 1f;
-        Application.Quit();
-        //에러 대비용 0f 코드 
         Time.timeScale = 0f;
+        //에러 대비용 0f 코드 
+        //Time.timeScale = 0f;
     }
 
 
@@ -143,7 +159,6 @@ public class PlayerParent : MonoBehaviour
     {
         return this.isLive;
     }
-
     public void ChangeLive()
     {
         isLive = !isLive;
@@ -202,5 +217,11 @@ public class PlayerParent : MonoBehaviour
     public Collider2D getCollider2D()
     {
         return coll;
+    }
+
+    //죽어있는 애니메이션 반복횟수 제공
+    public float getDeadMotion()
+    {
+        return this.deadMotion;
     }
 }
