@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Auth;
+using UnityEngine.SceneManagement;
 
-public class Login : MonoBehaviour
+public class ClickEvent : MonoBehaviour
 {
-    private FirebaseAuth auth;
-    private FirebaseUser user;
+    public void StartGameClick()
+    {
+        SceneManager.LoadScene("Town");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,4 @@ public class Login : MonoBehaviour
     {
         
     }
-
-
-
-    public void Loout()
-    {
-        auth.SignOut();
-    }
-
 }
