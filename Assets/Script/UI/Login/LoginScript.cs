@@ -4,13 +4,17 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+using TMPro;
 
 public class GoogleSignInExample : MonoBehaviour
 {
     private FirebaseAuth auth;
-
+    private FirebaseUser user;
+    public TMP_InputField email;
+    public TMP_InputField password;
     private void Start()
     {
+        
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             FirebaseApp app = FirebaseApp.DefaultInstance;
             auth = FirebaseAuth.DefaultInstance;
@@ -25,9 +29,9 @@ public class GoogleSignInExample : MonoBehaviour
             }
         });
     }
-    public void CreateAccountWithEmailPassword(string email, string password)
+    public void CreateAccountWithEmailPassword()
     {
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        auth.CreateUserWithEmailAndPasswordAsync(email.text, password.text).ContinueWith(task => {
             if (task.IsCanceled)
             {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
@@ -50,28 +54,57 @@ public class GoogleSignInExample : MonoBehaviour
 
     public void SignInWithGoogle()
     {
-        Firebase.Auth.Credential credential =
-            Firebase.Auth.GoogleAuthProvider.GetCredential("your-id-token", null);
-
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
+        auth.SignInWithEmailAndPasswordAsync(email.text, password.text).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                Debug.LogError("SignInWithCredentialAsync was canceled.");
+                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("SignInWithCredentialAsync encountered an error: " + task.Exception);
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
                 return;
             }
 
-            Firebase.Auth.FirebaseUser user = task.Result;
-            Debug.Log("User signed in successfully: " + user.DisplayName);
+            Firebase.Auth.AuthResult result = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})",
+                result.User.DisplayName, result.User.UserId);
         });
     }
     public void SignOut()
     {
         auth.SignOut();
+    }
+    void InitializeFirebase()
+    {
+        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        auth.StateChanged += AuthStateChanged;
+        AuthStateChanged(this, null);
+    }
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    {
+        if (auth.CurrentUser != user)
+        {
+            bool signedIn = user != auth.CurrentUser && auth.CurrentUser != null
+                && auth.CurrentUser.IsValid();
+            if (!signedIn && user != null)
+            {
+                Debug.Log("Signed out " + user.UserId);
+            }
+            user = auth.CurrentUser;
+            if (signedIn)
+            {
+                Debug.Log("Signed in " + user.UserId);
+                //displayName = user.DisplayName ?? "";
+                //emailAddress = user.Email ?? "";
+                //photoUrl = user.PhotoUrl ?? "";
+            }
+        }
+    }
+    void OnDestroy()
+    {
+        auth.StateChanged -= AuthStateChanged;
+        auth = null;
     }
 }
 /*using System.Collections;
