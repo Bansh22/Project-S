@@ -26,8 +26,7 @@ public class FinshMessage : MonoBehaviour
         {
             onetime = true;
         }
-        if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime)
-        {
+        if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime) { 
             Finsh.SetActive(true);
             Time.timeScale = 0f;
         }

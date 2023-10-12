@@ -8,13 +8,15 @@ public class ClickEvent : MonoBehaviour
 {
     public void GoToVillage()
     {
-        SceneManager.LoadScene("Town");
+        GameManager.instance.gameTime = 0f;
         Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Town");
     }
-    public void RetryGame()
+    public void GoToBattle()
     {
-        SceneManager.LoadScene("BattleField");
+        GameManager.instance.gameTime = 0f;
         Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("BattleField");
     }
     // Start is called before the first frame update
     void Start()
