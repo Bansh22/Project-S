@@ -8,19 +8,21 @@ public class Wappon_Manager : MonoBehaviour
     //private int Id;
     private int PrefubId;
     private float Damage;
-    private int Count;
+    [HideInInspector] public int Count;
     private float Speed;
     Transform scrptTrsfrom;
-    GameObject[] arraygameobj;
+    private GameObject[] arraygameobj;
     public static Action CountTarget; //액션 선언 
     public static Action DeleteWeapon; //액션 선언 
+    public static Func<int,int> GetCount; //액션 선언 
+
     private void Start()
     { 
         // = GetComponent<Transform>();
         reader = new ConfigReader("Sap Wappon");
         Damage = reader.Search<float>("damage");
         Speed = reader.Search<float>("speed");
-        Count = 0;
+        Count = reader.Search<int>("Count");
         PrefubId = reader.Search<int>("PrefubId");
         Init();
 
@@ -31,11 +33,13 @@ public class Wappon_Manager : MonoBehaviour
         CountTarget = () => { 
             CountUp();
         }; //액션 실행시 작동하는거 
+        GetCount=(int a)=> {
+            return getCount();
+        };
         DeleteWeapon = () => {
             DestoryWeapon();
         };
     }
-
 
     // Update is called once per frame
     void FixedUpdate()
@@ -46,33 +50,31 @@ public class Wappon_Manager : MonoBehaviour
     }
     public void Init()
     {
-        Batch();
-        Batch();
-        Batch();
+        for(int i = 0; i < Count; i++)
+        {
+            Batch();
+        }
         SetPosition();
     }
     public void CountUp()
     {
-        Batch(); 
+        Batch();
+        Count++;
         SetPosition();
     }
 
     void Batch()
     {
-        if (Count < 8)
+        if (getCount() < 8)
         {
-
-
             Transform BulletTrans = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
             BulletTrans.parent = transform;
-
-            Count++;
-
-
+            
             BulletTrans.GetComponent<SapWappon>().Init(Damage, -1);
         }
        
     }
+    
 
     void SetPosition()
     {
@@ -87,7 +89,7 @@ public class Wappon_Manager : MonoBehaviour
             bullset[index].rotation = scrptTrsfrom.rotation;
             bullset[index].position = scrptTrsfrom.position;
             bullset[index].Rotate(rotVec);
-            bullset[index].position=bullset[index].position+ bullset[index].up * 0.5f * (Count-1) ;
+            bullset[index].position=bullset[index].position+ bullset[index].up * 0.5f * (Count) ;
 
           
 
@@ -101,7 +103,10 @@ public class Wappon_Manager : MonoBehaviour
         }
         
     }
- 
+    public int getCount()
+    {
+        return Count;
+    }
 
     public float GetDamage()
     {
