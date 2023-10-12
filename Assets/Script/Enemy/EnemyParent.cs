@@ -30,11 +30,11 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
-    public GameObject gemPrefab;
     //오브젝트 계층
     private int order;
 
 
+    GameObject[] gemPrefabs;
     private float fixedProbability = 0.5f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
@@ -100,13 +100,18 @@ public class EnemyParent : MonoBehaviour
         {
             yield return wait;
         }
-        if (gemPrefab != null)
-        {
-            float randomValue = Random.Range(0f, 100f);
-            if (randomValue <= fixedProbability) { 
-                Instantiate(gemPrefab, transform.position, Quaternion.identity);
-            }
-        }
+        //if (gemPrefabs.Length != 0)
+        //{
+        //    bool onetime = true;
+        //    for (int i= 0; i < gemPrefabs.Length; i++)
+        //    {
+        //        float randomValue = Random.Range(0f, 100f);
+        //        if (randomValue <= fixedProbability && onetime) {
+        //            onetime = false;
+        //            Instantiate(gemPrefabs[i], transform.position, Quaternion.identity);
+        //        }
+        //    }
+        //}
         this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
     }
 
