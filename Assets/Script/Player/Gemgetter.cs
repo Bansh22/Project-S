@@ -13,7 +13,6 @@ public class Gemgetter : MonoBehaviour
             return;
         }
 
-        Debug.Log(collision.name);
         collision.gameObject.SetActive(false);
         Wappon_Manager.CountTarget();
     }

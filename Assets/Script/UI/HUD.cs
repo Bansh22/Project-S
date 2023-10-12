@@ -30,7 +30,9 @@ public class HUD : MonoBehaviour
            case InfoType.Level:
                 //Text에 들어갈 문자 
                 //Format의 작성방식 ("형태", 변수) {0:F0}> 0번째 변수, F0 0개의 소수점
-                myText.text = string.Format("LV.{0:F0}",GameManager.instance.speed);
+                //수정 필요!
+                int weaponCont = Wappon_Manager.GetCount(0);
+                myText.text = string.Format("LV.{0:F0}", weaponCont);
                 break;
             case InfoType.Result:
                 //Text에 들어갈 문자 

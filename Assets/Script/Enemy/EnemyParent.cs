@@ -15,8 +15,10 @@ public class EnemyParent : MonoBehaviour
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     private float speed;
     private float MaxHp;
-    public float hp;
+    private float hp;
     private bool hpBar=true;
+    //몹 regen 시간
+    private float regen; //(config 등록)
     
     private float damage;
 
@@ -33,7 +35,7 @@ public class EnemyParent : MonoBehaviour
     private int order;
 
 
-    private float fixedProbability = 2.5f;
+    private float fixedProbability = 0.5f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -228,6 +230,15 @@ public class EnemyParent : MonoBehaviour
     public Collider2D getCollider2D()
     {
         return coll;
+    }
+    //regen get,set코드
+    public float getRegen()
+    {
+        return this.regen;
+    }
+    public void setRegen(float regen)
+    {
+        this.regen = regen;
     }
 }
     

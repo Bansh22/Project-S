@@ -21,6 +21,7 @@ public class PlayerParent : MonoBehaviour
     //player 체력
     private float hp; //(config 등록)
 
+
     // Set, Get 이 있고 Change가 있는 함수, 
     private bool isLive; 
 
@@ -90,7 +91,6 @@ public class PlayerParent : MonoBehaviour
     {
         deadMotion = new ConfigReader("Player").Search<float>("DeadMotion");
         rigid.velocity = Vector3.zero;
-        GameManager.instance.catchEnemy++;
         yield return wait;
         while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >=deadMotion))
         {

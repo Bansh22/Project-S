@@ -6,7 +6,7 @@ using UnityEngine;
 public class Spawner_Manager : MonoBehaviour
 {
     public Transform[] SpawnerPoint;
-    float timer;
+    float[] timers;
   
 
     // Update is called once per frame
@@ -29,19 +29,25 @@ public class Spawner_Manager : MonoBehaviour
             SpawnerPoint[i].position = new Vector3(x, y, parentPosition.z);
         }
     }
-
+    private void Start()
+    {
+        timers = new float[GameManager.instance.PolManage.Prefabs.Length];
+        for (int i = 0; i < timers.Length; i++)
+        {
+            timers[i] = 0f;
+        }
+    }
 
 
     void FixedUpdate() // 시간에 따른 몹생성 
-
     {
-        timer += Time.deltaTime;
-
-        if(timer > 0.2f) //0.2초에 1번! 1번몹 생성! 0.02보다 빨라지면 문제생김
+        for(int i = 0; i < timers.Length; i++)
         {
-            int num = Random.Range(0, GameManager.instance.PolManage.Prefabs.Length);
-            SpawnMod(num);
-            timer = 0f;
+            if (GameManager.instance.gameTime-timers[i] > GameManager.instance.PolManage.Prefabs[i].GetComponent<EnemyParent>().getRegen()) //0.2초에 1번! 1번몹 생성! 0.02보다 빨라지면 문제생김
+            {
+                SpawnMod(i);
+                timers[i] = GameManager.instance.gameTime;
+            }
         }
     }
 
