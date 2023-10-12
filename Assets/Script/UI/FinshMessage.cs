@@ -20,7 +20,7 @@ public class FinshMessage : MonoBehaviour
             onetime = false;
             Finsh.SetActive(true);
 
-            Wappon_Manager.DeleteWeapon();
+            nearing_Wappon_Manager.DeleteWeapon();
         }
         else if(player.getLive())
         {

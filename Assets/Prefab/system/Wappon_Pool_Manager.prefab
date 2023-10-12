@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 1838149070595017693, guid: 752167ceac99c5b44a7e703b791a7633, type: 3}
-  - {fileID: 1838149070595017693, guid: 752167ceac99c5b44a7e703b791a7633, type: 3}
+  - {fileID: 6981167425694023349, guid: d2561ccf36529ba4c9adc39aa11db689, type: 3}
+  WapponPoints: []
