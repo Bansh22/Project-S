@@ -15,8 +15,9 @@ public class EnemyParent : MonoBehaviour
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     private float speed;
     private float MaxHp;
-    private float hp;
-   
+    public float hp;
+    private bool hpBar=true;
+    
     private float damage;
 
     // Set, Get 이 있고 Change가 있는 함수, 
@@ -27,11 +28,13 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
+    public GameObject gemPrefab;
     //오브젝트 계층
     private int order;
 
 
-    //
+    private float fixedProbability = 2.5f;
+
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
@@ -44,14 +47,22 @@ public class EnemyParent : MonoBehaviour
         if (hp <= 0) //0보다 작으면 
         {
             order = render.sortingOrder;
+            setLive(false);
             anim.SetTrigger("Dead");
             render.sortingOrder = order-1;// 시체가 몹가리는거 방지
-            setLive(false);
             coll.enabled=false;//시체 충돌 무시
             StartCoroutine(Dead());
             
         }else if (hp > 0)
         {
+            //첫 타격에만 생성
+            if (hpBar)
+            {
+                //hpBar 생성
+                GameManager.instance.uiManger.addUI(0, gameObject);
+                hpBar = false;//타격이후 생성 차단
+            }
+
             //hit 애니메이션 작동
             anim.SetTrigger("Hit");
             if (isKnock)
@@ -81,9 +92,18 @@ public class EnemyParent : MonoBehaviour
     IEnumerator Dead()
     {
         rigid.velocity = Vector3.zero;
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        GameManager.instance.catchEnemy++;
+        yield return wait;
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=3))
         {
             yield return wait;
+        }
+        if (gemPrefab != null)
+        {
+            float randomValue = Random.Range(0f, 100f);
+            if (randomValue <= fixedProbability) { 
+                Instantiate(gemPrefab, transform.position, Quaternion.identity);
+            }
         }
         this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
     }
@@ -98,6 +118,7 @@ public class EnemyParent : MonoBehaviour
         anim.SetTrigger("Live");
         gameObject.SetActive(true);
         coll.enabled = true;//충돌 허용
+        hpBar = true;//hpBar 생성허용
         setLive(true);
     }
 
@@ -209,3 +230,4 @@ public class EnemyParent : MonoBehaviour
         return coll;
     }
 }
+    
