@@ -6,8 +6,9 @@ public class Reposition : MonoBehaviour
 {
     Collider2D coll;
     ConfigReader reader;
+    float box_area;
     float angle;
-    //¸÷ ½ºÆù ¹üÀ§ °¢µµ
+    //ëª¹ ìŠ¤í° ë²”ìœ„ ê°ë„
     private void Awake()
     {
         coll = GetComponent<Collider2D>();
@@ -24,38 +25,43 @@ public class Reposition : MonoBehaviour
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
         Vector3 playerDir = player.inputVec;
-        //if playerDir ÀÌ°Ô 0,0 ÀÌ¸é ÀúÀåµÈ playerDir(°¡»ó)À» »ç¿ëÇÑ´Ù 
-
-
-        float dirX = playerDir.x < 0 ? -1 : 1;
-        float dirY = playerDir.y < 0 ? -1 : 1;
+        //if playerDir ì´ê²Œ 0,0 ì´ë©´ ì €ì¥ëœ playerDir(ê°€ìƒ)ì„ ì‚¬ìš©í•œë‹¤ 
 
         switch (transform.tag)
         {
             case "Ground":
-                if ( diffX > diffY)
+                if (diffX > diffY)
                 {
-                    transform.Translate(Vector3.right * (transform.position.x < collision.transform.position.x ? 1:-1) * 40);
+                    transform.Translate(Vector3.right * (transform.position.x < collision.transform.position.x ? 1 : -1) * 40);
+                    float difY = Mathf.Abs(playerPos.y - myPos.y);
+                    if (difY >= 20)
+                    {
+                        transform.Translate(Vector3.up * (transform.position.y < player.transform.position.y ? 1 : -1) * 40);
+                    }
                 }
                 else if (diffX < diffY)
                 {
                     transform.Translate(Vector3.up * (transform.position.y < collision.transform.position.y ? 1 : -1) * 40);
+                    float difX = Mathf.Abs(playerPos.x - myPos.x);
+                    if (difX >= 20)
+                    {
+                        transform.Translate(Vector3.right * (transform.position.x < player.transform.position.x ? 1 : -1) * 40);
+                    }
                 }
                 break;
             case "Enemy":
                 if (coll.enabled)
                 {
                     Vector3 unitPly = playerDir.normalized;
-                    //´ë°¢¼±¿¡ ÀÇÇØ Å©±â°¡ 1º¸´Ù Ä¿Áö´Â °ÍÀ» ´ëºñ
+                    //ëŒ€ê°ì„ ì— ì˜í•´ í¬ê¸°ê°€ 1ë³´ë‹¤ ì»¤ì§€ëŠ” ê²ƒì„ ëŒ€ë¹„
                     float radian = Random.Range(-angle, angle) * Mathf.PI / 180.0f;
-                    //°¢µµ¸¦ ¶óµğ¾ÈÀ¸·Î º¯È¯
+                    //ê°ë„ë¥¼ ë¼ë””ì•ˆìœ¼ë¡œ ë³€í™˜
                     Vector3 spawnRadian = new Vector3(unitPly.x * Mathf.Cos(radian) - unitPly.y * Mathf.Sin(radian), unitPly.x * Mathf.Sin(radian) + unitPly.y * Mathf.Cos(radian));
-                    //À¯Àú ÀÌµ¿ÇÏ´Â ¹æÇâ(´ÜÀ§º¤ÅÍ)¿¡¼­ ·¥´ı °¢µµ·Î È¸Àü 
+                    //ìœ ì € ì´ë™í•˜ëŠ” ë°©í–¥(ë‹¨ìœ„ë²¡í„°)ì—ì„œ ë¨ë¤ ê°ë„ë¡œ íšŒì „ 
                     transform.position = playerPos + 10 * spawnRadian;
-                    //À¯Àú ±âÁØÀ¸·Î ¹İÁö¸§ 10ÀÎ ¿ø Å×µÎ¸®¿¡¼­ ½ºÆù(¼³Á¤µÈ °¢µµ¿¡¼­¸¸)
+                    //ìœ ì € ê¸°ì¤€ìœ¼ë¡œ ë°˜ì§€ë¦„ 10ì¸ ì› í…Œë‘ë¦¬ì—ì„œ ìŠ¤í°(ì„¤ì •ëœ ê°ë„ì—ì„œë§Œ)
                 }
                 break;
         }
-
     }
 }
