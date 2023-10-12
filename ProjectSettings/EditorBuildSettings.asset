@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: 8b54b1d2f48c14f43ad89c099b242a0d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BattleMap.unity
     guid: 567f20a29987e7b439e40e5179f98847
   - enabled: 1
