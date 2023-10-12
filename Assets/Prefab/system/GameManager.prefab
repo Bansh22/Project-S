@@ -52,7 +52,6 @@ MonoBehaviour:
   AudioManager: {fileID: 1396068595862959124}
   uiManger: {fileID: 0}
   player: {fileID: 6951114841843615592, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
-  speed: 5
   catchEnemy: 0
   maxGameTime: 0
   gameTime: 0
@@ -241,6 +240,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pool_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2750123455015980080, guid: ded394605e9fde14e879f3a4bfccd3dc,
+        type: 3}
+      propertyPath: Prefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750123455015980080, guid: ded394605e9fde14e879f3a4bfccd3dc,
+        type: 3}
+      propertyPath: Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2993219727800843429, guid: 7d859b9a7402ad04798f3660b104a811,
+        type: 3}
+    - target: {fileID: 2750123455015980080, guid: ded394605e9fde14e879f3a4bfccd3dc,
+        type: 3}
+      propertyPath: Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 2993219727800843429, guid: de1ba2507e6ac6e4abb8ca9b3369dfd7,
+        type: 3}
+    - target: {fileID: 2750123455015980080, guid: ded394605e9fde14e879f3a4bfccd3dc,
+        type: 3}
+      propertyPath: Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 2993219727800843429, guid: 83a01b4883d187043a5b9c2b1c9f3e05,
+        type: 3}
     - target: {fileID: 6464709260596657207, guid: ded394605e9fde14e879f3a4bfccd3dc,
         type: 3}
       propertyPath: m_LocalPosition.x
