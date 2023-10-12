@@ -19,6 +19,8 @@ public class FinshMessage : MonoBehaviour
         {
             onetime = false;
             Finsh.SetActive(true);
+
+            Wappon_Manager.DeleteWeapon();
         }
         else if(player.getLive())
         {
@@ -27,6 +29,7 @@ public class FinshMessage : MonoBehaviour
         if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime)
         {
             Finsh.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }

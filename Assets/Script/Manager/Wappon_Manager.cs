@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using System; // 액션 사용 라이브러리 
 public class Wappon_Manager : MonoBehaviour
 {
     private ConfigReader reader;
@@ -11,9 +11,11 @@ public class Wappon_Manager : MonoBehaviour
     private int Count;
     private float Speed;
     Transform scrptTrsfrom;
-    public static Action CountTarget;
+    GameObject[] arraygameobj;
+    public static Action CountTarget; //액션 선언 
+    public static Action DeleteWeapon; //액션 선언 
     private void Start()
-    {
+    { 
         // = GetComponent<Transform>();
         reader = new ConfigReader("Sap Wappon");
         Damage = reader.Search<float>("damage");
@@ -26,7 +28,12 @@ public class Wappon_Manager : MonoBehaviour
     }
     private void Awake()
     {
-        CountTarget = () => { CountUp(); };
+        CountTarget = () => { 
+            CountUp();
+        }; //액션 실행시 작동하는거 
+        DeleteWeapon = () => {
+            DestoryWeapon();
+        };
     }
 
 
@@ -71,11 +78,12 @@ public class Wappon_Manager : MonoBehaviour
     {
         scrptTrsfrom = GetComponent<Transform>();
         Transform[] bullset = transform.gameObject.GetComponentsInChildren<Transform>();
-       
+        arraygameobj = new GameObject[bullset.Length - 1];
         for (int index = 1; index < bullset.Length; index++)
         {
             Vector3 rotVec = Vector3.forward * 360 * (index-1) / (bullset.Length-1);
-          
+            arraygameobj[index-1] = bullset[index].gameObject;
+            
             bullset[index].rotation = scrptTrsfrom.rotation;
             bullset[index].position = scrptTrsfrom.position;
             bullset[index].Rotate(rotVec);
@@ -85,7 +93,14 @@ public class Wappon_Manager : MonoBehaviour
 
         }
     }
-
+    public void DestoryWeapon()
+    {
+       foreach(GameObject child in arraygameobj)
+        {
+            Destroy(child);
+        }
+        
+    }
  
 
     public float GetDamage()
