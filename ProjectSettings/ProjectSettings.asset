@@ -156,7 +156,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Company.ProductName
+    Standalone: com.DefaultCompany.Project-S
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -830,15 +830,15 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Project-S-MasterBranch
-  metroPackageVersion: 
-  metroCertificatePath: 
+  metroPackageVersion: 1.0.0.0
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 8091e655eb1bdb01
   metroApplicationDescription: Project-S-MasterBranch
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Project_S
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

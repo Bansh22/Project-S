@@ -14,6 +14,6 @@ public class Gemgetter : MonoBehaviour
         }
 
         collision.gameObject.SetActive(false);
-        Wappon_Manager.CountTarget();
+        nearing_Wappon_Manager.CountTarget();
     }
 }
