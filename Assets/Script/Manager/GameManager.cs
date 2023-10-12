@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     [Header("#PlayerInfo")]
     public Player player;
-    public float speed=5;
 
     [HideInInspector] public float catchEnemy=0;
     [HideInInspector] public float maxGameTime;
