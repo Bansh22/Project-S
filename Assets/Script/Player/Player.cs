@@ -20,12 +20,12 @@ public class Player : PlayerParent
         setHp(reader.Search<float>("hp"));
         //현재 살아있는 상태 설정
         setLive(true);
-        mobscan = GetComponent<MobScanner>();
+       
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        mobscan = GetComponent<MobScanner>();
         //시작 설정 함수 실행
         startfun();
     }
