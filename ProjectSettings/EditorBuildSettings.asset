@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleMap.unity
     guid: 567f20a29987e7b439e40e5179f98847
+  - enabled: 1
+    path: Assets/Scenes/cesdea.unity
+    guid: d6f175e0f280c9e46ba251d756af0956
   m_configObjects: {}
