@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2381722307599918198}
         m_TargetAssemblyTypeName: ClickEvent, Assembly-CSharp
-        m_MethodName: StartGameClick
+        m_MethodName: GoToVillage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
