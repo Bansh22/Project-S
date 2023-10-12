@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5249304432852415358}
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 1322846990172878242}
-  - component: {fileID: 4943015985260089788}
   - component: {fileID: 4108412899157563160}
+  - component: {fileID: -8411670193484050876}
   m_Layer: 0
   m_Name: Enemy0 2
   m_TagString: Enemy
@@ -172,18 +172,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!114 &4943015985260089788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993219727800843429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2de605ab287644e9f4495b4d3d7172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4108412899157563160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +184,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96624b2bc38e4c4fb0ca6b41c2abc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8411670193484050876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993219727800843429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d609996e158b9274fbe5ad635e5063ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  gemPrefab: {fileID: 5853008515373876048, guid: 5d4034765c568794fbe744a85ba597d7,
+    type: 3}
