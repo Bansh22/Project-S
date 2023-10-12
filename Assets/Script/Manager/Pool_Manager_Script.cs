@@ -32,9 +32,9 @@ public class Pool_Manager_Script : MonoBehaviour
             if (!item.activeSelf)
             {
                 Select = item;
-               
+                
 
-                Select.GetComponent<Enemy0>().Revive();
+                Select.GetComponent<EnemyParent>().Revive();
                
                 break;
             }

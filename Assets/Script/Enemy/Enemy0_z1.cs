@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy0 : EnemyType0
+public class Enemy0_z1 : EnemyType0
 {
     //사전 클래스
     private readonly ConfigReader reader;
-    public Enemy0()
+    public Enemy0_z1()
     {
         //Enemy0 사전 열기
-        reader = new ConfigReader("Enemy0");
+        reader = new ConfigReader("Enemy0_Z1");
         //속도 설정
         setSpeed(reader.Search<float>("speed"));
         //MaxHp 설정
@@ -18,6 +18,8 @@ public class Enemy0 : EnemyType0
         setHp(reader.Search<float>("hp"));
         //주는 데미지 설정
         setDamage(reader.Search<float>("damage"));
+        //리젠 시간
+        setRegen(reader.Search<float>("regen"));
         //현재 살아있는 상태 설정
         setLive(true);
     }
