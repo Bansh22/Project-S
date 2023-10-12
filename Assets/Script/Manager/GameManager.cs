@@ -43,17 +43,6 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         gameTime += Time.fixedDeltaTime;
-        //제한 시간 종료
-        if (gameTime > maxGameTime)
-        {
-            //정산 UI 활성화
-            AudioManageer.instance.StopBgm();
-            Time.timeScale = 1f;
-            Application.Quit();
-            //에러 대비용 0f 코드 
-            Time.timeScale = 0f;
-
-        }
     }
 }
 
