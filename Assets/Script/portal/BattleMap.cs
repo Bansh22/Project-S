@@ -20,8 +20,8 @@ public class BattleMap : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("ho");
-            SceneManager.LoadScene("BattleMap");
+            
+            SceneManager.LoadScene("BattleField");
         }
     }
 }
