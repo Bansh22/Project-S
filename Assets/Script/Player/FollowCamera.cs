@@ -9,6 +9,7 @@ public class FollowCamera : MonoBehaviour
     Transform trans;
     Player player;
     public Text[] textLabels; // UI Text 배열
+    public GameObject[] gameobj;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +32,9 @@ public class FollowCamera : MonoBehaviour
             {
                 if (textLabels[i] != null)
                 {
-                    Vector3 textLabelsPos = Camera.main.WorldToViewportPoint(textLabels[i].transform.position);
+                    Vector3 textLabelsPos = Camera.main.WorldToScreenPoint(gameobj[i].transform.position);
                     Debug.Log(textLabelsPos);
-                    textLabels[i].transform.position = new Vector2(textLabelsPos.x, textLabelsPos.y);
+                    textLabels[i].rectTransform.position = textLabelsPos;
                 }
             }
         }
