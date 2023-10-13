@@ -45,8 +45,6 @@ public class nearing_Wappon_Manager : MonoBehaviour
     void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * Speed * Time.deltaTime);
-
-
     }
     public void Init()
     {
@@ -59,8 +57,23 @@ public class nearing_Wappon_Manager : MonoBehaviour
     public void CountUp()
     {
         Batch();
-        Count++;
+        if (Count < 8)
+        {
+            Count++;
+        }
         SetPosition();
+    }
+    public void DamageUp(float damage)
+    {
+        this.Damage += damage;
+        for (int index = 0; index < arraygameobj.Length; index++)
+        {
+            arraygameobj[index].GetComponent<SapWappon>().Init(Damage);
+        }
+    }
+    public void SpeedUp(float speed)
+    {
+        this.Speed *= (1+speed);
     }
 
     void Batch()
@@ -70,7 +83,7 @@ public class nearing_Wappon_Manager : MonoBehaviour
             Transform BulletTrans = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
             BulletTrans.parent = transform;
             
-            BulletTrans.GetComponent<SapWappon>().Init(Damage, -1);
+            BulletTrans.GetComponent<SapWappon>().Init(Damage);
         }
        
     }
@@ -90,9 +103,6 @@ public class nearing_Wappon_Manager : MonoBehaviour
             bullset[index].position = scrptTrsfrom.position;
             bullset[index].Rotate(rotVec);
             bullset[index].position=bullset[index].position+ bullset[index].up * 0.5f * (Count) ;
-
-          
-
         }
     }
     public void DestoryWeapon()
@@ -106,10 +116,5 @@ public class nearing_Wappon_Manager : MonoBehaviour
     public int getCount()
     {
         return Count;
-    }
-
-    public float GetDamage()
-    {
-        return Damage;
     }
 }

@@ -7,12 +7,9 @@ public class SapWappon : MonoBehaviour
 {
     private ConfigReader reader;
     private float damage;
-    private int per;
    
 
-    public void Init(float damage, int per){
-
-        this.per = per;
+    public void Init(float damage){
         this.damage = damage;
     }
 
