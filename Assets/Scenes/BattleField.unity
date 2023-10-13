@@ -402,6 +402,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
+      propertyPath: targrtLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4998353612227430747, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: m_Name
@@ -932,6 +937,16 @@ PrefabInstance:
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 985655065}
+    - target: {fileID: 7043253407235253350, guid: 77db32dbdc6236a46b2da5854ed1258d,
+        type: 3}
+      propertyPath: Prefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043253407235253350, guid: 77db32dbdc6236a46b2da5854ed1258d,
+        type: 3}
+      propertyPath: Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8094189621269508357, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: m_LocalPosition.x

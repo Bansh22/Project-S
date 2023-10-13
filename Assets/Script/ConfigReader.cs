@@ -46,8 +46,7 @@ using System.ComponentModel;
    */
 public class ConfigReader 
 {
-   
-    private static readonly string configFilePath = "./Assets/Script/config/Config.ini";
+    private static readonly string configFilePath = Application.streamingAssetsPath+"/Config.ini";
     private static Dictionary<string, Dictionary<string, string>> sapData;
     private static Dictionary<string, string> resultDict;
     //configfilepath의 Config 전부 들고오기 
