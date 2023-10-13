@@ -64,7 +64,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
             Transform BulletTrans = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
             BulletTrans.parent = transform;
             
-            BulletTrans.GetComponent<SapWappon>().Init(Damage, -1);
+            BulletTrans.GetComponent<SapWappon>().Init(Damage);
         }
        
     }

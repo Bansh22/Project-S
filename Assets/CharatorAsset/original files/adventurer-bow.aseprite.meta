@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 268871f6110c1f245992b64d55ef91c5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: adventurer-bow_Frame_0
+    originalName: 
+    pivot: {x: 0.45000002, y: -0.038461536}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 199
+      width: 20
+      height: 26
+    spriteID: 9598e3ce6c7c7214599b4a8fca80bc98
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 199}
+  - name: adventurer-bow_Frame_1
+    originalName: 
+    pivot: {x: 0.4545454, y: -0.040000003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 166
+      width: 22
+      height: 25
+    spriteID: f8a454eaf5226924e928129af1468bad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 166}
+  - name: adventurer-bow_Frame_2
+    originalName: 
+    pivot: {x: 0.3333333, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 37
+      width: 24
+      height: 24
+    spriteID: e8dbb5df7a0ce854b947f1ee74f7b46c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 37}
+  - name: adventurer-bow_Frame_3
+    originalName: 
+    pivot: {x: 0.4583333, y: -0.040000003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 4
+      width: 24
+      height: 25
+    spriteID: 81bc00980b0210e4998da0dc6444780d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 4}
+  - name: adventurer-bow_Frame_4
+    originalName: 
+    pivot: {x: 0.4583333, y: -0.038461536}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 173
+      width: 24
+      height: 26
+    spriteID: 108a515415ba20a43aa7c65a459e282a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 173}
+  - name: adventurer-bow_Frame_5
+    originalName: 
+    pivot: {x: 0.43478256, y: -0.040000003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 69
+      width: 23
+      height: 25
+    spriteID: fe3538da2d570804a9161bcde94ff407
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 69}
+  - name: adventurer-bow_Frame_6
+    originalName: 
+    pivot: {x: 0.4583333, y: -0.038461536}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 207
+      width: 24
+      height: 26
+    spriteID: 2b5125e0f6b57574783343a6420f6410
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 207}
+  - name: adventurer-bow_Frame_7
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.038461536}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 36
+      height: 26
+    spriteID: c67fd77e2a21eae4399c12e683a3bcc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: adventurer-bow_Frame_8
+    originalName: 
+    pivot: {x: 0.34482756, y: -0.038461536}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 106
+      width: 29
+      height: 26
+    spriteID: eb01d93b328825242870eb0c62c789d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 106}
+  - name: adventurer-bow_Frame_9
+    originalName: 
+    pivot: {x: 0.30434778, y: -0.12}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 102
+      width: 23
+      height: 25
+    spriteID: 911a51cdaed852248b3f9401d5deb309
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 102}
+  - name: adventurer-bow_Frame_10
+    originalName: 
+    pivot: {x: 0.4583333, y: -0.26086956}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 135
+      width: 24
+      height: 23
+    spriteID: 3971ecf5c06389f4bb9704dff2d6ff3f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 135}
+  - name: adventurer-bow_Frame_11
+    originalName: 
+    pivot: {x: 0.48000002, y: -0.24999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 4
+      width: 25
+      height: 24
+    spriteID: 770fc5deba0a19543ae925cca8a8de52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 4}
+  - name: adventurer-bow_Frame_12
+    originalName: 
+    pivot: {x: 0.5185185, y: -0.16000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 140
+      width: 27
+      height: 25
+    spriteID: 8a7fc90a906895944a60efdbaf47893b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 140}
+  - name: adventurer-bow_Frame_13
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.15384614}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 36
+      height: 26
+    spriteID: baca4394c72587944b0985c98ba52a14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: adventurer-bow_Frame_14
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.15384614}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 72
+      width: 34
+      height: 26
+    spriteID: 1bdd0bf2a89c19e4198880d4e31996b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 72}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1113517765
+    name: adventurer-bow
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: adventurer-bow_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 16
+        y: 1
+        width: 20
+        height: 26
+      spriteId: 9598e3ce6c7c7214599b4a8fca80bc98
+    - name: adventurer-bow_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 15
+        y: 1
+        width: 22
+        height: 25
+      spriteId: f8a454eaf5226924e928129af1468bad
+    - name: adventurer-bow_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 17
+        y: 1
+        width: 24
+        height: 24
+      spriteId: e8dbb5df7a0ce854b947f1ee74f7b46c
+    - name: adventurer-bow_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 14
+        y: 1
+        width: 24
+        height: 25
+      spriteId: 81bc00980b0210e4998da0dc6444780d
+    - name: adventurer-bow_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 14
+        y: 1
+        width: 24
+        height: 26
+      spriteId: 108a515415ba20a43aa7c65a459e282a
+    - name: adventurer-bow_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 15
+        y: 1
+        width: 23
+        height: 25
+      spriteId: fe3538da2d570804a9161bcde94ff407
+    - name: adventurer-bow_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 14
+        y: 1
+        width: 24
+        height: 26
+      spriteId: 2b5125e0f6b57574783343a6420f6410
+    - name: adventurer-bow_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 11
+        y: 1
+        width: 36
+        height: 26
+      spriteId: c67fd77e2a21eae4399c12e683a3bcc2
+    - name: adventurer-bow_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 15
+        y: 1
+        width: 29
+        height: 26
+      spriteId: eb01d93b328825242870eb0c62c789d9
+    - name: adventurer-bow_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 18
+        y: 3
+        width: 23
+        height: 25
+      spriteId: 911a51cdaed852248b3f9401d5deb309
+    - name: adventurer-bow_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 14
+        y: 6
+        width: 24
+        height: 23
+      spriteId: 3971ecf5c06389f4bb9704dff2d6ff3f
+    - name: adventurer-bow_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 13
+        y: 6
+        width: 25
+        height: 24
+      spriteId: 770fc5deba0a19543ae925cca8a8de52
+    - name: adventurer-bow_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 11
+        y: 4
+        width: 27
+        height: 25
+      spriteId: 8a7fc90a906895944a60efdbaf47893b
+    - name: adventurer-bow_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 11
+        y: 4
+        width: 36
+        height: 26
+      spriteId: baca4394c72587944b0985c98ba52a14
+    - name: adventurer-bow_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 10
+        y: 4
+        width: 34
+        height: 26
+      spriteId: 1bdd0bf2a89c19e4198880d4e31996b0
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 50, y: 37}

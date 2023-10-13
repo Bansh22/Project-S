@@ -119,6 +119,24 @@ public class PlayerParent : MonoBehaviour
         setLive(true);
     }
 
+    //포션 관련 코드
+    public void Healing(float heal)
+    {
+        hp += heal;
+        if (hp > MaxHp)
+        {
+            hp = MaxHp;
+        }
+    }
+    public void SpeedBuff(float buff)
+    {
+        speed = speed * (1 + buff);
+    }
+    public void HpBuff(float buff)
+    {
+        MaxHp += buff;
+    }
+
     //Speed 관련 코드 
     public void setSpeed(float speed)
     {
