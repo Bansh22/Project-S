@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1322846990172878242}
   - component: {fileID: 4108412899157563160}
   - component: {fileID: 4517998199145901859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy0 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -196,6 +196,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50f80699416b1340ac48ca111ffdc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
   gemPrefab: {fileID: 5853008515373876048, guid: 5d4034765c568794fbe744a85ba597d7,
     type: 3}

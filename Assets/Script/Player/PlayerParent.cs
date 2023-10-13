@@ -32,6 +32,7 @@ public class PlayerParent : MonoBehaviour
     private float KnockForce;
     //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
+    float hitTime=0;
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -39,9 +40,10 @@ public class PlayerParent : MonoBehaviour
     public void takeDamage(float damage)
     {
         hp -= damage; // 데미지 받는다
-
-        //변수에 따라 넉백 작동
-
+        if (hitTime == 0)
+        {
+            hitTime = GameManager.instance.gameTime;
+        }
         if (hp <= 0) //0보다 작으면 
         {
             anim.SetTrigger("Dead");
@@ -52,10 +54,10 @@ public class PlayerParent : MonoBehaviour
         }
         else if (hp > 0)
         {
-            StartCoroutine(HitColor());
+             StartCoroutine(HitColor());
             if (isKnock)
             {
-                //코루틴 작동
+                //변수에 따라 넉백 작동
                 StartCoroutine(KnockBack());
             }
         }
@@ -80,7 +82,11 @@ public class PlayerParent : MonoBehaviour
     {
         render.color = Color.red;
         yield return new WaitForSeconds(0.2f);
-        render.color = Color.white;
+        if (GameManager.instance.gameTime- hitTime >= 0.2f)
+        { 
+            render.color = Color.white;
+            hitTime = 0;
+        }
     }
     //플레이어 죽임
     IEnumerator Dead()

@@ -660,7 +660,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2651291856589319652}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.035, y: 17.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5304,7 +5304,12 @@ PrefabInstance:
     - target: {fileID: 8055012823246033579, guid: 3211e7d016f69e3449e5a4cb983d4a05,
         type: 3}
       propertyPath: m_Name
-      value: House 5
+      value: House 5-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439409232163966546, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

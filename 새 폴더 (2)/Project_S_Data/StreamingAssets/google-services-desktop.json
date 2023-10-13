@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974363321058",
+    "project_id": "vilchron",
+    "storage_bucket": "vilchron.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974363321058:android:f734f053d7fa746c8334bb",
+        "android_client_info": {
+          "package_name": "com.fantasy.VilChron"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7QO-D5HgWlncauaWmeuNursGCDfbhO-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

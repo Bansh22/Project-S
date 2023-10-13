@@ -221,6 +221,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
+      propertyPath: targrtLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4510657235222219157, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,7 +294,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4998353612227430747, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 1384198557}
     - targetCorrespondingSourceObject: {fileID: 1047789159217689908, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
