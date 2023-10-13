@@ -11,6 +11,7 @@ public class HealingPotion : MonoBehaviour
     {
         reader = new ConfigReader("Healing");
         heal = reader.Search<float>("Heal");
+        heal = 20;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)

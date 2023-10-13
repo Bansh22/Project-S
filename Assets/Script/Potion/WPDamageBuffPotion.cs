@@ -11,6 +11,7 @@ public class WPDamageBuffPotion : MonoBehaviour
     {
         reader = new ConfigReader("WPDamageBuff");
         buff = reader.Search<float>("buff");
+        buff = 20;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)

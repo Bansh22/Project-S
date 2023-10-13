@@ -11,6 +11,7 @@ public class HPBuffPotion : MonoBehaviour
     {
         reader = new ConfigReader("HPBuff");
         buff = reader.Search<float>("buff");
+        buff = 20;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +19,7 @@ public class HPBuffPotion : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
-            player.Healing(buff);
+            player.HpBuff(buff);
             Destroy(gameObject);
         }
     }

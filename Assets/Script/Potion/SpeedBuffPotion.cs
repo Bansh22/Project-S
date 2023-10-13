@@ -11,6 +11,7 @@ public class SpeedBuffPotion : MonoBehaviour
     {
         reader = new ConfigReader("SpeedBuff");
         buff = reader.Search<float>("Buff");
+        buff = 0.2f;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)

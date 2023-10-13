@@ -300,12 +300,12 @@ PrefabInstance:
     - target: {fileID: 347590350596056985, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 347590350596056985, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.038
       objectReference: {fileID: 0}
     - target: {fileID: 347590350596056985, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
@@ -907,6 +907,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1396068595862959124, guid: 77db32dbdc6236a46b2da5854ed1258d,
+        type: 3}
+      propertyPath: sfxClip.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396068595862959124, guid: 77db32dbdc6236a46b2da5854ed1258d,
+        type: 3}
+      propertyPath: sfxClip.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1ec2962828ca034280ba48f35b6233d, type: 3}
     - target: {fileID: 5796958733986770807, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: m_IsActive
