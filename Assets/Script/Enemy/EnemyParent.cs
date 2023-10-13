@@ -34,8 +34,8 @@ public class EnemyParent : MonoBehaviour
     private int order;
 
 
-    GameObject[] gemPrefabs;
-    private float fixedProbability = 0.5f;
+    public GameObject[] gemPrefabs;
+    private float fixedProbability = 50f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -100,18 +100,18 @@ public class EnemyParent : MonoBehaviour
         {
             yield return wait;
         }
-        //if (gemPrefabs.Length != 0)
-        //{
-        //    bool onetime = true;
-        //    for (int i= 0; i < gemPrefabs.Length; i++)
-        //    {
-        //        float randomValue = Random.Range(0f, 100f);
-        //        if (randomValue <= fixedProbability && onetime) {
-        //            onetime = false;
-        //            Instantiate(gemPrefabs[i], transform.position, Quaternion.identity);
-        //        }
-        //    }
-        //}
+        if (gemPrefabs.Length != 0)
+        {
+            bool onetime = true;
+            for (int i= 0; i < gemPrefabs.Length; i++)
+            {
+                float randomValue = Random.Range(0f, 100f);
+                if (randomValue <= fixedProbability && onetime) {
+                    onetime = false;
+                    Instantiate(gemPrefabs[i], transform.position, Quaternion.identity);
+                }
+            }
+        }
         this.gameObject.SetActive(false); // 게임 오브젝트르 비활성화 한다 
     }
 

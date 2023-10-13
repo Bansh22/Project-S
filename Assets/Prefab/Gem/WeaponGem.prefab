@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8540742047018920679}
   - component: {fileID: 6530438343167825732}
   - component: {fileID: 621736497667522797}
+  - component: {fileID: 6446129083350168291}
   m_Layer: 0
   m_Name: WeaponGem
   m_TagString: Gem
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6446129083350168291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853008515373876048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a88fa49006bf9f43b0e4cbaf284f392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
