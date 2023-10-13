@@ -830,7 +830,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Project-S-MasterBranch
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -838,7 +838,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Project-S-MasterBranch
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Project_S
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

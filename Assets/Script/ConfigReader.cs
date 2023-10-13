@@ -3,57 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-using UnityEditor.U2D.Aseprite;
 using System.ComponentModel;
 
 
 /*
 **********************************************************************************************
-   // »ç¿ë¹ı!(Áß¿ä!) ¾Æ·¡ ¼¼ ÁÙÀ» Å¬·¡½º ¾Æ·¡¿¡ ÀÔ·ÂÇØ¼­ »ı¼ºÀÚ¸¦ ¸¸µç´Ù! //
+   // ì‚¬ìš©ë²•!(ì¤‘ìš”!) ì•„ë˜ ì„¸ ì¤„ì„ í´ë˜ìŠ¤ ì•„ë˜ì— ì…ë ¥í•´ì„œ ìƒì„±ìë¥¼ ë§Œë“ ë‹¤! //
 **********************************************************************************************
     
-    ¹æ¹ı1
+    ë°©ë²•1
     ConfigReader configreaders = new ConfigReader();
     configreaders.Initialize(configreaders.GetfilePath());
-    configreaders.MakeDiction(""); <--¿©±â ÂüÁ¶ ÇÒ °ªÀ» ³Ö¾î¶ó! config.ini ¿¡  [ ] ¾È¿¡ µé¾î°¥ °ªÀÌ´Ù! //´ë¼Ò¹®ÀÚ ±¸º°ÇÊ!
+    configreaders.MakeDiction(""); <--ì—¬ê¸° ì°¸ì¡° í•  ê°’ì„ ë„£ì–´ë¼! config.ini ì—  [ ] ì•ˆì— ë“¤ì–´ê°ˆ ê°’ì´ë‹¤! //ëŒ€ì†Œë¬¸ì êµ¬ë³„í•„!
     
-    ¹æ¹ı2(ÃßÃµ)
-    ConfigReader configreaders = new ConfigReader(title) <-- À§ÀÇ °úÁ¤À» ÇÏ³ª·Î ¾ĞÃàÇßÀ¸¸ç À§ÀÇ ¹æ½Äµµ °¡´É, config.ini¿¡¼­ [title] ÇüÅÂÀÇ °ª
+    ë°©ë²•2(ì¶”ì²œ)
+    ConfigReader configreaders = new ConfigReader(title) <-- ìœ„ì˜ ê³¼ì •ì„ í•˜ë‚˜ë¡œ ì••ì¶•í–ˆìœ¼ë©° ìœ„ì˜ ë°©ì‹ë„ ê°€ëŠ¥, config.iniì—ì„œ [title] í˜•íƒœì˜ ê°’
 
 **********************************************************************************************
 
     
-    1.°ªÀ» ¾ò´Â¹ı 
-    object rowdata = configreaders.GetDictionaryValue(""); <--- ¿©±â °¡Áö°í ½ÍÀº °ªÀ» ³Ö¾î¶ó! [ ] ÇÏÀ§ Ç×¸ñ¿¡ ÀÖ´Â °ª ÀÌ¸§ÀÌ´Ù! °ªÀÌ ¾Æ´Ï´Ù! ¿ÀºêÁ§Æ®·Î ¹İÈ¯µÈ´Ù!
+    1.ê°’ì„ ì–»ëŠ”ë²• 
+    object rowdata = configreaders.GetDictionaryValue(""); <--- ì—¬ê¸° ê°€ì§€ê³  ì‹¶ì€ ê°’ì„ ë„£ì–´ë¼! [ ] í•˜ìœ„ í•­ëª©ì— ìˆëŠ” ê°’ ì´ë¦„ì´ë‹¤! ê°’ì´ ì•„ë‹ˆë‹¤! ì˜¤ë¸Œì íŠ¸ë¡œ ë°˜í™˜ëœë‹¤!
 
-    2.°ªÀÌ¸§ ¸ñ·Ï ¹Ş´Â ¹ı(°³¹ß ³¡³ª±â Àü¿¡ »èÁ¦...ÇÒ ÇÊ¿ä ÀÖÀ½!µğ¹ö±× Ã¢¿¡ ¸ñ·Ï»ı¼ºµÊ! ÇÊ¿äÇÏ´Ù¸é ±× ºÎºĞÀ» »èÁ¦ÇØ¼­ ½á¾ßÇÑ´Ù!)
-`   List<string> keylist =  configreaders.GetKeysAsList(); <-- Å° ¸ñ·Ï ¸®½ºÆ®°¡ µé¾î°¡°í µğ¹ö±×¿¡ Ãâ·ÂµÈ´Ù 
+    2.ê°’ì´ë¦„ ëª©ë¡ ë°›ëŠ” ë²•(ê°œë°œ ëë‚˜ê¸° ì „ì— ì‚­ì œ...í•  í•„ìš” ìˆìŒ!ë””ë²„ê·¸ ì°½ì— ëª©ë¡ìƒì„±ë¨! í•„ìš”í•˜ë‹¤ë©´ ê·¸ ë¶€ë¶„ì„ ì‚­ì œí•´ì„œ ì¨ì•¼í•œë‹¤!)
+`   List<string> keylist =  configreaders.GetKeysAsList(); <-- í‚¤ ëª©ë¡ ë¦¬ìŠ¤íŠ¸ê°€ ë“¤ì–´ê°€ê³  ë””ë²„ê·¸ì— ì¶œë ¥ëœë‹¤ 
     
-    3.¹«¾ùÀ¸·Î Çü º¯È¯ µÇ´ÂÁö È®ÀÎÇÏ´Â ¹ı(°³¹ß Àü¿ë, °³¹ß³¡³ª±â Àü¿¡ »èÁ¦ ÇÊ¿ä!)
-    configreaders.GetConvertibleTypes(rowdata); <-rowdata °¡ ¹«¾ùÀ¸·Î º¯È¯µÉ ¼ö ÀÖ´ÂÁö(int,float,string,bool) ¾Ë·ÁÁØ´Ù µğ¹ö±× Ã¢À» ºÁ¶ó!
+    3.ë¬´ì—‡ìœ¼ë¡œ í˜• ë³€í™˜ ë˜ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë²•(ê°œë°œ ì „ìš©, ê°œë°œëë‚˜ê¸° ì „ì— ì‚­ì œ í•„ìš”!)
+    configreaders.GetConvertibleTypes(rowdata); <-rowdata ê°€ ë¬´ì—‡ìœ¼ë¡œ ë³€í™˜ë  ìˆ˜ ìˆëŠ”ì§€(int,float,string,bool) ì•Œë ¤ì¤€ë‹¤ ë””ë²„ê·¸ ì°½ì„ ë´ë¼!
    
-    4.¹®ÀÚÇüÀ¸·Î º¯È¯ÇÏ±â
-    String stringdata = configreaders.ConvertToString(rowdata); <-- String À¸·Î º¯È¯ÇÑ´Ù 
+    4.ë¬¸ìí˜•ìœ¼ë¡œ ë³€í™˜í•˜ê¸°
+    String stringdata = configreaders.ConvertToString(rowdata); <-- String ìœ¼ë¡œ ë³€í™˜í•œë‹¤ 
 
-    5.¹®ÀÚÇü ¿Ü·Î º¯È¯ÇÏ±â 
-    T typedata = configreaders.ConvertToNumeric<T>(rowdata); <¿øÇÏ´Â Å¸ÀÔÀ¸·Î º¯È¯½ÃÅ²´Ù, T¿¡ ¿øÇÏ´Â Çü½ÄÀ» ³Ö¾î¶ó!
+    5.ë¬¸ìí˜• ì™¸ë¡œ ë³€í™˜í•˜ê¸° 
+    T typedata = configreaders.ConvertToNumeric<T>(rowdata); <ì›í•˜ëŠ” íƒ€ì…ìœ¼ë¡œ ë³€í™˜ì‹œí‚¨ë‹¤, Tì— ì›í•˜ëŠ” í˜•ì‹ì„ ë„£ì–´ë¼!
 
     ex) int intdata = configreaders.ConvertToNumeric<int>(rowdata);
 
-    6.¿øÇÏ´Â ¹®ÀÚÇüÀ¸·Î ¹Ş±â
-    T data= configreaders.Search<T>(key);  < ¿øÇÏ´Â ket(ÀÌ¸§)À¸·Î ¹ŞÀ» ¼ö ÀÖÁö¸¸ Æ²¸° ÇüÅÂ or ¾ø´Â key(ÀÌ¸§)ÀÏ °æ¿ì µğ¹ö±× Ã¢¿¡ ³ª¿À´Ï È®ÀÎ.
+    6.ì›í•˜ëŠ” ë¬¸ìí˜•ìœ¼ë¡œ ë°›ê¸°
+    T data= configreaders.Search<T>(key);  < ì›í•˜ëŠ” ket(ì´ë¦„)ìœ¼ë¡œ ë°›ì„ ìˆ˜ ìˆì§€ë§Œ í‹€ë¦° í˜•íƒœ or ì—†ëŠ” key(ì´ë¦„)ì¼ ê²½ìš° ë””ë²„ê·¸ ì°½ì— ë‚˜ì˜¤ë‹ˆ í™•ì¸.
     ex)float damage= configreaders.Search<float>("damage");
 
    */
 public class ConfigReader 
 {
-   
-    private static readonly string configFilePath = "./Assets/Script/config/Config.ini";
+    private static readonly string configFilePath = Application.streamingAssetsPath+"/Config.ini";
     private static Dictionary<string, Dictionary<string, string>> sapData;
     private static Dictionary<string, string> resultDict;
-    //configfilepathÀÇ Config ÀüºÎ µé°í¿À±â 
+    //configfilepathì˜ Config ì „ë¶€ ë“¤ê³ ì˜¤ê¸° 
 
-    //»ı¼ºÀÚ
+    //ìƒì„±ì
     public ConfigReader() { }
     public ConfigReader(string sapName)
     {
@@ -61,21 +59,21 @@ public class ConfigReader
         this.MakeDiction(sapName);
     }
 
-    //ÃÊ±âÈ­
+    //ì´ˆê¸°í™”
     public void Initialize(string filePath)
     {
         sapData= IniFileReader.ReadIniFile(filePath);
         resultDict = new Dictionary<string, string>();
     }
 
-    //°æ·Î ÂüÁ¶ 
+    //ê²½ë¡œ ì°¸ì¡° 
     public string GetfilePath()
     {
         return configFilePath;
     }
 
 
-    //µñ¼Å³Ê¸® »ı¼º 
+    //ë”•ì…”ë„ˆë¦¬ ìƒì„± 
     public void MakeDiction(string sapName)
     {
      
@@ -93,18 +91,18 @@ public class ConfigReader
        
     }
 
-    //¹è¿­·Î Å°ÀÌ¸§µéÀ» ¹İÈ¯ÇÔ 
+    //ë°°ì—´ë¡œ í‚¤ì´ë¦„ë“¤ì„ ë°˜í™˜í•¨ 
     public List<string> GetKeysAsList()
     {
         List<string> keysList = new List<string>(resultDict.Keys);
 
-        // Å° ¸ñ·Ï¸¸À» Ãâ·Â
+        // í‚¤ ëª©ë¡ë§Œì„ ì¶œë ¥
         Debug.Log("Keys in resultDict: " + string.Join(", ", keysList));
 
         return keysList;
     }
 
-    // °ªÀ» object ·Î ¹İÈ¯ 
+    // ê°’ì„ object ë¡œ ë°˜í™˜ 
     public object GetDictionaryValue(string key)
     {
         if (resultDict.ContainsKey(key))
@@ -113,12 +111,12 @@ public class ConfigReader
         }
         else
         {
-            Debug.LogError("ÂüÁ¶ÄÚµå ¿¡·¯");
+            Debug.LogError("ì°¸ì¡°ì½”ë“œ ì—ëŸ¬");
             return null;
         }
     }
 
-    //Å¸ÀÔ È®ÀÎ 
+    //íƒ€ì… í™•ì¸ 
     public void GetConvertibleTypes(object value)
     {
         if (value != null)
@@ -165,7 +163,7 @@ public class ConfigReader
         }
     }
 
-    // String º¯È¯ 
+    // String ë³€í™˜ 
     public string ConvertToString(object value)
     {
         if (value != null)
@@ -176,7 +174,7 @@ public class ConfigReader
             }
             catch
             {
-                Debug.LogError("Çü½Ä º¯È¯ ¿À·ù");
+                Debug.LogError("í˜•ì‹ ë³€í™˜ ì˜¤ë¥˜");
                 return null;
             }
         }
@@ -187,7 +185,7 @@ public class ConfigReader
         }
     }
 
-    //¼ıÀÚ, boolµîÀ¸·Î º¯È¯ 
+    //ìˆ«ì, boolë“±ìœ¼ë¡œ ë³€í™˜ 
     public T ConvertToNumeric<T>(object value)
     {
         if (value != null)
@@ -198,7 +196,7 @@ public class ConfigReader
             }
             catch
             {
-                Debug.LogError("Çü½Ä º¯È¯ ¿À·ù");
+                Debug.LogError("í˜•ì‹ ë³€í™˜ ì˜¤ë¥˜");
                 return default(T);
             }
         }
@@ -253,7 +251,7 @@ public class ConfigReader
 
 
 
-// ÀÌÈÄ ini ÆÄÀÏ ÀĞ¾î¿À±â 
+// ì´í›„ ini íŒŒì¼ ì½ì–´ì˜¤ê¸° 
 internal class IniFileReader
 {
     public static Dictionary<string, Dictionary<string, string>> ReadIniFile(string filePath)
