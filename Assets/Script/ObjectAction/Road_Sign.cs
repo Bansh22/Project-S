@@ -32,6 +32,7 @@ public class Load_Sign : MonoBehaviour
             totupage.SetActive(true);
             totu_Sign.SetActive(false);
             Invoke("MyFunction", 3.0f);
+            MyFunction();
         }
     }
    
