@@ -10,6 +10,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     private float Damage;
     [HideInInspector] public int Count;
     private float Speed;
+    private float movespeed;
     Transform scrptTrsfrom;
     private GameObject[] arraygameobj;
     public static Action CountTarget; //액션 선언 
@@ -26,6 +27,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
         Damage = reader.Search<float>("damage");
         Speed = reader.Search<float>("speed");
         Count = reader.Search<int>("Count");
+        movespeed = reader.Search<float>("movespeed");
         PrefubId = reader.Search<int>("PrefubId");
         pler = GetComponentInParent<Player>();
 
@@ -57,38 +59,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     }
 
 
-    void Batch()
-    {
-        if (getCount() < 8)
-        {
-            Transform BulletTrans = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
-            BulletTrans.parent = transform;
-            
-            BulletTrans.GetComponent<SapWappon>().Init(Damage);
-        }
-       
-    }
-    
-
-    void SetPosition()
-    {
-        scrptTrsfrom = GetComponent<Transform>();
-        Transform[] bullset = transform.gameObject.GetComponentsInChildren<Transform>();
-        arraygameobj = new GameObject[bullset.Length - 1];
-        for (int index = 1; index < bullset.Length; index++)
-        {
-            Vector3 rotVec = Vector3.forward * 360 * (index-1) / (bullset.Length-1);
-            arraygameobj[index-1] = bullset[index].gameObject;
-            
-            bullset[index].rotation = scrptTrsfrom.rotation;
-            bullset[index].position = scrptTrsfrom.position;
-            bullset[index].Rotate(rotVec);
-            bullset[index].position=bullset[index].position+ bullset[index].up * 0.5f * (Count) ;
-
-          
-
-        }
-    }
+   
     public void DestoryWeapon()
     {
        foreach(GameObject child in arraygameobj)
@@ -100,15 +71,22 @@ public class Shooting_Wappon_Manager : MonoBehaviour
 
     public void FireShhooting()
     {
-        Debug.Log("작동");
+      
         if (!pler.mobscan.nearestTarget)
         {
             return;
         }
-     
+
+        Vector3 targetpos = pler.mobscan.nearestTarget.position;
+        Vector3 dir = targetpos - transform.position;
+        dir = dir.normalized;
+
         Transform bullset = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
+        
         bullset.position = transform.position;
-        Debug.Log("발사!");
+        bullset.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+        bullset.GetComponent<Shooting_Wappon>().Init(Damage ,dir , movespeed);
+      
     }
 
     public int getCount()
