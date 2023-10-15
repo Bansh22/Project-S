@@ -21,6 +21,18 @@ public class EnemyType0 : EnemyParent
     {
         return this.tracePlayer;
     }
+    private void FixedUpdate()
+    {
+        //죽어있으면 작동정지 || Hit 태그 가진 애니메이션 끝날때 까지 작동 정지
+        if (!getLive() || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        {
+            return;
+        }
+        //추적 대상 설정
+        setTracePlayer(GameManager.instance.player);
+        //플레이어 추적
+        playerTrace();
+    }
     //추적대상 추적
     public void playerTrace()
     {
@@ -55,5 +67,11 @@ public class EnemyType0 : EnemyParent
         {
             GameManager.instance.player.takeDamage(getDamage()*Time.fixedDeltaTime);
         }
+    }
+
+    private void OnEnable()
+    {
+        //다시 나타날때 추적대상 설정
+        setTracePlayer(GameManager.instance.player);
     }
 }

@@ -22,7 +22,7 @@ public class Pool_Manager_Script : MonoBehaviour
 
     //폴생성, 및 리바이브 코드 
 
-    public GameObject GetPoolsPrefabs(int index) {
+    public GameObject GetPoolsPrefabs(int index,Vector3 position) {
 
         GameObject Select = null;
 
@@ -35,7 +35,7 @@ public class Pool_Manager_Script : MonoBehaviour
                 
 
                 Select.GetComponent<EnemyParent>().Revive();
-               
+                Select.transform.position = position;
                 break;
             }
 
@@ -44,6 +44,7 @@ public class Pool_Manager_Script : MonoBehaviour
         if(!Select)
         {
             Select = Instantiate(Prefabs[index], transform);
+            Select.transform.position = position;
             Pools[index].Add(Select);
         }
 
