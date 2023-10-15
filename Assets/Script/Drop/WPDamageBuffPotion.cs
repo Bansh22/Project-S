@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WPSpeedBuffPotion : MonoBehaviour
+public class WPDamageBuffPotion : ItemParent
 {
     ConfigReader reader;
     private float buff;
@@ -11,7 +11,7 @@ public class WPSpeedBuffPotion : MonoBehaviour
     {
         reader = new ConfigReader("WPDamageBuff");
         buff = reader.Search<float>("buff");
-        buff = 0.2f;
+        buff = 20;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +19,8 @@ public class WPSpeedBuffPotion : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
-            weaponManager.SpeedUp(buff);
+            weaponManager.DamageUp(buff);
+            DeleteList();
             Destroy(gameObject);
         }
     }

@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBuffPotion : MonoBehaviour
+public class WPCountBuffPotion : ItemParent
 {
     ConfigReader reader;
-    private float buff;
     private float spawnChance;
     private void Awake()
     {
-        reader = new ConfigReader("SpeedBuff");
-        buff = reader.Search<float>("Buff");
-        buff = 0.2f;
+        reader = new ConfigReader("WPCountBuff");
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
-            player.SpeedBuff(buff);
+            nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
+            weaponManager.CountUp();
+            DeleteList();
             Destroy(gameObject);
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPBuffPotion : MonoBehaviour
+public class HPBuffPotion : ItemParent
 {
     ConfigReader reader;
     private float buff;
@@ -20,6 +20,7 @@ public class HPBuffPotion : MonoBehaviour
         {
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.HpBuff(buff);
+            DeleteList();
             Destroy(gameObject);
         }
     }
