@@ -82,7 +82,7 @@ public class PlayerParent : MonoBehaviour
     {
         render.color = Color.red;
         yield return new WaitForSeconds(0.2f);
-        if (GameManager.instance.gameTime- hitTime >= 0.2f)
+        if (GameManager.instance.gameTime- hitTime >= 0.15f)
         { 
             render.color = Color.white;
             hitTime = 0;
