@@ -41,9 +41,9 @@ public class Drop_Manage : MonoBehaviour
             if (limitPrefabs.TryGetValue(drop, out itemNum))
             {
                 int limitItemNum = LimitItem(drop);
-                if (itemNum < limitItemNum || limitItemNum == 0)
+                if (itemNum < limitItemNum)
                 {
-                    limitPrefabs[drop] = itemNum++;
+                    limitPrefabs[drop] = itemNum+1;
                 }
                 else
                 {
@@ -69,43 +69,27 @@ public class Drop_Manage : MonoBehaviour
         }
     }
 
-    public int GetDropIndex(GameObject obj)
-    {
-        for (int i= 0;i < dropPrefabs.Length; i++)
-        {
-            if (dropPrefabs[i] == obj)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public int LimitItem(Drop dropNum)
     {
         //드랍 아이템에 대한 부모 필요
-        ItemParent item = dropPrefabs[(int)dropNum].GetComponent<ItemParent>();
+        ItemParent item = GameManager.instance.DropManage.dropPrefabs[(int)dropNum].GetComponent<ItemParent>();
         int limit = item.getLimit();
         return limit;
     }
-    public void DeleteItemList(GameObject item)
+    public void DeleteItemList(Drop drop,GameObject item)
     {
-        int dropIndex = GetDropIndex(item);
-        if (dropIndex == -1)
-        {
-            return;
-        }
-        //Drop_Manage.Drop drop = (Drop_Manage.Drop)(dropIndex);
-        //int itemNum = 0;
-        //if (limitPrefabs.TryGetValue(drop, out itemNum))
-        //{
-        //    int limitItemNum = LimitItem(drop);
-        //    if (itemNum < limitItemNum || limitItemNum != 0)
-        //    {
-        //        limitPrefabs[drop] = itemNum--;
-        //    }
-        //}
         //생성된 목록에서 제거
         createdPrefabs.Remove(item.GetInstanceID());
+
+        ItemParent itemScript = item.gameObject.GetComponent<ItemParent>();
+        if (!itemScript.getWorldLimit())
+        {
+            int itemNum = 0;
+            if (limitPrefabs.TryGetValue(drop, out itemNum))
+            {
+                limitPrefabs[drop] = itemNum-1;
+            }
+        }
+        
     }
 }

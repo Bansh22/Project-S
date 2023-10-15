@@ -33,7 +33,7 @@ public class EnemyParent : MonoBehaviour
     //오브젝트 계층
     private int order;
 
-    private float fixedProbability = 50f;
+    private float fixedProbability = 25f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -108,7 +108,9 @@ public class EnemyParent : MonoBehaviour
                 float randomValue = Random.Range(0f, 100f);
                 if (randomValue <= fixedProbability && onetime) {
                     onetime = false;
-                    GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);
+                    bool dropResult=GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);
+                    if (!dropResult)
+                        onetime = true;
                 }
             }
         }

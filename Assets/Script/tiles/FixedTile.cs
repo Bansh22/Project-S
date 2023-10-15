@@ -16,7 +16,6 @@ public class FixedTile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int n = 0;
         for(int i = 0; i < tiles.Length; i ++)
         {
             for(int j = i; j < tiles.Length; j++)

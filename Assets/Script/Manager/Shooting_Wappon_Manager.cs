@@ -100,7 +100,6 @@ public class Shooting_Wappon_Manager : MonoBehaviour
 
     public void FireShhooting()
     {
-        Debug.Log("작동");
         if (!pler.mobscan.nearestTarget)
         {
             return;
@@ -108,7 +107,6 @@ public class Shooting_Wappon_Manager : MonoBehaviour
      
         Transform bullset = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
         bullset.position = transform.position;
-        Debug.Log("발사!");
     }
 
     public int getCount()
