@@ -34,12 +34,12 @@ public class GoogleSignInExample : MonoBehaviour
         auth.CreateUserWithEmailAndPasswordAsync(email.text, password.text).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                Debug.LogError("생성 취소됨!");
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                Debug.LogError("생성에 무언가 문제가 있음!");
                 return;
             }
 
@@ -48,7 +48,7 @@ public class GoogleSignInExample : MonoBehaviour
 
             // Access the user from the authResult if needed
             FirebaseUser newUser = authResult.User;
-            Debug.Log("User created successfully: " + newUser.DisplayName);
+            Debug.Log("생성 성공! " + newUser.DisplayName);
         });
     }
 
@@ -57,12 +57,12 @@ public class GoogleSignInExample : MonoBehaviour
         auth.SignInWithEmailAndPasswordAsync(email.text, password.text).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                Debug.LogError("로그인 취소됨!");
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                Debug.LogError("로그인에 문제 있음!" + task.Exception);
                 return;
             }
 
@@ -75,12 +75,7 @@ public class GoogleSignInExample : MonoBehaviour
     {
         auth.SignOut();
     }
-    void InitializeFirebase()
-    {
-        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        auth.StateChanged += AuthStateChanged;
-        AuthStateChanged(this, null);
-    }
+    
     void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
         if (auth.CurrentUser != user)

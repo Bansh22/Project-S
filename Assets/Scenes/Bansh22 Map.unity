@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: targrtLayer.m_Bits
-      value: 0
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 4510657235222219157, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
@@ -757,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 9056076352887288658, guid: 7e2ddcf5ecbe62a43b7a919022f67208,
         type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

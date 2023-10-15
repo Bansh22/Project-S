@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SapWappon : MonoBehaviour
+public class SapWappon : Wappon
 {
-    private float damage;
-   
+
+    private ConfigReader reader;
+
 
     public void Init(float damage){
         this.damage = damage;
     }
 
 
-    public float Getdamage()
-    {
-        return damage;
-    }
+    
 
    
 }
