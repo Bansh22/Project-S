@@ -23,7 +23,7 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
 
 
-    public GameObject GetPoolsPrefabs(int index) {
+    public GameObject GetPoolsPrefabs (int index) {
 
         GameObject Select = null;
 

@@ -3,26 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting_Wappon: MonoBehaviour
+public class Shooting_Wappon: Wappon
 {
     private ConfigReader reader;
-    private float damage;
+    Rigidbody2D rigid;
     private int per;
-   
+    private float speed;
 
-    public void Init(float damage, int per){
-
-        this.per = per;
-        this.damage = damage;
-    }
-
-
-    public float Getdamage()
+    private void Awake()
     {
-        return damage;
+        rigid = GetComponent<Rigidbody2D>();
+    }
+    public void Init(float damage,Vector3 dir, float speed){
+
+     
+        this.damage = damage;
+        rigid.velocity = dir * speed;
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Enemy"))
+        {
+            return;
+        }
+        Debug.Log("파괴에에에에!");
+        Destroy(gameObject);
+    }
+
+
+
 }
 
 
