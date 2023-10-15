@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WPDamageBuffPotion : MonoBehaviour
+public class HealingPotion : ItemParent
 {
     ConfigReader reader;
-    private float buff;
+    private float heal;
     private float spawnChance;
     private void Awake()
     {
-        reader = new ConfigReader("WPDamageBuff");
-        buff = reader.Search<float>("buff");
-        buff = 20;
+        reader = new ConfigReader("Healing");
+        heal = reader.Search<float>("Heal");
+        heal = 20;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
-            weaponManager.DamageUp(buff);
+            PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
+            player.Healing(heal);
+            DeleteList();
             Destroy(gameObject);
         }
     }

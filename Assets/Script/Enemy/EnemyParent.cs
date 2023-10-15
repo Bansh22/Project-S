@@ -33,8 +33,6 @@ public class EnemyParent : MonoBehaviour
     //오브젝트 계층
     private int order;
 
-
-    public GameObject[] gemPrefabs;
     private float fixedProbability = 50f;
 
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
@@ -100,15 +98,17 @@ public class EnemyParent : MonoBehaviour
         {
             yield return wait;
         }
-        if (gemPrefabs.Length != 0)
+
+        GameObject[] dropList = GameManager.instance.DropManage.dropPrefabs;
+        if (dropList.Length!= 0)
         {
             bool onetime = true;
-            for (int i= 0; i < gemPrefabs.Length; i++)
+            for (int i= 0; i < dropList.Length; i++)
             {
                 float randomValue = Random.Range(0f, 100f);
                 if (randomValue <= fixedProbability && onetime) {
                     onetime = false;
-                    Instantiate(gemPrefabs[i], transform.position, Quaternion.identity);
+                    GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);
                 }
             }
         }

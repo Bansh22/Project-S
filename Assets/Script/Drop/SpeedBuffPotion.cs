@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealingPotion : MonoBehaviour
+public class SpeedBuffPotion : ItemParent
 {
     ConfigReader reader;
-    private float heal;
+    private float buff;
     private float spawnChance;
     private void Awake()
     {
-        reader = new ConfigReader("Healing");
-        heal = reader.Search<float>("Heal");
-        heal = 20;
+        reader = new ConfigReader("SpeedBuff");
+        buff = reader.Search<float>("Buff");
+        buff = 0.2f;
         spawnChance = reader.Search<float>("Chance");
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +19,8 @@ public class HealingPotion : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
-            player.Healing(heal);
+            player.SpeedBuff(buff);
+            DeleteList();
             Destroy(gameObject);
         }
     }

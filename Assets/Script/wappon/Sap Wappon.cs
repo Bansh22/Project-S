@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SapWappon : MonoBehaviour
 {
-    private ConfigReader reader;
     private float damage;
    
 

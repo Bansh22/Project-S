@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public AudioManageer AudioManager;
     public static bool ispause = false;
     public UIManager uiManger;
+    public Drop_Manage DropManage;
 
     [Header("#PlayerInfo")]
     public Player player;
