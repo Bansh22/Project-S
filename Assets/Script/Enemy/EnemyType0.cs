@@ -10,7 +10,7 @@ public class EnemyType0 : EnemyParent
     //현재 속도
     private Vector3 currentVelocity;
     private float smoothTime = 0.1f; // 관성을 부드럽게 만들기 위한 시간 설정
-    
+
     //추적대상 수정
     public void setTracePlayer(Player player)
     {

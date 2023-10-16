@@ -94,13 +94,11 @@ public class EnemyParent : MonoBehaviour
 
             //hit 애니메이션 작동
             anim.SetTrigger("Hit");
-            if (isKnock)
-            {
-                //코루틴 작동
-                StartCoroutine(KnockBack());
-            }
+            //코루틴 작동
+            StartCoroutine(KnockBack());
         }
     }
+
     //코루틴으로 넉백 작동
     //현재 유저 위치와 반대로 밀림
     //KnockForce로 밀리는 정도 조절가능
@@ -110,12 +108,22 @@ public class EnemyParent : MonoBehaviour
         //FixedUpdate 시간 만큼 정지
         yield return wait;
         //플레이어 위치
+        render.color = new Color(0.3f,0.3f,0.3f);
         Vector3 plyPos = GameManager.instance.player.transform.position;
         //현 위치 - 플레이어 위치
         Vector3 dirVec = transform.position - plyPos;
+        //넉백 여부
+        if (isKnock)
+        {
         //물리 컴포넌트
         //ForceMode2D.Impulse으로 순간적인 힘 적용
-        rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
+            rigid.AddForce(dirVec.normalized * KnockForce, ForceMode2D.Impulse);
+        }
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1))
+        {
+            yield return wait;
+        }
+        render.color = Color.white;
     }
 
     IEnumerator Dead()
@@ -123,7 +131,7 @@ public class EnemyParent : MonoBehaviour
         rigid.velocity = Vector3.zero;
         GameManager.instance.catchEnemy++;
         yield return wait;
-        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=3))
+        while (!(anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1))
         {
             yield return wait;
         }
