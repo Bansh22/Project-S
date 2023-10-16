@@ -33,7 +33,7 @@ public class EnemyParent : MonoBehaviour
     //오브젝트 계층
     private int order;
 
-    private float fixedProbability = 50f;
+    private float fixedProbability = 25f;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -137,7 +137,9 @@ public class EnemyParent : MonoBehaviour
                 float randomValue = Random.Range(0f, 100f);
                 if (randomValue <= fixedProbability && onetime) {
                     onetime = false;
-                    GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);
+                    bool dropResult=GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);
+                    if (!dropResult)
+                        onetime = true;
                 }
             }
         }
