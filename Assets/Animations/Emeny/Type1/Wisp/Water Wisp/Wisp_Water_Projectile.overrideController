@@ -8,4 +8,7 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Wisp_Water_Projectile
   m_Controller: {fileID: 9100000, guid: 9419a54d2f2aac64383a3ae55da8d25c, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5df999d2a07227346bef89273a81beb3, type: 2}
+    m_OverrideClip: {fileID: -139364887524879693, guid: 90da00c3b659ecd4db3d0630d9f39136,
+      type: 3}
