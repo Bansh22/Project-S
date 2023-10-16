@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 4108412899157563160}
   - component: {fileID: -7571107615619056008}
-  - component: {fileID: 5472790541687623837}
+  - component: {fileID: 7279682400416419130}
   m_Layer: 10
   m_Name: Enemy_Wisp_Fire
   m_TagString: Enemy
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc453b7db178e144baf9ade5885b1b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &5472790541687623837
-PolygonCollider2D:
+--- !u!58 &7279682400416419130
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -194,37 +194,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.052, y: 0.15}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.62, y: 0.43}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.07, y: 0.13499999}
-      - {x: -0.14, y: 0.045}
-      - {x: -0.14, y: -0.095}
-      - {x: -0.048472226, y: -0.117360994}
-      - {x: 0.112882, y: -0.11312494}
-      - {x: 0.14847222, y: -0.110416606}
-      - {x: 0.16, y: 0.095}
-      - {x: 0.14, y: 0.13499999}
-    - - {x: 0.01, y: 0.114999995}
-      - {x: 0.04, y: 0.125}
-      - {x: 0.04, y: 0.155}
-      - {x: 0.01, y: 0.16499999}
-      - {x: -0.01, y: 0.145}
-    - - {x: 0.099999994, y: 0.114999995}
-      - {x: 0.13, y: 0.125}
-      - {x: 0.13, y: 0.155}
-      - {x: 0.099999994, y: 0.16499999}
-      - {x: 0.08, y: 0.145}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0, y: 0.13997033}
+  serializedVersion: 2
+  m_Radius: 0.08452493
 --- !u!1001 &526524609970571458
 PrefabInstance:
   m_ObjectHideFlags: 0

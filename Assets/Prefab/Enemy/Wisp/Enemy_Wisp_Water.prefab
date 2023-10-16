@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 4108412899157563160}
   - component: {fileID: -7571107615619056008}
-  - component: {fileID: 5806641501199751872}
+  - component: {fileID: 6439903369240517408}
   m_Layer: 10
   m_Name: Enemy_Wisp_Water
   m_TagString: Enemy
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4e9774184c3681e42a4b3779c3bc67ae, type: 3}
+  m_Sprite: {fileID: 1281283324, guid: 5b842f3932eb14f408d32fad61861375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc453b7db178e144baf9ade5885b1b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &5806641501199751872
-PolygonCollider2D:
+--- !u!58 &6439903369240517408
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -194,28 +194,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.41, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.03232234, y: 0.1278731}
-      - {x: -0.085, y: 0.120000005}
-      - {x: -0.085, y: 0}
-      - {x: -0.065, y: -0.07}
-      - {x: -0.044999998, y: -0.089999996}
-      - {x: 0.105, y: -0.089999996}
-      - {x: 0.185, y: -0.060000002}
-      - {x: 0.17177111, y: 0.12488142}
-      - {x: 0.12877965, y: 0.14488152}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: -0.012000005, y: 0.081832156}
+  serializedVersion: 2
+  m_Radius: 0.101832114
 --- !u!1001 &5132612992745023165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,12 +213,12 @@ PrefabInstance:
     - target: {fileID: 3195658548803685633, guid: 1bd9be62fff19c94bb9aa80fa6d7cc06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0536
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3195658548803685633, guid: 1bd9be62fff19c94bb9aa80fa6d7cc06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3195658548803685633, guid: 1bd9be62fff19c94bb9aa80fa6d7cc06,
         type: 3}
