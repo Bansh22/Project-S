@@ -206,7 +206,7 @@ MonoBehaviour:
   ScanRange: 7
   targrtLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
 --- !u!1001 &526191967604448772
 PrefabInstance:
