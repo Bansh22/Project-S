@@ -54,6 +54,16 @@ public class Reposition : MonoBehaviour
                 {
                     Vector3 unitPly = playerDir.normalized;
                     //대각선에 의해 크기가 1보다 커지는 것을 대비
+                    if (unitPly == Vector3.zero)
+                    {
+                        float round = Random.Range(0, 360)* Mathf.PI / 180.0f;
+                        //각도를 라디안으로 변환
+                        Vector3 spawnRound = new Vector3(1 * Mathf.Cos(round) - 0 * Mathf.Sin(round), 1 * Mathf.Sin(round) + 0 * Mathf.Cos(round));
+                        //유저 이동하는 방향(단위벡터)에서 램덤 각도로 회전 
+                        transform.position = playerPos + 10 * spawnRound;
+                        //유저 기준으로 반지름 10인 원 테두리에서 스폰(설정된 각도에서만)
+                        break;
+                    }
                     float radian = Random.Range(-angle, angle) * Mathf.PI / 180.0f;
                     //각도를 라디안으로 변환
                     Vector3 spawnRadian = new Vector3(unitPly.x * Mathf.Cos(radian) - unitPly.y * Mathf.Sin(radian), unitPly.x * Mathf.Sin(radian) + unitPly.y * Mathf.Cos(radian));
