@@ -190,6 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d404276d2f7174c985982e71fc1cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messagecanvas: {fileID: 2931942368333638342, guid: 889182d53548b2d43b062da7693d8edf,
+    type: 3}
+  textmessage: {fileID: 9085994943220750958, guid: e372170057a000f4a81b1a56f74b8249,
+    type: 3}
   inputVec: {x: 0, y: 0, z: 0}
   mobscan: {fileID: 0}
 --- !u!114 &4255365097926706802
