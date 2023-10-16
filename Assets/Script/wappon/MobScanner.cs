@@ -30,7 +30,6 @@ public class MobScanner : MonoBehaviour
             Vector3 myPos = transform.position;
             Vector3 targetPos = target.transform.position;
             float curDiff = Vector3.Distance(myPos, targetPos);
-
             if (curDiff < diff)
             {
                 diff = curDiff;

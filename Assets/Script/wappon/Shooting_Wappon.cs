@@ -27,7 +27,6 @@ public class Shooting_Wappon: Wappon
         {
             return;
         }
-        Debug.Log("파괴에에에에!");
         Destroy(gameObject);
     }
 
