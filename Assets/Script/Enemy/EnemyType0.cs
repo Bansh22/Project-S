@@ -10,7 +10,7 @@ public class EnemyType0 : EnemyParent
     //현재 속도
     private Vector3 currentVelocity;
     private float smoothTime = 0.1f; // 관성을 부드럽게 만들기 위한 시간 설정
-
+    
     //추적대상 수정
     public void setTracePlayer(Player player)
     {
@@ -55,7 +55,7 @@ public class EnemyType0 : EnemyParent
         getRigidbody2D().velocity = Vector3.zero;
 
         //가는 방향으로 몸 위치 변환
-        getSpriteRenderer().flipX = moveVec.x < 0;
+        getSpriteRenderer().flipX = moveVec.x < 0 ? !getStartFilpX() :getStartFilpX();
 
         ////포인트 이동(서브 이동방법)
         //getTransform().Translate(moveVec * getSpeed() * Time.fixedDeltaTime);

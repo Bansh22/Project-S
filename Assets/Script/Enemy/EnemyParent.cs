@@ -30,6 +30,10 @@ public class EnemyParent : MonoBehaviour
     private float KnockForce;
     WaitForFixedUpdate wait;
 
+    //초기 방향(오른쪽으로 설정해야함)
+    //set get
+    private bool startFilpX;
+
     //오브젝트 계층
     private int order;
 
@@ -283,6 +287,15 @@ public class EnemyParent : MonoBehaviour
     public void setRegen(float regen)
     {
         this.regen = regen;
+    }
+    //filpX get,set코드
+    public bool getStartFilpX()
+    {
+        return this.startFilpX;
+    }
+    public void setStartFilpX(bool filpx)
+    {
+        this.startFilpX = filpx;
     }
 }
     
