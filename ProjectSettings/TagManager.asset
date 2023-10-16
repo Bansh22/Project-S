@@ -9,6 +9,7 @@ TagManager:
   - Area
   - Ground
   - Gem
+  - RelationE
   layers:
   - Default
   - TransparentFX

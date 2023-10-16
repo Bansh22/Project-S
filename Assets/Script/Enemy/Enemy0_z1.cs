@@ -41,6 +41,8 @@ public class Enemy0_z1 : EnemyType0
         setTracePlayer(GameManager.instance.player);
         //플레이어 추적
         playerTrace();
+        //보는 방향
+        setStartFilpX(getSpriteRenderer().flipX);
     }
     // Update is called once per frame
   

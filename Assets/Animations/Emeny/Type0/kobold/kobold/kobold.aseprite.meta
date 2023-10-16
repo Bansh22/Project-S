@@ -1,0 +1,1004 @@
+fileFormatVersion: 2
+guid: e2d7c85bef2404f4d90ec00b8876b944
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: kobold_Frame_0
+    originalName: 
+    pivot: {x: 0.6060606, y: -0.03333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 123
+      width: 66
+      height: 30
+    spriteID: 2706da2a63664cc40bf2ba17bbd0bd18
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 123}
+  - name: kobold_Frame_1
+    originalName: 
+    pivot: {x: 0.6060606, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 66
+      height: 32
+    spriteID: 09b5203d7d6234040b85239ed77416f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: kobold_Frame_2
+    originalName: 
+    pivot: {x: 0.6, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 65
+      height: 32
+    spriteID: 2f5b212658d6e5f4ca9f823c3f40ced4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
+  - name: kobold_Frame_3
+    originalName: 
+    pivot: {x: 0.6, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 65
+      height: 31
+    spriteID: 424c7ec2ee43c48498b5f13534fecd7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
+  - name: kobold_Frame_4
+    originalName: 
+    pivot: {x: 0.21212122, y: -0.03333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 411
+      width: 33
+      height: 30
+    spriteID: fe6f2a02b6c068b4ca32f5d5d1bcdc9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 411}
+  - name: kobold_Frame_5
+    originalName: 
+    pivot: {x: 0.62121207, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 161
+      width: 66
+      height: 29
+    spriteID: 5abd2e84984ab1b43bf337d2eae5d934
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 161}
+  - name: kobold_Frame_6
+    originalName: 
+    pivot: {x: 0.62318844, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 4
+      width: 69
+      height: 29
+    spriteID: 5e233d3e876cb6e41a3c8b33752062b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 4}
+  - name: kobold_Frame_7
+    originalName: 
+    pivot: {x: 0.61194026, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 78
+      width: 67
+      height: 29
+    spriteID: c8309369eff33db45ba7407af105cf33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 78}
+  - name: kobold_Frame_8
+    originalName: 
+    pivot: {x: 0.61764705, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 41
+      width: 68
+      height: 29
+    spriteID: e11fe9054d622d9429c4e3cba3cd8252
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 41}
+  - name: kobold_Frame_9
+    originalName: 
+    pivot: {x: 0.61194026, y: -0.035714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 115
+      width: 67
+      height: 28
+    spriteID: 17982bf67db43af41a83b9526b4ec290
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 115}
+  - name: kobold_Frame_10
+    originalName: 
+    pivot: {x: 0.2051282, y: -0.03333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 409
+      width: 39
+      height: 30
+    spriteID: 2573012362bcd4346b24d3297c6ed2f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 409}
+  - name: kobold_Frame_11
+    originalName: 
+    pivot: {x: 0.2051282, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 189
+      width: 39
+      height: 29
+    spriteID: 4ee36d72b2250e645810b4350ea3aafa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 189}
+  - name: kobold_Frame_12
+    originalName: 
+    pivot: {x: 0.559322, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 340
+      width: 59
+      height: 25
+    spriteID: 433e0676819b76d4da9ceda0568029a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 340}
+  - name: kobold_Frame_13
+    originalName: 
+    pivot: {x: 0.53571427, y: -0.037037037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 305
+      width: 56
+      height: 27
+    spriteID: cdf4b146880bc4e4085cc0dd5aadb848
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 305}
+  - name: kobold_Frame_14
+    originalName: 
+    pivot: {x: 0.559322, y: -0.037037037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 270
+      width: 59
+      height: 27
+    spriteID: 9bb504a1a50295644a01f9c8cc391ef5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 270}
+  - name: kobold_Frame_15
+    originalName: 
+    pivot: {x: 0.13157897, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 226
+      width: 38
+      height: 29
+    spriteID: 9ddccf82de133d24c893bafa05dc466a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 226}
+  - name: kobold_Frame_16
+    originalName: 
+    pivot: {x: 0.2105263, y: -0.03333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 447
+      width: 38
+      height: 30
+    spriteID: 91e76725e5a914a498c099b1b39a79d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 447}
+  - name: kobold_Frame_17
+    originalName: 
+    pivot: {x: 0.23684211, y: -0.03333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 151
+      width: 38
+      height: 30
+    spriteID: 0afc678293be1474483576ae6b0ebdbd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 151}
+  - name: kobold_Frame_18
+    originalName: 
+    pivot: {x: 0.2105263, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 263
+      width: 38
+      height: 29
+    spriteID: f3c20e701674c784aa7ed3f74436a853
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 263}
+  - name: kobold_Frame_19
+    originalName: 
+    pivot: {x: 0.41860467, y: -0.035714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 373
+      width: 43
+      height: 28
+    spriteID: f6a5bda4cf1793b4b982216448b6aed8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 373}
+  - name: kobold_Frame_20
+    originalName: 
+    pivot: {x: 0.43181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 300
+      width: 44
+      height: 25
+    spriteID: ff257e0035d0956418c02fde4b4a273d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 300}
+  - name: kobold_Frame_21
+    originalName: 
+    pivot: {x: 0.4883721, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 485
+      width: 43
+      height: 22
+    spriteID: 448cce665b75efd4fa49b16213033d45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 485}
+  - name: kobold_Frame_22
+    originalName: 
+    pivot: {x: 0.4883721, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 485
+      width: 43
+      height: 11
+    spriteID: bb1a1ed16cefa904593c82ef545f635a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 485}
+  - name: kobold_Frame_23
+    originalName: 
+    pivot: {x: 0.4883721, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 4
+      width: 43
+      height: 11
+    spriteID: 79c12d4ad96f3a949ac82480c30b6bd4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 198, y: 4}
+  - name: kobold_Frame_24
+    originalName: 
+    pivot: {x: 0.4883721, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 23
+      width: 43
+      height: 11
+    spriteID: 5c93963852e3aec4c8f89ef41f4c4c82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 198, y: 23}
+  - name: kobold_Frame_25
+    originalName: 
+    pivot: {x: 0.6060606, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 198
+      width: 66
+      height: 29
+    spriteID: f81c805f9dcc3c64bae536e3042e592f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 198}
+  - name: kobold_Frame_26
+    originalName: 
+    pivot: {x: 0.6153847, y: -0.037037037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 235
+      width: 65
+      height: 27
+    spriteID: 829633fdd4c550142824cc0823926a6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 235}
+  - name: kobold_Frame_27
+    originalName: 
+    pivot: {x: 0.31428573, y: -0.035714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 449
+      width: 35
+      height: 28
+    spriteID: e70fa0782f0202c409cf28e64230825f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 449}
+  - name: kobold_Frame_28
+    originalName: 
+    pivot: {x: 0.31428573, y: -0.035714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 155
+      y: 4
+      width: 35
+      height: 28
+    spriteID: a78dce6ba12ba1e4a9fb440401eb7f68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 155, y: 4}
+  - name: kobold_Frame_29
+    originalName: 
+    pivot: {x: 0.2647059, y: -0.06451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 333
+      width: 34
+      height: 31
+    spriteID: 924ca3eb79919c14eba2e51121caea2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 333}
+  - name: kobold_Frame_30
+    originalName: 
+    pivot: {x: 0.27272728, y: -0.06451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 372
+      width: 33
+      height: 31
+    spriteID: 991344622d99ec4468485e9b021b9250
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 372}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1039756545
+    name: kobold
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: kobold_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -6
+        y: 1
+        width: 66
+        height: 30
+      spriteId: 2706da2a63664cc40bf2ba17bbd0bd18
+    - name: kobold_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -6
+        y: 1
+        width: 66
+        height: 32
+      spriteId: 09b5203d7d6234040b85239ed77416f1
+    - name: kobold_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -5
+        y: 1
+        width: 65
+        height: 32
+      spriteId: 2f5b212658d6e5f4ca9f823c3f40ced4
+    - name: kobold_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -5
+        y: 1
+        width: 65
+        height: 31
+      spriteId: 424c7ec2ee43c48498b5f13534fecd7c
+    - name: kobold_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 27
+        y: 1
+        width: 33
+        height: 30
+      spriteId: fe6f2a02b6c068b4ca32f5d5d1bcdc9a
+    - name: kobold_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -7
+        y: 1
+        width: 66
+        height: 29
+      spriteId: 5abd2e84984ab1b43bf337d2eae5d934
+    - name: kobold_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -9
+        y: 1
+        width: 69
+        height: 29
+      spriteId: 5e233d3e876cb6e41a3c8b33752062b9
+    - name: kobold_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -7
+        y: 1
+        width: 67
+        height: 29
+      spriteId: c8309369eff33db45ba7407af105cf33
+    - name: kobold_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -8
+        y: 1
+        width: 68
+        height: 29
+      spriteId: e11fe9054d622d9429c4e3cba3cd8252
+    - name: kobold_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -7
+        y: 1
+        width: 67
+        height: 28
+      spriteId: 17982bf67db43af41a83b9526b4ec290
+    - name: kobold_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 26
+        y: 1
+        width: 39
+        height: 30
+      spriteId: 2573012362bcd4346b24d3297c6ed2f8
+    - name: kobold_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 26
+        y: 1
+        width: 39
+        height: 29
+      spriteId: 4ee36d72b2250e645810b4350ea3aafa
+    - name: kobold_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 1
+        y: 1
+        width: 59
+        height: 25
+      spriteId: 433e0676819b76d4da9ceda0568029a8
+    - name: kobold_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 4
+        y: 1
+        width: 56
+        height: 27
+      spriteId: cdf4b146880bc4e4085cc0dd5aadb848
+    - name: kobold_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 1
+        y: 1
+        width: 59
+        height: 27
+      spriteId: 9bb504a1a50295644a01f9c8cc391ef5
+    - name: kobold_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 29
+        y: 1
+        width: 38
+        height: 29
+      spriteId: 9ddccf82de133d24c893bafa05dc466a
+    - name: kobold_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 26
+        y: 1
+        width: 38
+        height: 30
+      spriteId: 91e76725e5a914a498c099b1b39a79d7
+    - name: kobold_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 25
+        y: 1
+        width: 38
+        height: 30
+      spriteId: 0afc678293be1474483576ae6b0ebdbd
+    - name: kobold_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 26
+        y: 1
+        width: 38
+        height: 29
+      spriteId: f3c20e701674c784aa7ed3f74436a853
+    - name: kobold_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 16
+        y: 1
+        width: 43
+        height: 28
+      spriteId: f6a5bda4cf1793b4b982216448b6aed8
+    - name: kobold_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 15
+        y: 0
+        width: 44
+        height: 25
+      spriteId: ff257e0035d0956418c02fde4b4a273d
+    - name: kobold_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 13
+        y: 1
+        width: 43
+        height: 22
+      spriteId: 448cce665b75efd4fa49b16213033d45
+    - name: kobold_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 13
+        y: 1
+        width: 43
+        height: 11
+      spriteId: bb1a1ed16cefa904593c82ef545f635a
+    - name: kobold_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 13
+        y: 1
+        width: 43
+        height: 11
+      spriteId: 79c12d4ad96f3a949ac82480c30b6bd4
+    - name: kobold_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 13
+        y: 1
+        width: 43
+        height: 11
+      spriteId: 5c93963852e3aec4c8f89ef41f4c4c82
+    - name: kobold_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: -6
+        y: 1
+        width: 66
+        height: 29
+      spriteId: f81c805f9dcc3c64bae536e3042e592f
+    - name: kobold_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: -6
+        y: 1
+        width: 65
+        height: 27
+      spriteId: 829633fdd4c550142824cc0823926a6c
+    - name: kobold_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 23
+        y: 1
+        width: 35
+        height: 28
+      spriteId: e70fa0782f0202c409cf28e64230825f
+    - name: kobold_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 23
+        y: 1
+        width: 35
+        height: 28
+      spriteId: a78dce6ba12ba1e4a9fb440401eb7f68
+    - name: kobold_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 25
+        y: 2
+        width: 34
+        height: 31
+      spriteId: 924ca3eb79919c14eba2e51121caea2f
+    - name: kobold_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 25
+        y: 2
+        width: 33
+        height: 31
+      spriteId: 991344622d99ec4468485e9b021b9250
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 68, y: 35}
