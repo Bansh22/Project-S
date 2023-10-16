@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//무기 개수를 늘린다.
 public class WPCountBuffPotion : ItemParent
 {
-    ConfigReader reader;
-    private float spawnChance;
-    private void Awake()
+    private readonly ConfigReader reader;
+    public WPCountBuffPotion()
     {
-        reader = new ConfigReader("WPCountBuff");
-        spawnChance = reader.Search<float>("Chance");
+        reader = new ConfigReader("WPCountPotion");
+        setLimit(reader.Search<int>("Limit"));
+        setChance(reader.Search<float>("Chance"));
+        setWorldLimit(true);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +18,7 @@ public class WPCountBuffPotion : ItemParent
         {
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
             weaponManager.CountUp();
-            DeleteList();
+            DeleteList(Drop_Manage.Drop.WPCount);
             Destroy(gameObject);
         }
     }
