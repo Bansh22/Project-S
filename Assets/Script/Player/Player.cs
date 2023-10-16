@@ -7,6 +7,7 @@ public class Player : PlayerParent
     ConfigReader reader;
     public Vector3 inputVec;
     public MobScanner mobscan;
+    
    
     public Player()
     {
@@ -38,8 +39,10 @@ public class Player : PlayerParent
     }
     // Update is called once per frame
 
-    void Update()
+    protected new void Update()
     {
+
+        base.Update();
         if (!getLive())
         {
             inputVec = Vector3.zero;
