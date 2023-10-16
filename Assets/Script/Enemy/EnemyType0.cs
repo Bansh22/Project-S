@@ -54,6 +54,14 @@ public class EnemyType0 : EnemyParent
         //가속되는 속도 삭제
         getRigidbody2D().velocity = Vector3.zero;
 
+        if(moveVec.x < 0)
+        {
+            getSpriteRenderer().flipX =!getStartFilpX();
+        }
+        else if(moveVec.x > 0)
+        {
+            getSpriteRenderer().flipX =getStartFilpX();
+        }
         //가는 방향으로 몸 위치 변환
         getSpriteRenderer().flipX = moveVec.x < 0 ? !getStartFilpX() :getStartFilpX();
 

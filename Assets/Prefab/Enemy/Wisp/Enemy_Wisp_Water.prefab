@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5249304432852415358}
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 4108412899157563160}
-  - component: {fileID: -7571107615619056008}
   - component: {fileID: 6439903369240517408}
+  - component: {fileID: -6343971577365561005}
   m_Layer: 10
   m_Name: Enemy_Wisp_Water
   m_TagString: Enemy
@@ -150,18 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96624b2bc38e4c4fb0ca6b41c2abc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7571107615619056008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993219727800843429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc453b7db178e144baf9ade5885b1b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &6439903369240517408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +185,19 @@ CircleCollider2D:
   m_Offset: {x: -0.012000005, y: 0.081832156}
   serializedVersion: 2
   m_Radius: 0.101832114
+--- !u!114 &-6343971577365561005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993219727800843429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3163b8ebc8cf3c3478610f2d5f4f14a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepDir: 4
 --- !u!1001 &5132612992745023165
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -37,12 +37,12 @@ public class Enemy0_z0 : EnemyType0
         setKnockForce(2);
         //object 기본 세팅
         setObject();
+        //보는 방향(주의:playerTrace 보다 위에 존재해야한다.)
+        setStartFilpX(getSpriteRenderer().flipX);
         //플레이어 추적 대상 설정
         setTracePlayer(GameManager.instance.player);
         //플레이어 추적
         playerTrace();
-        //보는 방향
-        setStartFilpX(getSpriteRenderer().flipX);
     }
     // Update is called once per frame
     void Update()
