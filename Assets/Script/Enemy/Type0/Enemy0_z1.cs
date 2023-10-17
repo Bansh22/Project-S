@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy0_z1 : EnemyType0
 {
-    //사전 클래스
-    private readonly ConfigReader reader;
     public Enemy0_z1()
     {
+        //키 설정
+        setKey("Enemy0_Z1");
         //Enemy0 사전 열기
         reader = new ConfigReader("Enemy0_Z1");
         //속도 설정
@@ -31,6 +31,7 @@ public class Enemy0_z1 : EnemyType0
     }
     public void startfun()
     {
+        Init();
         //넉백되는지 안되는지
         setKnock(true);
         //넉백되는 정도

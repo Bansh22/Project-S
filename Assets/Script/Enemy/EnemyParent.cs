@@ -4,6 +4,10 @@ using UnityEngine;
 [SerializeField]
 public class EnemyParent : MonoBehaviour
 {
+    //사전
+    public ConfigReader reader;
+    private string key;
+
     //컴포넌트 기능 Get함수로 반환
     private GameObject mine;
     private Transform trans;
@@ -18,12 +22,22 @@ public class EnemyParent : MonoBehaviour
     private float hp;
     private bool hpBar=true;
     //몹 regen 시간
-    private float regen; //(config 등록)
+    public float regen; //(config 등록)
     
     private float damage;
 
     // Set, Get 이 있고 Change가 있는 함수, 
     private bool isLive;
+
+    //type1 투사체
+    public GameObject projectil;
+    //get, set
+    //투사체 데미지
+    private float fireDamage;
+    //투사체 주기
+    private float fireRate;
+    //투사체 속도
+    private float fireSpeed;
 
     // Set, Get 이 있고 KnockBack와 관련 있는 함수,
     private bool isKnock;//넉백
@@ -39,7 +53,29 @@ public class EnemyParent : MonoBehaviour
 
     private float fixedProbability = 25f;
 
-
+    public void Init()
+    {
+        setReader(new ConfigReader(key));
+        //속도 설정
+        setSpeed(getReader().Search<float>("speed"));
+        //MaxHp 설정
+        setMaxHp(getReader().Search<float>("hp"));
+        //Hp 설정
+        setHp(getReader().Search<float>("hp"));
+        //주는 데미지 설정
+        setDamage(getReader().Search<float>("damage"));
+        //리젠 시간
+        setRegen(getReader().Search<float>("regen"));
+        //현재 살아있는 상태 설정
+        setLive(true);
+        //투사체 관련(데미지, 주기, 속도)
+        if (projectil != null)
+        {
+            setFireDamage(reader.Search<float>("FireDamage"));
+            setFireRate(reader.Search<float>("FireRate"));
+            setFireSpeed(reader.Search<float>("FireSpeed"));
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //충돌 대상이 총알 아닐때 이벤트 종료 || 살아있을때 || 히트애니메이션가 유지되지않을때
@@ -298,6 +334,48 @@ public class EnemyParent : MonoBehaviour
     public void setStartFilpX(bool filpx)
     {
         this.startFilpX = filpx;
+    }
+    //사전 get set
+    public ConfigReader getReader()
+    {
+        return this.reader;
+    }
+    public void setReader(ConfigReader reader)
+    {
+        this.reader = reader;
+    }
+    public string getKey()
+    {
+        return this.key;
+    }
+    public void setKey(string key)
+    {
+        this.key = key;
+    }
+
+    public float getFireDamage()
+    {
+        return this.fireDamage;
+    }
+    public void setFireDamage(float damage)
+    {
+        this.fireDamage = damage;
+    }
+    public float getFireRate()
+    {
+        return this.fireRate;
+    }
+    public void setFireRate(float rate)
+    {
+        this.fireRate = rate;
+    }
+    public float getFireSpeed()
+    {
+        return this.fireSpeed;
+    }
+    public void setFireSpeed(float speed)
+    {
+        this.fireSpeed = speed;
     }
 }
     

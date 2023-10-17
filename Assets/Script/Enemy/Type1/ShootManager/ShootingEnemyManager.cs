@@ -7,13 +7,13 @@ public class ShootingEnemyManager : MonoBehaviour
     private float fireDamage;
     private float fireRate;
     private float fireSpeed;
-    EnemyType1 enemyInfo;
+    EnemyParent enemyInfo;
     private float fireRand;
     private float timer;
     private Player player;
     private void Start()
     {
-        enemyInfo = gameObject.GetComponentInParent<EnemyType1>();
+        enemyInfo = gameObject.GetComponentInParent<EnemyParent>();
         fireDamage = enemyInfo.getFireDamage();
         fireRate = enemyInfo.getFireRate();
         fireSpeed = enemyInfo.getFireSpeed();
