@@ -9,7 +9,7 @@ public class Enemy1_Wisp : EnemyType1
     public Enemy1_Wisp()
     {
         //Enemy0 사전 열기
-        reader = new ConfigReader("Enemy0_S0");
+        reader = new ConfigReader("Enemy1_Wisp");
         //속도 설정
         setSpeed(reader.Search<float>("speed"));
         //MaxHp 설정
@@ -20,6 +20,10 @@ public class Enemy1_Wisp : EnemyType1
         setDamage(reader.Search<float>("damage"));
         //리젠 시간
         setRegen(reader.Search<float>("regen"));
+        //투사체 관련(데미지, 주기, 속도)
+        setFireDamage(reader.Search<float>("FireDamage"));
+        setFireRate(reader.Search<float>("FireRate"));
+        setFireSpeed(reader.Search<float>("FireSpeed"));
         //현재 살아있는 상태 설정
         setLive(true);
     }

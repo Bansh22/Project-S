@@ -13,6 +13,13 @@ public class EnemyType1 : EnemyParent
     private Vector3 currentVelocity;
     private float smoothTime = 0.1f; // 관성을 부드럽게 만들기 위한 시간 설정
 
+    //get, set
+    //투사체 데미지
+    private float fireDamage;
+    //투사체 주기
+    private float fireRate;
+    //투사체 속도
+    private float fireSpeed;
     //추적대상 수정
     public void setTracePlayer(Player player)
     {
@@ -90,5 +97,30 @@ public class EnemyType1 : EnemyParent
     {
         //다시 나타날때 추적대상 설정
         setTracePlayer(GameManager.instance.player);
+    }
+
+    public float getFireDamage()
+    {
+        return this.fireDamage;
+    }
+    public void setFireDamage(float damage)
+    {
+        this.fireDamage = damage;
+    }
+    public float getFireRate()
+    {
+        return this.fireRate;
+    }
+    public void setFireRate(float rate)
+    {
+        this.fireRate = rate;
+    }
+    public float getFireSpeed()
+    {
+        return this.fireSpeed;
+    }
+    public void setFireSpeed(float speed)
+    {
+        this.fireSpeed = speed;
     }
 }

@@ -6,7 +6,7 @@ public class AudioManageer : MonoBehaviour
 {
     public static AudioManageer instance;
     [Header("#BGM")]
-    public AudioClip bgmClip;
+    public AudioClip[] bgmClip;
     public float bgmVolume;
     AudioSource bgmPlayer;
 
@@ -18,13 +18,19 @@ public class AudioManageer : MonoBehaviour
     int channelIndex;
 
 
+    public enum Bgm { 
+        Village,
+        Battle1,
+        Battle2,
+        Battle3,
+    }
     public enum Sfx { 
         Dead,
-        Hit,
-        LevelUp=3,
+        Hit=3,
+        LevelUp=4,
         Lose,
         Melee,
-        Range=7,
+        Range=8,
         Select,
         Win
     }
@@ -42,7 +48,6 @@ public class AudioManageer : MonoBehaviour
         bgmPlayer.playOnAwake = false; //바로 작동되는거 차단.한번만 출력X
         bgmPlayer.loop = true; //반복
         bgmPlayer.volume = bgmVolume;
-        bgmPlayer.clip = bgmClip;
         
 
         //효과음 플레이어 초기화
@@ -75,8 +80,9 @@ public class AudioManageer : MonoBehaviour
         }
     }
 
-    public void PlayBgm()
+    public void PlayBgm(Bgm bgm)
     {
+        bgmPlayer.clip = bgmClip[(int)bgm];
         bgmPlayer.Play();
     }
     public void StopBgm()

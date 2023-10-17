@@ -7,11 +7,13 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wisp_Wind
-  m_Controller: {fileID: 9100000, guid: 5c7bb0eb98057f142bfca91216f5a6d9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 026bbbf9dbd7b5745884abbeda0406f2, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 5be4cbb3705600b438ac0edc8c26ed0e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a9f3b7fb65674c84a99488062f010d1a, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: cd3925008ff0844408cd9eb19740bb75, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: eef91aa01fddf0f438b0c099f1862f17, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 79b8ba3606e2abf48a81a84c71b9ef61, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 805942fc89e2fcb4c9851bb488b0a98b, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 449cb1529ed6cf649a3a8457da196b6c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0eb811a22652c75409a326a43509e483, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eef91aa01fddf0f438b0c099f1862f17, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 46630e53341f1404185ee0297d542834, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a9f3b7fb65674c84a99488062f010d1a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 935dddb64beb0ed4c8ae7cf5b50d8a1a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 603b1a43c27843f4ebb13deb34585a54, type: 2}

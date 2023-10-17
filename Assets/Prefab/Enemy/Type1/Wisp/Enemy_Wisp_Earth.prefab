@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3906868740397737666}
   - component: {fileID: 496554310642183790}
-  - component: {fileID: 5249304432852415358}
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 4108412899157563160}
   - component: {fileID: 7987975201897560746}
   - component: {fileID: 575488250258379701}
+  - component: {fileID: 3239145605921937562}
   m_Layer: 10
   m_Name: Enemy_Wisp_Earth
   m_TagString: Enemy
@@ -92,27 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5249304432852415358
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993219727800843429}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 58c76430f90ae974aa7d24bc0190cf85, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &8080341983936418573
 Rigidbody2D:
   serializedVersion: 4
@@ -202,6 +181,27 @@ MonoBehaviour:
   projectil: {fileID: 6981167425694023349, guid: e4ca8794b8508c543afb09c97b15302e,
     type: 3}
   keepDir: 4
+--- !u!95 &3239145605921937562
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993219727800843429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 58c76430f90ae974aa7d24bc0190cf85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7633321027510862554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 758250696074192770, guid: 32a8639f503171946b1c3a31fb9766b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 758250696074192770, guid: 32a8639f503171946b1c3a31fb9766b9,
         type: 3}

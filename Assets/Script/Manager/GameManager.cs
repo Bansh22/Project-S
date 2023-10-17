@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [Serializable]
@@ -37,7 +38,15 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        AudioManageer.instance.PlayBgm();
+        Scene scene= SceneManager.GetActiveScene();
+        if (scene.name=="Town")
+        {
+            AudioManageer.instance.PlayBgm(AudioManageer.Bgm.Village);
+        }
+        else
+        {
+            AudioManageer.instance.PlayBgm(AudioManageer.Bgm.Battle1);
+        }
     }
 
     private void FixedUpdate()
