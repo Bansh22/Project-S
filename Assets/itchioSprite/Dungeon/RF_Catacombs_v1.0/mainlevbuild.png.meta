@@ -333,9 +333,9 @@ TextureImporter:
       name: mainlevbuild_8
       rect:
         serializedVersion: 2
-        x: 26
+        x: 65
         y: 450
-        width: 268
+        width: 190
         height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
