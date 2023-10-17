@@ -54,7 +54,7 @@ public class Reposition : MonoBehaviour
                 {
                     Vector3 unitPly = playerDir.normalized;
                     //대각선에 의해 크기가 1보다 커지는 것을 대비
-                    if (unitPly == Vector3.zero)
+                    if (playerDir.magnitude==0)
                     {
                         float round = Random.Range(0, 360)* Mathf.PI / 180.0f;
                         //각도를 라디안으로 변환

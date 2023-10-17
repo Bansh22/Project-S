@@ -31,8 +31,7 @@ public class HUD : MonoBehaviour
                 //Text에 들어갈 문자 
                 //Format의 작성방식 ("형태", 변수) {0:F0}> 0번째 변수, F0 0개의 소수점
                 //수정 필요!
-                int weaponCont = nearing_Wappon_Manager.GetCount(0);
-                myText.text = string.Format("LV.{0:F0}", weaponCont);
+                myText.text = string.Format("LVD.{0:F0},LVC.{1:F0}", GameManager.instance.Level1, GameManager.instance.Level2);
                 break;
             case InfoType.Result:
                 //Text에 들어갈 문자 

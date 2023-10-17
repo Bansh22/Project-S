@@ -77,8 +77,6 @@ public class PlayerParent : MonoBehaviour
         
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            
-
             if (Innpc)
             {
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();

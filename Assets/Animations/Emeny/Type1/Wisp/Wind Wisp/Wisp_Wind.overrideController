@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Wisp_Wind
+  m_Controller: {fileID: 9100000, guid: 026bbbf9dbd7b5745884abbeda0406f2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 805942fc89e2fcb4c9851bb488b0a98b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 449cb1529ed6cf649a3a8457da196b6c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0eb811a22652c75409a326a43509e483, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eef91aa01fddf0f438b0c099f1862f17, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 46630e53341f1404185ee0297d542834, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a9f3b7fb65674c84a99488062f010d1a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 935dddb64beb0ed4c8ae7cf5b50d8a1a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 603b1a43c27843f4ebb13deb34585a54, type: 2}
