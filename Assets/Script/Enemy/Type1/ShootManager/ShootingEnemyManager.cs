@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ShootingEnemyManager : MonoBehaviour
 {
-    private float fireDamage;
-    private float fireRate;
-    private float fireSpeed;
     EnemyParent enemyInfo;
     private float fireRand;
     private float timer;
@@ -14,9 +11,6 @@ public class ShootingEnemyManager : MonoBehaviour
     private void Start()
     {
         enemyInfo = gameObject.GetComponentInParent<EnemyParent>();
-        fireDamage = enemyInfo.getFireDamage();
-        fireRate = enemyInfo.getFireRate();
-        fireSpeed = enemyInfo.getFireSpeed();
         fireRand = Random.Range(-0.5f, 0.5f);
         player = GameManager.instance.player;
     }
@@ -24,14 +18,14 @@ public class ShootingEnemyManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!enemyInfo.getLive())
+        if (!enemyInfo.IsLive)
             return;
         timer += Time.deltaTime;
-        if(timer> (fireRate + fireRand) - 0.4 && player.getLive() && !enemyInfo.getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        if(timer> (enemyInfo.getFireRate() + fireRand) - 0.45 && player.getLive() && !enemyInfo.getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
         {
             enemyInfo.getAnimator().SetBool("Charge",true);
         }
-        if (timer > (fireRate+ fireRand))
+        if (timer > (enemyInfo.getFireRate() + fireRand))
         {
             timer = 0;
             FireShhooting();
@@ -61,6 +55,6 @@ public class ShootingEnemyManager : MonoBehaviour
         GameObject shoot=Instantiate(bullset, transform.position, bullset.transform.rotation);
         shoot.transform.parent = transform;
         shoot.transform.rotation = shoot.transform.rotation*Quaternion.FromToRotation(Vector3.up, dir);
-        shoot.GetComponent<EnemyProjectil>().Init(fireDamage, dir, fireSpeed);
+        shoot.GetComponent<EnemyProjectil>().Init(enemyInfo.getFireDamage(), dir, enemyInfo.getFireSpeed());
     }
 }
