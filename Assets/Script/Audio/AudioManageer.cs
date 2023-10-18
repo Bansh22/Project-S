@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
+
 public class AudioManageer : MonoBehaviour
 {
     public static AudioManageer instance;
@@ -38,6 +39,23 @@ public class AudioManageer : MonoBehaviour
     {
         instance = this;
         Init();
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "Town")
+        {
+            PlayBgm(AudioManageer.Bgm.Village);
+        }
+        else if (scene.name == "")
+        {
+            PlayBgm(AudioManageer.Bgm.Battle1);
+        }
+        else if (scene.name == "")
+        {
+            PlayBgm(AudioManageer.Bgm.Battle2);
+        }
+        else if (scene.name == "")
+        {
+            PlayBgm(AudioManageer.Bgm.Battle3);
+        }
     }
     void Init()
     {

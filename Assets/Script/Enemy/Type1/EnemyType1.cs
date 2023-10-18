@@ -24,7 +24,7 @@ public class EnemyType1 : EnemyParent
     private void FixedUpdate()
     {
         //죽어있으면 작동정지 || Hit 태그 가진 애니메이션 끝날때 까지 작동 정지
-        if (!getLive() || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        if (!IsLive || getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
         {
             return;
         }
@@ -67,7 +67,7 @@ public class EnemyType1 : EnemyParent
         //포인트 이동(서브 이동방법)
         //getTransform().Translate(moveVec * getSpeed() * Time.fixedDeltaTime);
         //목표속도= 방향 * 설정된 속도
-        targetVelocity = moveVec * getSpeed();
+        targetVelocity = moveVec * Speed;
         // 현재 속도를 부드럽게 조절하기
         currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref currentVelocity, smoothTime);
         // Rigidbody에 속도 적용
@@ -80,7 +80,7 @@ public class EnemyType1 : EnemyParent
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.instance.player.takeDamage(getDamage() * Time.fixedDeltaTime);
+            GameManager.instance.player.takeDamage(Damage * Time.fixedDeltaTime);
         }
     }
 

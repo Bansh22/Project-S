@@ -11,17 +11,17 @@ public class Enemy0_s1 : EnemyType0
         //Enemy0 사전 열기
         reader = new ConfigReader("Enemy0_S1");
         //속도 설정
-        setSpeed(reader.Search<float>("speed"));
+        Speed=reader.Search<float>("speed");
         //MaxHp 설정
-        setMaxHp(reader.Search<float>("hp"));
+        MaxHp=reader.Search<float>("hp");
         //Hp 설정
-        setHp(reader.Search<float>("hp"));
+        Hp = getReader().Search<float>("hp");
         //주는 데미지 설정
-        setDamage(reader.Search<float>("damage"));
+        Damage = reader.Search<float>("damage");
         //리젠 시간
         setRegen(reader.Search<float>("regen"));
         //현재 살아있는 상태 설정
-        setLive(true);
+        IsLive = true;
     }
     // Start is called before the first frame updated
     private void Start()
