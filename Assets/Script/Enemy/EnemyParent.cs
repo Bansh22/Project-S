@@ -18,17 +18,17 @@ public class EnemyParent : MonoBehaviour
 
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     private float speed;
-    public float Speed { get; set; }
+    public float Speed { get { return speed; } set { speed = value; } }
     private float maxHp;
     public float MaxHp { get { return maxHp; } set { maxHp = value; } }
-    private float hp;
-    public float Hp{ get; set; }
+    public float hp;
+    public float Hp { get { return hp; } set { hp = value; } }
     private bool hpBar = true;
     //몹 regen 시간
     private float regen; //(config 등록)
 
     private float damage;
-    public float Damage{ get; set; }
+    public float Damage { get { return damage; } set { damage = value; } }
 
     // Set, Get 이 있고 Change가 있는 함수, 
     private bool isLive;
