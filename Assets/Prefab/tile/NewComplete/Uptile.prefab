@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 6607674588668867175}
   - {fileID: 6965236165090780173}
+  - {fileID: 3698122726412989766}
   - {fileID: 4793836628182637159}
   - {fileID: 3329293200277457749}
   - {fileID: 512494017260248747}
@@ -692,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 5607760545178967354, guid: 46107e80c8e6f624f87fac07b2e0c735,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5607760545178967354, guid: 46107e80c8e6f624f87fac07b2e0c735,
         type: 3}
@@ -1895,6 +1896,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8386520137449683080, guid: 8e75451196ddd434486d805f1d86f087,
     type: 3}
   m_PrefabInstance: {fileID: 3191797830110348321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3264134986527987613
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3809599625028626517}
+    m_Modifications:
+    - target: {fileID: 1663957923797435129, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_Name
+      value: TX Shadow Tileset Wall 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593, type: 3}
+--- !u!4 &3698122726412989766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+    type: 3}
+  m_PrefabInstance: {fileID: 3264134986527987613}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3354166321309114369
 PrefabInstance:
@@ -5209,6 +5294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TX Shadow Tileset Wall 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2170407912752145115, guid: 7ebe5a5a7f11c1245b21ef3de5cf2593,
         type: 3}
