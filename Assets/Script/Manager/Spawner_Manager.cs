@@ -12,10 +12,11 @@ public class Spawner_Manager : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
+        
         SpawnerPoint = GetComponentsInChildren<Transform>();
-      
+        /*
         Vector3 parentPosition = transform.position;
-
+      
         // 360도를 원형으로 나누어 포인트 배치
         for (int i = 0; i < SpawnerPoint.Length; i++)
         {
@@ -27,7 +28,7 @@ public class Spawner_Manager : MonoBehaviour
             float y = parentPosition.y + 10 * Mathf.Sin(radians);
             
             SpawnerPoint[i].position = new Vector3(x, y, parentPosition.z);
-        }
+        }*/
     }
     private void Start()
     {
