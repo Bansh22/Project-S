@@ -23,6 +23,11 @@ public class Pool_Manager_Script : MonoBehaviour
         {
             Pools[index]= new List<GameObject>();
         }
+        for (int i = 0; i < Prefabs.Length; i++)
+        {
+            EnemyParent enemyInfo = Prefabs[i].GetComponent<EnemyParent>();
+            enemyInfo.Init();
+        }
     }
     private void FixedUpdate()
     {
@@ -33,8 +38,8 @@ public class Pool_Manager_Script : MonoBehaviour
             pageTime = 0;
             for(int i = 0; i < Prefabs.Length; i++)
             {
-                EnemyParent enemyInfo=Prefabs[i].GetComponent<EnemyParent>();
-                enemyInfo.setRegen(enemyInfo.getRegen() * (1 - 0.2f));
+                EnemyParent enemyInfo = Prefabs[i].GetComponent<EnemyParent>();
+                enemyInfo.setRegen(enemyInfo.getRegen()*(1 -0.2f));
             }
             pageTime = GameManager.instance.gameTime % lineTime;
             GameManager.instance.Level2++;
@@ -101,5 +106,14 @@ public class Pool_Manager_Script : MonoBehaviour
         }
 
         return Select;
+    }
+
+    private void OnApplicationQuit()
+    {
+        for(int i = 0; i < Prefabs.Length; i++)
+        {
+            EnemyParent enemyInfo = Prefabs[i].GetComponent<EnemyParent>();
+            enemyInfo.Init();
+        }
     }
 }

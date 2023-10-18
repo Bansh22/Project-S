@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy1_Wisp : EnemyType1
 {
-    //사전 클래스
-    private readonly ConfigReader reader;
     public Enemy1_Wisp()
     {
+        //키 설정
+        setKey("Enemy1_Wisp");
         //Enemy0 사전 열기
         reader = new ConfigReader("Enemy1_Wisp");
         //속도 설정
@@ -35,6 +35,7 @@ public class Enemy1_Wisp : EnemyType1
     }
     public void startfun()
     {
+        Init();
         //넉백되는지 안되는지
         setKnock(true);
         //넉백되는 정도
