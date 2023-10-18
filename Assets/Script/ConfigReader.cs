@@ -238,7 +238,7 @@ public class ConfigReader
         }
         else
         {
-            Debug.Log("WrongKey");
+            Debug.Log("WrongKey:"+ key);
             return default(T);
         }
     }
