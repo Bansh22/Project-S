@@ -12,6 +12,8 @@ public class PatternLine : MonoBehaviour
     Color color;
 
     public float showTimer = 1;
+    public float damage;
+    public float speed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,14 +33,16 @@ public class PatternLine : MonoBehaviour
     IEnumerator ShowCircle()
     {
         yield return new WaitForSeconds(showTimer);
-        color.a = 0;
-        render.color = color;
+        //color.a = 0;
+        //render.color = color;
         Vector3 targetpos = transform.position;
         Vector3 dir = targetpos - startObj.transform.position;
         dir = dir.normalized;
         GameObject shoot = Instantiate(shootObj, startObj.transform.position, shootObj.transform.rotation);
         shoot.SetActive(true);
-        shoot.GetComponent<PatternShoot>().Init(dir);
+        shoot.transform.parent = parent.transform;
+        shoot.GetComponent<PatternShoot>().Init(dir,speed,damage);
+        gameObject.SetActive(false);
     }
 }
 
