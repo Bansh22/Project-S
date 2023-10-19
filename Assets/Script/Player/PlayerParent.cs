@@ -51,6 +51,7 @@ public class PlayerParent : MonoBehaviour
     //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
     float hitTime=0;
+    private ConfigReader configReader;
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -71,8 +72,12 @@ public class PlayerParent : MonoBehaviour
                 Transform child = transform.GetChild(i);
                 child.gameObject.SetActive(false);
             }
-        }
+        }        // ConfigReader 초기화      
+
+        configReader = new ConfigReader("Shooting Wappon");
+        Debug.Log(configReader);
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -100,12 +105,14 @@ public class PlayerParent : MonoBehaviour
         
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
+            
+            configReader.UpdateData("damage", "40");
             if (Innpc)
             {
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
                 if (relObject != null)
                 {
-                    
+                  
                     // 랜덤한 메시지 가져오기
                     string[] messages = relObject.message;
                     if (messages.Length > 0)

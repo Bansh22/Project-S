@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 
 /*
@@ -18,6 +19,15 @@ using System.ComponentModel;
     
     방법2(추천)
     ConfigReader configreaders = new ConfigReader(title) <-- 위의 과정을 하나로 압축했으며 위의 방식도 가능, config.ini에서 [title] 형태의 값
+
+**********************************************************************************************
+   // 사용법!(중요!) 값을 업데이트 하는 법! //
+**********************************************************************************************
+    
+
+    configreaders.UpdateData(String Key ,String Value); 을 사용한다!
+
+
 
 **********************************************************************************************
 
@@ -47,7 +57,7 @@ using System.ComponentModel;
 public class ConfigReader 
 {
     private static readonly string configFilePath = Application.streamingAssetsPath+"/Config.ini";
-    private static Dictionary<string, Dictionary<string, string>> sapData;
+    private static Dictionary<string, Dictionary<string, string>> sapData; //첫 string 이 헤더 
     private static Dictionary<string, string> resultDict;
     //configfilepath의 Config 전부 들고오기 
 
@@ -242,6 +252,36 @@ public class ConfigReader
             return default(T);
         }
     }
+    public void UpdateData(String Key ,String Value)
+    {
+
+        String header = sapData.Keys.FirstOrDefault();
+       
+        if (resultDict.ContainsKey(Key))
+        {
+            // 값 업데이트
+            resultDict[Key] = Value;
+
+            Debug.Log($"Updated {Key} to {Value}");
+
+            // 수정된 데이터를 파일에 저장
+            IniFileWriter.WriteIniFile(sapData, GetfilePath());
+            Debug.Log("Updated iniData:");
+            foreach (var section in sapData)
+            {
+                Debug.Log($"[{section.Key}]");
+                foreach (var kvp in section.Value)
+                {
+                    Debug.Log($"{kvp.Key}={kvp.Value}");
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Key not found.");
+        }     
+    }
+
 
 
 }
