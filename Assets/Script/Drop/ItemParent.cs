@@ -22,7 +22,6 @@ public class ItemParent : MonoBehaviour
 
     public GameObject child;
     [HideInInspector] public Animator childAnim;
-    private bool oneTime = false;
     [HideInInspector] public SpriteRenderer render;
     [HideInInspector] public Collider2D coll;
     [HideInInspector] public Color color;
