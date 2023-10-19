@@ -15,10 +15,10 @@ public class Shooting_Wappon: Wappon
         rigid = GetComponent<Rigidbody2D>();
     }
     public void Init(float damage,Vector3 dir, float speed){
-
-     
         this.damage = damage;
         rigid.velocity = dir * speed;
+
+        StartCoroutine(TimeOut());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +30,10 @@ public class Shooting_Wappon: Wappon
         Destroy(gameObject);
     }
 
-
+    IEnumerator TimeOut()
+    {
+        yield return new WaitForSeconds(3);
+    }
 
 }
 

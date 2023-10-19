@@ -8,6 +8,7 @@ public class PatternCircle : MonoBehaviour
     public RuntimeAnimatorController[] animCon;
     public GameObject fallObj;
     public GameObject bombObj;
+    public float damage;
     SpriteRenderer render;
     Color color;
 
@@ -55,6 +56,7 @@ public class PatternCircle : MonoBehaviour
         if (collision.gameObject.CompareTag("ThrowBomb") && collision.gameObject == fallObj)
         {
             Destroy(collision.gameObject);
+            bombObj.GetComponent<PatternBomb>().Init(damage);
             bombObj.SetActive(true);
         }
     }

@@ -34,6 +34,26 @@ public class Pool_Manager_Script : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //몹 변경 코드(시간)
+        if (pageTime > GameManager.instance.gameTime % lineTime)
+        {
+            pageTime = 0;
+            for (int i = 0; i < Prefabs.Length; i++)
+            {
+                EnemyParent enemyInfo;
+                if (Prefabs[i].TryGetComponent<EnemyParent>(out enemyInfo))
+                {
+                    enemyInfo.setRegen(enemyInfo.getRegen() * (1 - 0.2f));
+                }
+            }
+            pageTime = GameManager.instance.gameTime % lineTime;
+            GameManager.instance.Level2++;
+        }
+        else
+        {
+            pageTime = GameManager.instance.gameTime % lineTime;
+        }
+
         //몹 강화 코드(시간)
         if (pageTime > GameManager.instance.gameTime % lineTime)
         {

@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638333293247441705
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: fire-projectile_Frame_0
     originalName: 
-    pivot: {x: 0.6363636, y: -0.44444445}
+    pivot: {x: 0.65217394, y: -0.27272728}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 38
-      y: 24
-      width: 22
-      height: 9
+      x: 4
+      y: 66
+      width: 23
+      height: 11
     spriteID: 65d3499ad9c6e3d42985ea1b898dea35
     spriteBone: []
     spriteOutline: []
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 38, y: 24}
+    uvTransform: {x: 4, y: 66}
   - name: fire-projectile_Frame_1
     originalName: 
-    pivot: {x: 0.56, y: -0.3}
+    pivot: {x: 0.5769231, y: -0.16666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 42
-      width: 25
-      height: 10
+      y: 46
+      width: 26
+      height: 12
     spriteID: a0735662c08bda24ca887500988b84da
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 42}
+    uvTransform: {x: 4, y: 46}
   - name: fire-projectile_Frame_2
     originalName: 
-    pivot: {x: 0.5185185, y: -0.16666667}
+    pivot: {x: 0.5357143, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 27
-      height: 12
+      width: 28
+      height: 14
     spriteID: 959bfd577870c504eb8b0a9b0e05b677
     spriteBone: []
     spriteOutline: []
@@ -181,15 +181,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: fire-projectile_Frame_3
     originalName: 
-    pivot: {x: 0.53846157, y: -0.2}
+    pivot: {x: 0.5555556, y: -0.083333336}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 24
-      width: 26
-      height: 10
+      y: 26
+      width: 27
+      height: 12
     spriteID: 71e384195aaaa1d44921a09626cafbbc
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 24}
+    uvTransform: {x: 4, y: 26}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -211,38 +211,122 @@ ScriptedImporter:
     - name: fire-projectile_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 4
-        width: 22
-        height: 9
+        x: 1
+        y: 3
+        width: 23
+        height: 11
       spriteId: 65d3499ad9c6e3d42985ea1b898dea35
     - name: fire-projectile_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
-        y: 3
-        width: 25
-        height: 10
+        x: 1
+        y: 2
+        width: 26
+        height: 12
       spriteId: a0735662c08bda24ca887500988b84da
     - name: fire-projectile_Frame_2
       frameIndex: 2
       cellRect:
-        x: 2
-        y: 2
-        width: 27
-        height: 12
+        x: 1
+        y: 1
+        width: 28
+        height: 14
       spriteId: 959bfd577870c504eb8b0a9b0e05b677
     - name: fire-projectile_Frame_3
       frameIndex: 3
       cellRect:
-        x: 2
-        y: 2
-        width: 26
-        height: 10
+        x: 1
+        y: 1
+        width: 27
+        height: 12
       spriteId: 71e384195aaaa1d44921a09626cafbbc
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Windows Store Apps
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 16}

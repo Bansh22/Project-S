@@ -69,8 +69,14 @@ public class HUD : MonoBehaviour
                 {
                     case "Enemy":
                         EnemyParent enemy= parentUI.target.GetComponentInParent<EnemyParent>();
-
-                        if (!enemy.IsLive)
+                        if (enemy == null)
+                        {
+                            FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
+                            follow.destroythis();
+                            return;
+                        }
+                        bool live = enemy.IsLive;
+                        if (!live)
                         {
                             FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
                             follow.destroythis();

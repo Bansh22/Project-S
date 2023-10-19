@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatternShoot : MonoBehaviour
 {
     Rigidbody2D rigid;
-    public float damage;
+    private float damage;
     private float start;
     private float timer=5;
     // Start is called before the first frame update

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float gameTime=0;
     [HideInInspector] public float Level1=0;
     [HideInInspector] public float Level2=0;
+    public int mobLevel;
     private ConfigReader reader;
 
 
