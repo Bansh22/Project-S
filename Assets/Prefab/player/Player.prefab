@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 4255365097926706802}
   - component: {fileID: 1210273107852512615}
   - component: {fileID: 3443842682874036094}
-  - component: {fileID: 1182996505569416429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -256,14 +255,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_frame: 0
---- !u!222 &1182996505569416429
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998353612227430747}
-  m_CullTransparentMesh: 1
 --- !u!1001 &526191967604448772
 PrefabInstance:
   m_ObjectHideFlags: 0
