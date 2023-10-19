@@ -6,7 +6,7 @@ public class Short_Pattern_Bomb: MonoBehaviour
 {
     public GameObject[] Pattern;
     private Player player;
-    float endTimer = 30;
+    public float endTimer;
     float startTimer=0;
 
     float timer = 0;

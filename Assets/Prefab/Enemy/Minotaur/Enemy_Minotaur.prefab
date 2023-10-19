@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8080341983936418573}
   - component: {fileID: 1322846990172878242}
   - component: {fileID: 4108412899157563160}
-  - component: {fileID: -8411670193484050876}
+  - component: {fileID: -8224497227606607145}
   m_Layer: 10
   m_Name: Enemy_Minotaur
   m_TagString: Enemy
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96624b2bc38e4c4fb0ca6b41c2abc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8411670193484050876
+--- !u!114 &-8224497227606607145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,9 +194,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2993219727800843429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d609996e158b9274fbe5ad635e5063ce, type: 3}
+  m_Script: {fileID: 11500000, guid: c50f80699416b1340ac48ca111ffdc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 600
+  projectil: {fileID: 0}
 --- !u!1001 &7903486314363169579
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 
@@ -47,7 +48,10 @@ public class PauseUI : MonoBehaviour
     }
     public void ClicjgotoHome()
     {
-
+        GameManager.instance.gameTime = 0f;
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Town");
+        GameManager.instance.player.transform.position = new Vector3(11.61f, -4.8f, 0);
     }
     public void ClickExit()
     {
