@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [SerializeField]
 public class PlayerParent : MonoBehaviour
 {
+    //캐릭터변경
+    public  RuntimeAnimatorController[] Player_Controller;
     //컴포넌트 기능 Get함수로 반환
     private GameObject mine;
     private Transform trans;
@@ -14,8 +16,6 @@ public class PlayerParent : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
-    public Sprite[] Player_Sprites;
-    public  AnimatorOverrideController[] Player_Controller;
     
     //npc 관련 변수
     private Collider2D npc;
@@ -59,7 +59,10 @@ public class PlayerParent : MonoBehaviour
        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         sr.sprite = s;
         // ConfigReader 초기화
-      
+        ConfigReader reader = new ConfigReader("Player");
+        int modelIndex = reader.Search<int>("Model");
+        Animator change = GetComponent<Animator>();
+        change.runtimeAnimatorController = Player_Controller[modelIndex];
 
     }
     public void Awake()
@@ -184,7 +187,9 @@ public class PlayerParent : MonoBehaviour
 
     public void ChangeCharacterSprite(int index)
     {
-
+        ConfigReader reader = new ConfigReader("Player");
+        reader.UpdateData("Model", index.ToString());
+        GameManager.instance.player.getAnimator().runtimeAnimatorController= GameManager.instance.player.Player_Controller[index];
     }
 
     public void takeDamage(float damage)
