@@ -21,6 +21,7 @@ public class ItemParent : MonoBehaviour
     private bool worldLimit;
 
     public GameObject child;
+    public GameObject[] kira;
     [HideInInspector] public Animator childAnim;
     [HideInInspector] public SpriteRenderer render;
     [HideInInspector] public Collider2D coll;
@@ -51,10 +52,18 @@ public class ItemParent : MonoBehaviour
         color.a = 255;
         render.color = color;
         coll.enabled = true;
+        foreach(GameObject k in kira)
+        {
+            k.SetActive(true);
+        }
     }
     public IEnumerator Disappear()
     {
         childAnim.SetTrigger("Disappear");
+        foreach (GameObject k in kira)
+        {
+            k.SetActive(false);
+        }
         while (!childAnim.GetCurrentAnimatorStateInfo(0).IsTag("Disappear"))
         {
             yield return new WaitForFixedUpdate();
