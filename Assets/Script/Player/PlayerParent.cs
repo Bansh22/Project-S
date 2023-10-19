@@ -58,11 +58,8 @@ public class PlayerParent : MonoBehaviour
         Sprite  s= Player_Sprites[0];
        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         sr.sprite = s;
-<<<<<<< HEAD
-=======
         // ConfigReader 초기화
       
->>>>>>> 314befa8a07e2904c6221e495eb5d02bd1850cea
 
     }
     public void Awake()
