@@ -11,6 +11,7 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
     public Transform[] WapponPoints;
     // 풀 담당하는 리스트 
+    int modelIndex;
     private void Awake()
     {
         Wappon_Pools = new List<GameObject>[Prefabs.Length];
@@ -18,7 +19,8 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
         {
             Wappon_Pools[index]= new List<GameObject>();
         }
-
+        ConfigReader reader = new ConfigReader("Player");
+        modelIndex = reader.Search<int>("Model");
     }
 
 
@@ -29,7 +31,7 @@ public class Wappon_Pool_Manager_Script : MonoBehaviour
 
         if(!Select)
         {
-            Select = Instantiate(Prefabs[index], transform);
+            Select = Instantiate(Prefabs[index+modelIndex*2], transform);
             Wappon_Pools[index].Add(Select);
         }
 

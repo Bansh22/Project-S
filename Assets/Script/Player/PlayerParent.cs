@@ -52,22 +52,14 @@ public class PlayerParent : MonoBehaviour
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
 
-    private void Start()
+    public void Awake()
     {
         Innpc = false;
-        Sprite  s= Player_Sprites[0];
-       SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
-        sr.sprite = s;
         // ConfigReader 초기화
         ConfigReader reader = new ConfigReader("Player");
         int modelIndex = reader.Search<int>("Model");
         Animator change = GetComponent<Animator>();
         change.runtimeAnimatorController = Player_Controller[modelIndex];
-
-    }
-    public void Awake()
-    {
-        
     }
 
 
