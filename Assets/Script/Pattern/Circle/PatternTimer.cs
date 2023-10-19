@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class PatternTimer : MonoBehaviour
 {
-    public float timer;
-    private float startTime;
     public GameObject pattern;
+    public Vector3 dir;
     // startTime is called before the first frame update
     void Start()
     {
-        startTime = GameManager.instance.gameTime;
-    }
-
-    private void FixedUpdate()
-    {
-        if (GameManager.instance.gameTime - startTime>timer)
-        {
-            pattern.SetActive(true);
-        } 
+        pattern.transform.rotation=Quaternion.FromToRotation(Vector3.up, dir);
+        pattern.SetActive(true);
     }
 }
