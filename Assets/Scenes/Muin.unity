@@ -206,6 +206,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635250569}
     m_Modifications:
+    - target: {fileID: 2536964781377633358, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536964781377633358, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2876701184761289169, guid: b2cafd9515d4df140a4bc983743c4911,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,6 +270,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: b2cafd9515d4df140a4bc983743c4911,
         type: 3}
@@ -2912,6 +2932,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Green
       objectReference: {fileID: 0}
+    - target: {fileID: 5681984121665728307, guid: f6306af4029056e4db14ff9e1f94f645,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984121665728307, guid: f6306af4029056e4db14ff9e1f94f645,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613803979237751790, guid: f6306af4029056e4db14ff9e1f94f645,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613803979237751790, guid: f6306af4029056e4db14ff9e1f94f645,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3059,10 +3099,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6930649268944994249, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930649268944994249, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7593050083866794257, guid: 3211e7d016f69e3449e5a4cb983d4a05,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: 3211e7d016f69e3449e5a4cb983d4a05,
         type: 3}
@@ -3266,6 +3326,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930649268944994249, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930649268944994249, guid: 3211e7d016f69e3449e5a4cb983d4a05,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7593050083866794257, guid: 3211e7d016f69e3449e5a4cb983d4a05,
         type: 3}
@@ -4620,10 +4690,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 5947395632386592790, guid: 5bb6c170a4d0cee4abc6db49513888de,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947395632386592790, guid: 5bb6c170a4d0cee4abc6db49513888de,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7610805392035388159, guid: 5bb6c170a4d0cee4abc6db49513888de,
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610805392035388159, guid: 5bb6c170a4d0cee4abc6db49513888de,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610805392035388159, guid: 5bb6c170a4d0cee4abc6db49513888de,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4914,10 +5004,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7218515929525486895, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218515929525486895, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: c7baf72987dadf049a6dc9f4c93f0759,
         type: 3}
@@ -4943,6 +5053,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635250569}
     m_Modifications:
+    - target: {fileID: 2353504100842113993, guid: 1de3821d7405c3743b95586aef416dfe,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353504100842113993, guid: 1de3821d7405c3743b95586aef416dfe,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2876701184761289169, guid: 1de3821d7405c3743b95586aef416dfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4997,6 +5117,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 1de3821d7405c3743b95586aef416dfe,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 1de3821d7405c3743b95586aef416dfe,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: 1de3821d7405c3743b95586aef416dfe,
         type: 3}
@@ -5358,6 +5488,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635250569}
     m_Modifications:
+    - target: {fileID: 636001952816863144, guid: 744fc7e2d31f3b844884ad6a7c5e71f9,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 636001952816863144, guid: 744fc7e2d31f3b844884ad6a7c5e71f9,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655386455154138455, guid: 744fc7e2d31f3b844884ad6a7c5e71f9,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655386455154138455, guid: 744fc7e2d31f3b844884ad6a7c5e71f9,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1808322509959530117, guid: 744fc7e2d31f3b844884ad6a7c5e71f9,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5569,6 +5719,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635250569}
     m_Modifications:
+    - target: {fileID: 2536964781377633358, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536964781377633358, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2876701184761289169, guid: b2cafd9515d4df140a4bc983743c4911,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5643,6 +5803,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: b2cafd9515d4df140a4bc983743c4911,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: b2cafd9515d4df140a4bc983743c4911,
         type: 3}
@@ -6455,6 +6625,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 82b575576ba34ee42bff4b4921980ad1,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: 82b575576ba34ee42bff4b4921980ad1,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: 82b575576ba34ee42bff4b4921980ad1,
         type: 3}
@@ -7539,10 +7719,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7218515929525486895, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218515929525486895, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593050083866794257, guid: c7baf72987dadf049a6dc9f4c93f0759,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055012823246033579, guid: c7baf72987dadf049a6dc9f4c93f0759,
         type: 3}
@@ -8856,7 +9056,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: b27d4fc2130d23646a467b57f0882956, type: 3}
 --- !u!4 &1912850067074071894 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 731153790307776821, guid: b27d4fc2130d23646a467b57f0882956,
+  m_CorrespondingSourceObject: {fileID: 9179487137958969857, guid: b27d4fc2130d23646a467b57f0882956,
     type: 3}
   m_PrefabInstance: {fileID: 1912850067074071893}
   m_PrefabAsset: {fileID: 0}

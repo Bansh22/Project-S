@@ -13,6 +13,15 @@ public class HPBuffPotion : ItemParent
         setChance(reader.Search<float>("Chance"));
         setWorldLimit(false);
     }
+    private void Awake()
+    {
+
+        childAnim = child.GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
+        coll = GetComponent<Collider2D>();
+        color = render.material.color;
+        startA = color.a;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -20,7 +29,6 @@ public class HPBuffPotion : ItemParent
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.HpBuff(getEffect());
             DeleteList(Drop_Manage.Drop.HP);
-            Destroy(gameObject);
         }
     }
 }
