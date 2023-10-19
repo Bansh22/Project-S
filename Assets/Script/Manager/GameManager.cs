@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float catchEnemy=0;
     [HideInInspector] public float maxGameTime;
     [HideInInspector] public float gameTime=0;
+    [HideInInspector] public float Level1=0;
+    [HideInInspector] public float Level2=0;
     private ConfigReader reader;
 
 
@@ -34,10 +36,11 @@ public class GameManager : MonoBehaviour
         reader = new ConfigReader("Timer");
         maxGameTime = reader.Search<float>("maxTime");
         instance = this;
+        gameTime = 0;
     }
     private void Start()
     {
-        AudioManageer.instance.PlayBgm();
+        
     }
 
     private void FixedUpdate()

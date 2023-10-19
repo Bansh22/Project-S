@@ -44,12 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a43c227a4069e4e88fabc1f6f1dde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: 4559935c00ef8e94b846e2e03e39f0d0, type: 3}
+  bgmClip:
+  - {fileID: 8300000, guid: 4c1feea3c92563443ba9382571a4bb99, type: 3}
+  - {fileID: 8300000, guid: 22b43af5a72360646ba7cab75206624c, type: 3}
+  - {fileID: 8300000, guid: 5ed909b7d819dfc48bd38197ee5702ac, type: 3}
+  - {fileID: 8300000, guid: f3c92f281d5f66f47afc9269369670d7, type: 3}
   bgmVolume: 0.2
   sfxClip:
   - {fileID: 8300000, guid: 291608b8d286e2a4580ff36324455ce2, type: 3}
-  - {fileID: 8300000, guid: 0bddcb411d826e14bb26d40ae45d8e22, type: 3}
-  - {fileID: 8300000, guid: 6b7eaf4532a2f614595ad58d2b86efc4, type: 3}
+  - {fileID: 8300000, guid: ca17aca3ced83ef41938850b562e51f8, type: 3}
+  - {fileID: 8300000, guid: 2ca3632d78033474ebf1196313f24acc, type: 3}
+  - {fileID: 8300000, guid: 2893d7185bf01ab47953884c994566a5, type: 3}
   - {fileID: 8300000, guid: 64795b87003c2324fa0814fbc336066c, type: 3}
   - {fileID: 8300000, guid: c8a3fe17a6641ec48b38fb455a40a223, type: 3}
   - {fileID: 8300000, guid: 14f24de2a9a70154e96297de25e2184c, type: 3}

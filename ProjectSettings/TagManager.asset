@@ -9,6 +9,8 @@ TagManager:
   - Area
   - Ground
   - Gem
+  - RelationE
+  - ThrowBomb
   layers:
   - Default
   - TransparentFX
@@ -34,9 +36,9 @@ TagManager:
   - Layer 2
   - Layer 3
   - 
-  - 
-  - 
-  - 
+  - Lay1
+  - Lay2
+  - Lay3
   - 
   - 
   - 

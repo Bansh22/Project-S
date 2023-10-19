@@ -7,6 +7,7 @@ public class Player : PlayerParent
     ConfigReader reader;
     public Vector3 inputVec;
     public MobScanner mobscan;
+    
    
     public Player()
     {
@@ -38,8 +39,10 @@ public class Player : PlayerParent
     }
     // Update is called once per frame
 
-    void Update()
+    protected new void Update()
     {
+
+        base.Update();
         if (!getLive())
         {
             inputVec = Vector3.zero;
@@ -58,7 +61,10 @@ public class Player : PlayerParent
         //합산된 벡터 계산, normalized의 경우 x,y 벡터의 합이 1이상이 되기때문에 1로 고정
         //fixedDeltaTime의 경우 달라지는 프레임 대비
         getTransform().Translate(nextVec);
-        getSpriteRenderer().flipX = inputVec.x <= 0;
+        if (inputVec.normalized != Vector3.zero)
+        {
+            getSpriteRenderer().flipX = inputVec.x <= 0;
+        }
 
         //위치 이동
 

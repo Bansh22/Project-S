@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 [SerializeField]
 public class PlayerParent : MonoBehaviour
 {
@@ -12,7 +14,13 @@ public class PlayerParent : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
-
+    //npc 관련 변수
+    private Collider2D npc;
+    private bool Innpc;
+    private bool canInteract = true; // E 키 입력을 받을 수 있는 상태인지를 나타내는 변수
+    private float interactCooldown = 0.5f; // E 키 입력 간격을 제어하는 변수
+    public GameObject messagecanvas;
+    public GameObject textmessage;
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     //player 스피드
     private float speed; //(config 등록)
@@ -37,6 +45,72 @@ public class PlayerParent : MonoBehaviour
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
+
+    private void Start()
+    {
+        Innpc = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("RelationE"))
+        {
+            npc = collision;
+            Innpc = true;
+          
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("RelationE"))
+        {
+            npc = null;
+            Innpc = false;
+          
+        }
+    }
+
+    public void Update()
+    {
+        
+        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        {
+            if (Innpc)
+            {
+                RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
+                if (relObject != null)
+                {
+                    // 랜덤한 메시지 가져오기
+                    string[] messages = relObject.message;
+                    if (messages.Length > 0)
+                    {
+                        int randomIndex = Random.Range(0, messages.Length);
+                        string randomMessage = messages[randomIndex];
+
+                        messagecanvas.SetActive(true);
+                        Text textmes =  textmessage.GetComponent<Text>();
+                        textmes.text = randomMessage;
+                        //Debug.Log(randomMessage);
+
+                    }
+                }
+
+                // 입력 간격 동안 비활성화
+                canInteract = false;
+                StartCoroutine(EnableInteractAfterCooldown());
+            }
+        }
+    }
+
+    private IEnumerator EnableInteractAfterCooldown()
+    {
+        yield return new WaitForSeconds(interactCooldown);
+        canInteract = true;
+    }
+
+
     public void takeDamage(float damage)
     {
         hp -= damage; // 데미지 받는다

@@ -33,7 +33,7 @@ public class FollowCamera : MonoBehaviour
                 if (textLabels[i] != null)
                 {
                     Vector3 textLabelsPos = Camera.main.WorldToScreenPoint(gameobj[i].transform.position);
-                    
+
                     textLabels[i].rectTransform.position = textLabelsPos;
                 }
             }
