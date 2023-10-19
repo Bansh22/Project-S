@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c848c2908aa171945a71237e6b32445b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 12
+  timer: 0
   pattern: {fileID: 176291677526198255}
+  dir: {x: -1, y: 1, z: 0}
 --- !u!1001 &6213960920666490721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +62,11 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 176291677526198255}
+    - target: {fileID: 692262518904309256, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1243368985412339737, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
         type: 3}
       propertyPath: m_Name
@@ -84,12 +90,12 @@ PrefabInstance:
     - target: {fileID: 5228241552047719217, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 5228241552047719217, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 5228241552047719217, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
         type: 3}
@@ -146,12 +152,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5228241552047719217, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8396866472545072009, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
         type: 3}
+    - target: {fileID: 8396866472545072009, guid: 33786d4c2f2ddb14abcd06ed8c3cd2ad,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -179,6 +195,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1457835503928352461, guid: d02a6761e3d8fb04f922b491bba7d882,
         type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457835503928352461, guid: d02a6761e3d8fb04f922b491bba7d882,
+        type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457835503928352461, guid: d02a6761e3d8fb04f922b491bba7d882,
+        type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 8830056360833879764}
@@ -192,6 +218,11 @@ PrefabInstance:
       propertyPath: startObj
       value: 
       objectReference: {fileID: 8168295344733294250}
+    - target: {fileID: 1457835503928352461, guid: d02a6761e3d8fb04f922b491bba7d882,
+        type: 3}
+      propertyPath: showTimer
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7053865107977859534, guid: d02a6761e3d8fb04f922b491bba7d882,
         type: 3}
       propertyPath: m_Name
@@ -205,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 7172710181504959035, guid: d02a6761e3d8fb04f922b491bba7d882,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7172710181504959035, guid: d02a6761e3d8fb04f922b491bba7d882,
         type: 3}
@@ -258,7 +289,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5690961530851988451, guid: d02a6761e3d8fb04f922b491bba7d882, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02a6761e3d8fb04f922b491bba7d882, type: 3}

@@ -12,6 +12,7 @@ public class PatternCircle : MonoBehaviour
     Color color;
 
     public float showTimer=1;
+    bool onetime =false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +38,7 @@ public class PatternCircle : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (transform.position.y >= fallObj.transform.position.y)
-        {
-            bombObj.SetActive(true);
-        }
+        
     }
     private void OnEnable()
     {
@@ -51,5 +49,13 @@ public class PatternCircle : MonoBehaviour
         color.a = 0;
         render.color = color;
         fallObj.SetActive(true);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ThrowBomb") && collision.gameObject == fallObj)
+        {
+            Destroy(collision.gameObject);
+            bombObj.SetActive(true);
+        }
     }
 }
