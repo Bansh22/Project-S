@@ -8,7 +8,7 @@ public class PatternBomb : MonoBehaviour
     Player player;
     CircleCollider2D coll;
     Animator anim;
-    float damage=200;
+    float damage=60;
     bool oneTime = false;
     public GameObject parent;
     private void Awake()
