@@ -36,6 +36,12 @@ public class PatternShoot : MonoBehaviour
         {
             GameManager.instance.player.takeDamage(damage);
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyParent enemyInfo=collision.gameObject.GetComponent<EnemyParent>();
+            
+            enemyInfo.takeDamage(damage);
+        }
     }
 
 }

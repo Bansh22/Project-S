@@ -116,6 +116,10 @@ public class EnemyParent : MonoBehaviour
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
     public void takeDamage(float damage)
     {
+        if (!IsLive)
+            return;
+        if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+            return;
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
