@@ -22,8 +22,10 @@ public class PlayerParent : MonoBehaviour
     private bool Innpc;
     private bool canInteract = true; // E 키 입력을 받을 수 있는 상태인지를 나타내는 변수
     private float interactCooldown = 0.5f; // E 키 입력 간격을 제어하는 변수
-    public GameObject messagecanvas;
+    public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas
+    
     public GameObject textmessage;
+   
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     //player 스피드
     private float speed; //(config 등록)
@@ -89,19 +91,72 @@ public class PlayerParent : MonoBehaviour
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
                 if (relObject != null)
                 {
+                    
                     // 랜덤한 메시지 가져오기
                     string[] messages = relObject.message;
                     if (messages.Length > 0)
                     {
-                        int randomIndex = Random.Range(0, messages.Length);
-                        string randomMessage = messages[randomIndex];
-
-                        messagecanvas.SetActive(true);
-                        Text textmes =  textmessage.GetComponent<Text>();
-                        textmes.text = randomMessage;
-                        //Debug.Log(randomMessage);
-
+                        if (messages.Length > 4)
+                        {
+                            if (relObject.npcname != null)
+                            {
+                                if ("charator" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[2].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 2없음 ");
+                                    }
+                                }
+                                if ("shop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[3].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 2없음 ");
+                                    }
+                                }
+                                
+                            }
+                            else
+                            {
+                                Debug.LogError("npc이름 없음!");
+                            }
+                        }
+                        else
+                        {
+                            int randomIndex = Random.Range(0, messages.Length);
+                            string randomMessage = messages[randomIndex];
+                            try
+                            {
+                                canvases[0].SetActive(true); //messagecanvas
+                            }
+                            catch
+                            {
+                                Debug.LogError("캔버스 0없음 ");
+                            }
+                            Text textmes = textmessage.GetComponent<Text>();
+                            textmes.text = randomMessage;
+                            //Debug.Log(randomMessage);
+                        }
                     }
+                    else if(messages.Length == 0)
+                    {
+                        try
+                        {
+                            canvases[1].SetActive(true);
+                        }
+                        catch
+                    {
+                        Debug.LogError("캔버스 1없음 ");
+                    }
+                }
                 }
 
                 // 입력 간격 동안 비활성화
