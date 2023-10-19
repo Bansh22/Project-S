@@ -46,6 +46,7 @@ public class PlayerParent : MonoBehaviour
     //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
     float hitTime=0;
+   
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -57,8 +58,18 @@ public class PlayerParent : MonoBehaviour
         Sprite  s= Player_Sprites[0];
        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         sr.sprite = s;
+<<<<<<< HEAD
+=======
+        // ConfigReader 초기화
+      
+>>>>>>> 314befa8a07e2904c6221e495eb5d02bd1850cea
 
     }
+    public void Awake()
+    {
+        
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,12 +97,14 @@ public class PlayerParent : MonoBehaviour
         
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
+            
+         
             if (Innpc)
             {
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
                 if (relObject != null)
                 {
-                    
+                  
                     // 랜덤한 메시지 가져오기
                     string[] messages = relObject.message;
                     if (messages.Length > 0)

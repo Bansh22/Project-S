@@ -461,7 +461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 2993219727800843429, guid: c2f8603ba034b19459e8d648405b09da,
+      objectReference: {fileID: 1018992224572893753, guid: 2fdfd5d04a249f64a9fb05abd7e0e86e,
         type: 3}
     - target: {fileID: 6056715055817556860, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
@@ -495,7 +495,11 @@ PrefabInstance:
     - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: mobLevel
+<<<<<<< HEAD
       value: 60
+=======
+      value: 5
+>>>>>>> 314befa8a07e2904c6221e495eb5d02bd1850cea
       objectReference: {fileID: 0}
     - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
@@ -522,11 +526,14 @@ PrefabInstance:
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 827643143}
+<<<<<<< HEAD
     - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> 314befa8a07e2904c6221e495eb5d02bd1850cea
     - target: {fileID: 7043253407235253350, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: Prefabs.Array.size
@@ -1105,6 +1112,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+>>>>>>> 314befa8a07e2904c6221e495eb5d02bd1850cea
     - target: {fileID: 4998353612227430747, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
       propertyPath: m_Name
