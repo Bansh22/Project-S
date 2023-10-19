@@ -461,7 +461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 1018992224572893753, guid: 2fdfd5d04a249f64a9fb05abd7e0e86e,
+      objectReference: {fileID: 2993219727800843429, guid: b1b9f79f9e4a8bf44a8a7c52af200aad,
         type: 3}
     - target: {fileID: 6056715055817556860, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
       propertyPath: mobLevel
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7019945815707022028, guid: 77db32dbdc6236a46b2da5854ed1258d,
         type: 3}
