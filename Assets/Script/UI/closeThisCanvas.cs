@@ -11,7 +11,7 @@ public class closeThisCanvas : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.anyKeyDown)
         {
             CloseCanvas();
         }
