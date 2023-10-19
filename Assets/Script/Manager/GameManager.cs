@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 [Serializable]
@@ -18,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Wappon_Pool_Manager_Script WaPolManage;
     public AudioManageer AudioManager;
     public static bool ispause = false;
-    public GameObject uiManger;
+    public UIManager uiManger;
     public Drop_Manage DropManage;
 
     [Header("#PlayerInfo")]
@@ -42,11 +41,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        if(scene.name=="Start" || scene.name == "Town")
-        {
-            uiManger.SetActive(false);
-        }
+        
     }
 
     private void FixedUpdate()

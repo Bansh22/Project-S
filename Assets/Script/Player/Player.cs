@@ -20,7 +20,8 @@ public class Player : PlayerParent
         //Hp 설정
         setHp(reader.Search<float>("hp"));
         //현재 살아있는 상태 설정
-        setLive(true); 
+        setLive(true);
+       
     }
     // Start is called before the first frame update
     void Start()

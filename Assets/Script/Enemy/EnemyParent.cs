@@ -153,7 +153,7 @@ public class EnemyParent : MonoBehaviour
             if (hpBar)
             {
                 //hpBar 생성
-                GameManager.instance.uiManger.GetComponent<UIManager>().addUI(0, gameObject);
+                GameManager.instance.uiManger.addUI(0, gameObject);
                 hpBar = false;//타격이후 생성 차단
             }
 
