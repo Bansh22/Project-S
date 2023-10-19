@@ -145,6 +145,21 @@ public class Pool_Manager_Script : MonoBehaviour
 
         return Select;
     }
+    public void DeletePoolsPrefabs(int index)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            for (int j=0; j<Pools[i].Count;j++)
+            {
+                if (Pools[i][j].activeSelf == false)
+                {
+                    Destroy(Pools[i][j]);
+                    Pools[i].RemoveAt(j);
+                    j--;
+                }
+            }
+        }
+    }
 
     private void OnApplicationQuit()
     {

@@ -18,9 +18,9 @@ public class FinshMessage : MonoBehaviour
         if(!player.getLive() && onetime)
         {
             onetime = false;
-            Finsh.SetActive(true);
-
             nearing_Wappon_Manager.DeleteWeapon();
+            Shooting_Wappon_Manager.DeleteWeapon();
+            StartCoroutine(DeadEvent());
         }
         else if(player.getLive())
         {
@@ -30,5 +30,21 @@ public class FinshMessage : MonoBehaviour
             Finsh.SetActive(true);
             Time.timeScale = 0f;
         }
+    }
+    IEnumerator DeadEvent()
+    {
+        Time.timeScale = 0.2f;
+        while (!player.getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        float startCamera = Camera.main.orthographicSize;
+        while (player.getAnimator().GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        {
+            Camera.main.orthographicSize = 1.5f + (startCamera - 1) * (1-player.getAnimator().GetCurrentAnimatorStateInfo(0).normalizedTime);
+            yield return new WaitForFixedUpdate();
+        }
+        Finsh.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

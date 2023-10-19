@@ -20,13 +20,18 @@ public class FollowSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             mySR.flipX = false;
         }
-        else if(Input .GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             mySR.flipX = true;
         }
+        if (!GameManager.instance.player.getLive())
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
