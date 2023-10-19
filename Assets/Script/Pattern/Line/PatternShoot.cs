@@ -4,19 +4,44 @@ using UnityEngine;
 
 public class PatternShoot : MonoBehaviour
 {
-    Transform trans;
     Rigidbody2D rigid;
-    SpriteRenderer render;
-
+    public float damage;
+    private float start;
+    private float timer=5;
     // Start is called before the first frame update
     void Awake()
     {
-        trans = GetComponent<Transform>();
         rigid = GetComponent<Rigidbody2D>();
-        render = GetComponent<SpriteRenderer>();
     }
-    public void Init(Vector3 dir)
+    private void Start()
     {
-        rigid.velocity = dir*5f;
+        start = GameManager.instance.gameTime;
     }
+    private void FixedUpdate()
+    {
+        if (GameManager.instance.gameTime - start > timer)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void Init(Vector3 dir,float speed,float damage)
+    {
+        this.damage = damage;
+        rigid.velocity = dir*speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.player.takeDamage(damage);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyParent enemyInfo=collision.gameObject.GetComponent<EnemyParent>();
+            
+            enemyInfo.takeDamage(damage);
+        }
+    }
+
 }

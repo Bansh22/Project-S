@@ -18,17 +18,17 @@ public class EnemyParent : MonoBehaviour
 
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     private float speed;
-    public float Speed { get; set; }
+    public float Speed { get { return speed; } set { speed = value; } }
     private float maxHp;
     public float MaxHp { get { return maxHp; } set { maxHp = value; } }
-    private float hp;
-    public float Hp{ get; set; }
+    public float hp;
+    public float Hp { get { return hp; } set { hp = value; } }
     private bool hpBar = true;
     //몹 regen 시간
     private float regen; //(config 등록)
 
     private float damage;
-    public float Damage{ get; set; }
+    public float Damage { get { return damage; } set { damage = value; } }
 
     // Set, Get 이 있고 Change가 있는 함수, 
     private bool isLive;
@@ -86,8 +86,15 @@ public class EnemyParent : MonoBehaviour
         //충돌 대상이 총알 아닐때 이벤트 종료 || 살아있을때 || 히트애니메이션가 유지되지않을때
         if (!collision.gameObject.CompareTag("Bullet") || !IsLive)
             return;
-        if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        try
+        {
+            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+                return;
+        }
+        catch
+        {
             return;
+        }
         //충돌 대상의 Component에서 스크립트 소환 #아 삽한정으로 하면안되지 #수정필요
         Wappon scriptComponent = null;
 
@@ -116,6 +123,17 @@ public class EnemyParent : MonoBehaviour
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
     public void takeDamage(float damage)
     {
+        if (!IsLive)
+            return;
+        try
+        {
+            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+                return;
+        }
+        catch
+        {
+            return;
+        }
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동

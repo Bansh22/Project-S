@@ -36,7 +36,6 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4510657235222219157}
   - {fileID: 7396571806833556851}
   - {fileID: 2809816410331970534}
   - {fileID: 993237451437504902}
@@ -481,6 +480,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4584789957429963818}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1001 &7649887224307980040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,6 +560,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7649887224307980040}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1001 &7791295675459328753
 PrefabInstance:
   m_ObjectHideFlags: 0
