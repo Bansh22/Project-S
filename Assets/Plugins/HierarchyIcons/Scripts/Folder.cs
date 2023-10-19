@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HierarchyIcons
 {
@@ -9,6 +10,14 @@ namespace HierarchyIcons
 #if UNITY_EDITOR
 
         [SerializeField] private bool haveZeroPos;
+        private void Start()
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name != "Town")
+            {
+                gameObject.SetActive(false);
+            }
+        }
 
         private void LateUpdate()
         {
