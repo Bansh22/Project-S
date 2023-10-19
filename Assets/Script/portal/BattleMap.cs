@@ -21,7 +21,7 @@ public class BattleMap : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            SceneManager.LoadScene("BattleField");
+            SceneManager.LoadScene("Stage1");
         }
     }
 }
