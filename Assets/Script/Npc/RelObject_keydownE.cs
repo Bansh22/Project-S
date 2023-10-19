@@ -6,6 +6,7 @@ public class RelObject_keydownE : MonoBehaviour
 {
 
     public string[] message;
+    public string npcname;
     // Start is called before the first frame update
     void Start()
     {
