@@ -59,6 +59,7 @@ public class ConfigReader
     private static readonly string configFilePath = Application.streamingAssetsPath+"/Config.ini";
     private static Dictionary<string, Dictionary<string, string>> sapData; //첫 string 이 헤더 
     private static Dictionary<string, string> resultDict;
+    private static String resultDictHeader=null;
     //configfilepath의 Config 전부 들고오기 
 
     //생성자
@@ -90,6 +91,7 @@ public class ConfigReader
 
         if (sapData.ContainsKey(sapName))
         {
+            resultDictHeader = sapName;
             resultDict.Add("valname", sapName);
 
             foreach (var kvp in sapData[sapName])
@@ -254,32 +256,22 @@ public class ConfigReader
     }
     public void UpdateData(String Key ,String Value)
     {
-
-        String header = sapData.Keys.FirstOrDefault();
-       
-        if (resultDict.ContainsKey(Key))
+        if (resultDictHeader != null)
         {
-            // 값 업데이트
-            resultDict[Key] = Value;
-
-            Debug.Log($"Updated {Key} to {Value}");
-
-            // 수정된 데이터를 파일에 저장
-            IniFileWriter.WriteIniFile(sapData, GetfilePath());
-            Debug.Log("Updated iniData:");
-            foreach (var section in sapData)
+            if (resultDict.ContainsKey(Key))
             {
-                Debug.Log($"[{section.Key}]");
-                foreach (var kvp in section.Value)
-                {
-                    Debug.Log($"{kvp.Key}={kvp.Value}");
-                }
+                // 값 업데이트
+                resultDict[Key] = Value;
+                sapData[resultDictHeader][Key] = Value;
+
+                // 수정된 데이터를 파일에 저장
+                IniFileWriter.WriteIniFile(sapData, GetfilePath());
+            }
+            else
+            {
+                Debug.LogError("Key not found.");
             }
         }
-        else
-        {
-            Debug.LogError("Key not found.");
-        }     
     }
 
 

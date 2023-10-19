@@ -46,7 +46,7 @@ public class PlayerParent : MonoBehaviour
     //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
     float hitTime=0;
-    private ConfigReader configReader;
+   
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
@@ -64,8 +64,7 @@ public class PlayerParent : MonoBehaviour
     }
     public void Awake()
     {
-        configReader = new ConfigReader("Shooting Wappon");
-        Debug.Log(configReader);
+        
     }
 
 
@@ -96,7 +95,7 @@ public class PlayerParent : MonoBehaviour
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             
-            configReader.UpdateData("damage", "40");
+         
             if (Innpc)
             {
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
