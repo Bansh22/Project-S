@@ -467,17 +467,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1277649272241045401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6951114841843615592, guid: 808aff59bd1f2cd45a6c40caf355d26a,
-          type: 3}
-        m_TargetAssemblyTypeName: PlayerParent, Assembly-CSharp
-        m_MethodName: ChangeCharacterSprite
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

@@ -1,26 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 using UnityEngine.UI;
 
 [SerializeField]
 public class PlayerParent : MonoBehaviour
 {
-    //캐릭터 선택
-    public GameObject ManagerPrefabs;
-    public GameObject[] Player_followWP;
-    public RuntimeAnimatorController[] Player_followWP_Controller;
-    public  GameObject[] Player_Weapon;
-    public  RuntimeAnimatorController[] Player_Controller;
-
     //컴포넌트 기능 Get함수로 반환
+    private GameObject mine;
     private Transform trans;
     private Rigidbody2D rigid;
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
+    public Sprite[] Player_Sprites;
+    public  AnimatorOverrideController[] Player_Controller;
     
     //npc 관련 변수
     private Collider2D npc;
@@ -56,26 +51,20 @@ public class PlayerParent : MonoBehaviour
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
-    private void Awake()
+
+    private void Start()
     {
         Innpc = false;
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "Start" || scene.name == "Town")
-        {
-            int childCount = transform.childCount;
-            for (int i = 0; i < childCount; i++)
-            {
-                if (transform.GetChild(i).name == "Shadow" || transform.GetChild(i).name == "UI")
-                {
-                    continue;
-                }
-                Transform child = transform.GetChild(i);
-                child.gameObject.SetActive(false);
-            }
-        }        // ConfigReader 초기화      
+        Sprite  s= Player_Sprites[0];
+       SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = s;
+        // ConfigReader 초기화
+      
 
-        configReader = new ConfigReader("Shooting Wappon");
-        Debug.Log(configReader);
+    }
+    public void Awake()
+    {
+        
     }
 
 
@@ -195,35 +184,10 @@ public class PlayerParent : MonoBehaviour
 
     public void ChangeCharacterSprite(int index)
     {
-        anim = gameObject.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Player_Controller[index];
-        foreach(GameObject obj in Player_followWP)
-        {
-            anim = obj.GetComponent<Animator>();
-            anim.runtimeAnimatorController = Player_followWP_Controller[index];
-        }
 
-        GameManager manager0 = ManagerPrefabs.GetComponent<GameManager>();
-        Wappon_Pool_Manager_Script wapon = manager0.WaPolManage.GetComponent<Wappon_Pool_Manager_Script>();
-        wapon.Prefabs[0] = Player_Weapon[0 + index * 2];
-        wapon.Prefabs[1] = Player_Weapon[1 + index * 2];
-
-        PlayerParent parent = GameManager.instance.player.GetComponent<PlayerParent>();
-        foreach(GameObject obj in parent.Player_followWP)
-        {
-            if (obj == null)
-            {
-                continue;
-            }
-            anim = obj.GetComponent<Animator>();
-            anim.runtimeAnimatorController = Player_followWP_Controller[index];
-        }
-
-        anim = GameManager.instance.player.gameObject.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Player_Controller[index];
     }
 
-        public void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         hp -= damage; // 데미지 받는다
         if (hitTime == 0)
@@ -297,7 +261,7 @@ public class PlayerParent : MonoBehaviour
     //coll.enabled
     public void Revive()
     {
-        GameManager.instance.uiManger.GetComponent<UIManager>().addUI(0, gameObject);
+        GameManager.instance.uiManger.addUI(0, gameObject);
         this.hp = this.MaxHp;
         anim.SetTrigger("Live");
         gameObject.SetActive(true);
@@ -388,6 +352,8 @@ public class PlayerParent : MonoBehaviour
     //컴포넌트 설정
     public void setObject()
     {
+        //컴포넌트 설정되어있는 확인용
+        mine = gameObject;
         //벡터 컴포넌트
         trans = gameObject.GetComponent<Transform>();
         //애니메 컴포넌트
