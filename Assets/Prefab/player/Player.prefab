@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 4255365097926706802}
   - component: {fileID: 1210273107852512615}
   - component: {fileID: 3443842682874036094}
-  - component: {fileID: 1182996505569416429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -259,14 +258,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_frame: 0
---- !u!222 &1182996505569416429
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998353612227430747}
-  m_CullTransparentMesh: 1
 --- !u!1001 &526191967604448772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,6 +721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword(follow)
       objectReference: {fileID: 0}
+    - target: {fileID: 4092912567308317891, guid: 27476a4bc8639eb4e8ae5eca06391a22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -753,6 +749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword(follow) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453594205088622162, guid: 82395369729e89447b60d2edd10516b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7682444972769938999, guid: 82395369729e89447b60d2edd10516b4,
         type: 3}
@@ -1124,6 +1125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword(follow) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444975938163497045, guid: 5ba62130120c77643b889324943b9835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
