@@ -10,14 +10,14 @@ public class MobScanner : MonoBehaviour
     public RaycastHit2D[] targets;
     public Transform nearestTarget;
 
-  
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
         targets = Physics2D.CircleCastAll(transform.position, ScanRange, Vector2.zero, 0, targrtLayer);
         nearestTarget = GetNearest();
-        
+
     }
 
     Transform GetNearest()
@@ -25,7 +25,7 @@ public class MobScanner : MonoBehaviour
         Transform result = null;
         float diff = 100;
 
-        foreach(RaycastHit2D target in targets)
+        foreach (RaycastHit2D target in targets)
         {
             Vector3 myPos = transform.position;
             Vector3 targetPos = target.transform.position;
