@@ -14,6 +14,9 @@ public class PlayerParent : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
+    public Sprite[] Player_Sprites;
+    public  AnimatorOverrideController[] Player_Controller;
+    
     //npc 관련 변수
     private Collider2D npc;
     private bool Innpc;
@@ -49,6 +52,10 @@ public class PlayerParent : MonoBehaviour
     private void Start()
     {
         Innpc = false;
+        Sprite  s= Player_Sprites[0];
+       SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = s;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -110,6 +117,10 @@ public class PlayerParent : MonoBehaviour
         canInteract = true;
     }
 
+    public void ChangeCharacterSprite(int index)
+    {
+
+    }
 
     public void takeDamage(float damage)
     {
