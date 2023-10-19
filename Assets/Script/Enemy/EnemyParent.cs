@@ -86,8 +86,15 @@ public class EnemyParent : MonoBehaviour
         //충돌 대상이 총알 아닐때 이벤트 종료 || 살아있을때 || 히트애니메이션가 유지되지않을때
         if (!collision.gameObject.CompareTag("Bullet") || !IsLive)
             return;
-        if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        try
+        {
+            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+                return;
+        }
+        catch
+        {
             return;
+        }
         //충돌 대상의 Component에서 스크립트 소환 #아 삽한정으로 하면안되지 #수정필요
         Wappon scriptComponent = null;
 
@@ -118,8 +125,15 @@ public class EnemyParent : MonoBehaviour
     {
         if (!IsLive)
             return;
-        if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+        try
+        {
+            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+                return;
+        }
+        catch
+        {
             return;
+        }
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
