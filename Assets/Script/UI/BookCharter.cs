@@ -22,6 +22,6 @@ public class BookCharter : MonoBehaviour
     {
         Player ply = GameManager.instance.player;
         HP.text = "체력:"+((int)ply.getHp()).ToString() + "/"+ ((int)ply.getMaxHp()).ToString();
-        SPeed.text = "이동 속도:" + ((int)ply.getSpeed()*100).ToString();
+        SPeed.text = "이동 속도:" + ((int)(ply.getSpeed()*100)).ToString();
     }
 }

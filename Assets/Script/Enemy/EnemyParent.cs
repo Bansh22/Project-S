@@ -212,6 +212,7 @@ public class EnemyParent : MonoBehaviour
             for (int i = 0; i < dropList.Length; i++)
             {
                 float randomValue = Random.Range(0f, 100f);
+                fixedProbability=GameManager.instance.DropManage.dropPrefabs[i].GetComponent<ItemParent>().getChance();
                 if (randomValue <= fixedProbability && onetime) {
                     onetime = false;
                     bool dropResult = GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);

@@ -11,7 +11,7 @@ public class WPDamageBuffPotion : ItemParent
         setLimit(reader.Search<int>("Limit"));
         setEffect(reader.Search<float>("Effect"));
         setChance(reader.Search<float>("Chance"));
-        setWorldLimit(true);
+        setWorldLimit(false);
     }
     private void Awake()
     {
