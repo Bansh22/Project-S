@@ -34,7 +34,14 @@ public class nearing_Wappon_Manager : MonoBehaviour
             CountUp();
         }; //액션 실행시 작동하는거 
         GetCount=(int a)=> {
-            return getCount();
+            if (a == 0)
+            {
+                return getCount();
+            }
+            else
+            {
+                return getDamage();
+            }
         };
         DeleteWeapon = () => {
             DestoryWeapon();
@@ -116,5 +123,9 @@ public class nearing_Wappon_Manager : MonoBehaviour
     public int getCount()
     {
         return Count;
+    }
+    public int getDamage()
+    {
+        return (int)Damage;
     }
 }
