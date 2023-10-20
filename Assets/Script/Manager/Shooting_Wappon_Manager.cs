@@ -22,6 +22,8 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     private Player pler;
     public float fireDelay = 0.1f;
     public int index;
+
+    private bool stop = false;
     private void Start()
     {
         index = 0;
@@ -44,7 +46,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
             return getCount();
         };
         DeleteWeapon = () => {
-            DestoryWeapon();
+            StopWeapon();
         };
     }
 
@@ -53,7 +55,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > Speed)
+        if(timer > Speed && !stop)
         {
             timer = 0;
            
@@ -66,13 +68,9 @@ public class Shooting_Wappon_Manager : MonoBehaviour
 
 
    
-    public void DestoryWeapon()
+    public void StopWeapon()
     {
-       foreach(GameObject child in arraygameobj)
-        {
-            Destroy(child);
-        }
-        
+        stop = true; 
     }
 
     public void FireShhooting()
@@ -99,7 +97,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
             Vector3 newDir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
 
             Transform bullset = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
-
+            
             bullset.position = transform.position;
             bullset.rotation = Quaternion.FromToRotation(Vector3.up, newDir);
             bullset.GetComponent<Shooting_Wappon>().Init(Damage, newDir, movespeed);

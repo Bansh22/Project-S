@@ -54,6 +54,7 @@ public class Spawner_Manager : MonoBehaviour
             {
                 start = end;
                 end = start + mobLevel + 2;
+                DestoryMod(start);
             }
         }
         for (int i = start; i < end; i++)
@@ -64,6 +65,7 @@ public class Spawner_Manager : MonoBehaviour
                 timers[i] = GameManager.instance.gameTime;
             }
         }
+        
     }
 
     void SpawnMod(int number) //실제 몹생성 코드 (number에 값 여러개 넣어서 써라!)
@@ -73,5 +75,9 @@ public class Spawner_Manager : MonoBehaviour
         GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number, pos);
         enemy.transform.position = pos;
         
+    }
+    void DestoryMod(int number)
+    {
+        GameManager.instance.PolManage.DeletePoolsPrefabs(number);
     }
 }

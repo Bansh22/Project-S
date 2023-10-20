@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [SerializeField]
 public class PlayerParent : MonoBehaviour
 {
+    //캐릭터변경
+    public  RuntimeAnimatorController[] Player_Controller;
     //컴포넌트 기능 Get함수로 반환
     private GameObject mine;
     private Transform trans;
@@ -14,8 +16,6 @@ public class PlayerParent : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
-    public Sprite[] Player_Sprites;
-    public  AnimatorOverrideController[] Player_Controller;
     
     //npc 관련 변수
     private Collider2D npc;
@@ -52,19 +52,14 @@ public class PlayerParent : MonoBehaviour
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
 
-    private void Start()
-    {
-        Innpc = false;
-        Sprite  s= Player_Sprites[0];
-       SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
-        sr.sprite = s;
-        // ConfigReader 초기화
-      
-
-    }
     public void Awake()
     {
-        
+        Innpc = false;
+        // ConfigReader 초기화
+        ConfigReader reader = new ConfigReader("Player");
+        int modelIndex = reader.Search<int>("Model");
+        Animator change = GetComponent<Animator>();
+        change.runtimeAnimatorController = Player_Controller[modelIndex];
     }
 
 
@@ -184,7 +179,9 @@ public class PlayerParent : MonoBehaviour
 
     public void ChangeCharacterSprite(int index)
     {
-
+        ConfigReader reader = new ConfigReader("Player");
+        reader.UpdateData("Model", index.ToString());
+        GameManager.instance.player.getAnimator().runtimeAnimatorController= GameManager.instance.player.Player_Controller[index];
     }
 
     public void takeDamage(float damage)

@@ -62,7 +62,7 @@ public class Player : PlayerParent
         //합산된 벡터 계산, normalized의 경우 x,y 벡터의 합이 1이상이 되기때문에 1로 고정
         //fixedDeltaTime의 경우 달라지는 프레임 대비
         getTransform().Translate(nextVec);
-        if (inputVec.normalized != Vector3.zero)
+        if (inputVec.x != 0)
         {
             getSpriteRenderer().flipX = inputVec.x <= 0;
         }
