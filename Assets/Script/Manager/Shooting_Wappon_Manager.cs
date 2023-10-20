@@ -43,7 +43,14 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     {
        //액션 실행시 작동하는거 
         GetCount=(int a)=> {
-            return getCount();
+            if (a == 0)
+            {
+                return getCount();
+            }
+            else
+            {
+                return GetDamage();
+            }
         };
         DeleteWeapon = () => {
             StopWeapon();
@@ -109,11 +116,11 @@ public class Shooting_Wappon_Manager : MonoBehaviour
 
     public int getCount()
     {
-        return Count;
+        return (int)Speed;
     }
 
-    public float GetDamage()
+    public int GetDamage()
     {
-        return Damage;
+        return (int)Damage;
     }
 }

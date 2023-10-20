@@ -5,9 +5,20 @@ using UnityEngine;
 public class StatusUI : MonoBehaviour
 {
     public GameObject status;
+    public bool on=false;
     public void OnStatus()
     {
-        Time.timeScale = 0f;
-        status.SetActive(true);
-    }
+        if (!on)
+        {
+            Time.timeScale = 0f;
+            status.SetActive(true);
+            on = true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            status.SetActive(false);
+            on = false;
+        }
+    }   
 }
