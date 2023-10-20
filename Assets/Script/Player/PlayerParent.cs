@@ -121,7 +121,7 @@ public class PlayerParent : MonoBehaviour
                                         Debug.LogError("캔버스 2없음 ");
                                     }
                                 }
-                                if ("shop" == relObject.npcname)
+                                if ("hpshop" == relObject.npcname)
                                 {
                                     try
                                     {
@@ -129,10 +129,32 @@ public class PlayerParent : MonoBehaviour
                                     }
                                     catch
                                     {
-                                        Debug.LogError("캔버스 2없음 ");
+                                        Debug.LogError("캔버스 3없음 ");
                                     }
                                 }
-                                
+                                if ("magicshop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[5].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 5없음 ");
+                                    }
+                                }
+                                if ("weaponshop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[6].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 6없음 ");
+                                    }
+                                }
+
                             }
                             else
                             {

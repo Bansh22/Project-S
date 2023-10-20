@@ -7,18 +7,20 @@ public class Player : PlayerParent
     ConfigReader reader;
     public Vector3 inputVec;
     public MobScanner mobscan;
-    
-   
+    private int model;
+
     public Player()
     {
+
         //Enemy0 사전 열기
         reader = new ConfigReader("Player");
+        model = reader.Search<int>("model");
         //속도 설정
-        setSpeed(reader.Search<float>("speed"));
+        setSpeed(reader.Search<float>("speed" + model.ToString()));
         //MaxHp 설정
-        setMaxHp(reader.Search<float>("hp"));
+        setMaxHp(reader.Search<float>("hp" + model.ToString()));
         //Hp 설정
-        setHp(reader.Search<float>("hp"));
+        setHp(reader.Search<float>("hp" + model.ToString()));
         //현재 살아있는 상태 설정
         setLive(true);
        

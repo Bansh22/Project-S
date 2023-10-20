@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class closeThisActive : MonoBehaviour
 {
-    public Text buttontext;
-    public GameObject actioncanvas;
-
+ 
 
     public void Update()
     {

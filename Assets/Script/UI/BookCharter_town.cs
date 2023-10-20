@@ -11,13 +11,18 @@ public class BookCharter_town : MonoBehaviour
     private Image mySR;
     public Text HP;
     public Text SPeed;
+    private int model;
+
     private int playerHP;
     private int playerSpeed;
     // Start is called before the first frame update
     void Start()
     {
+
         mySR = GetComponent<Image>();
         ConfigReader reader = new ConfigReader("Player");
+        model = reader.Search<int>("model");
+
         int modelIndex = reader.Search<int>("Model");
         mySR.sprite = CR_Controller[modelIndex];
     }
@@ -25,8 +30,8 @@ public class BookCharter_town : MonoBehaviour
     {
  
         readerplayer = new ConfigReader("Player");
-        playerHP = readerplayer.Search<int>("hp");
-        playerSpeed = readerplayer.Search<int>("speed");
+        playerHP = readerplayer.Search<int>("hp" + model.ToString());
+        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
         HP.text = "체력:" + playerHP.ToString();
         SPeed.text = "이동 속도:" + playerSpeed.ToString();
     }

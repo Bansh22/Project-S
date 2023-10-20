@@ -27,8 +27,8 @@ public class BookFarWP_town : MonoBehaviour
         shootspeed = readerShootingWappon.Search<float>("speed");
         shootdamage = readerShootingWappon.Search<float>("damage");
        
-        shootspeed  = (1 - shootspeed) * 7;
-        string resultString = shootspeed.ToString("F1");
+        shootspeed  = ((1 - shootspeed) * 10);
+        string resultString = shootspeed.ToString("F0");
         WPLevel.text = "무기 레벨:" + resultString;
         WPDamage.text= "무기 데미지:" + shootdamage.ToString();
     }
