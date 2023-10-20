@@ -22,7 +22,7 @@ public class PlayerParent : MonoBehaviour
     private bool Innpc;
     private bool canInteract = true; // E 키 입력을 받을 수 있는 상태인지를 나타내는 변수
     private float interactCooldown = 0.5f; // E 키 입력 간격을 제어하는 변수
-    public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas
+    public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas 4pause
     
     public GameObject textmessage;
    
@@ -86,6 +86,11 @@ public class PlayerParent : MonoBehaviour
 
     public void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            canvases[4].SetActive(true);
+        }
         
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {

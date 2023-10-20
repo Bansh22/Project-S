@@ -16,7 +16,7 @@ public class closeThisActive : MonoBehaviour
 
     public void ActionCanvas()
     {
-        actioncanvas.SetActive(true);
+       
         CloseCanvas();
     }
 

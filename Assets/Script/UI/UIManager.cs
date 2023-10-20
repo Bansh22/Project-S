@@ -19,5 +19,18 @@ public class UIManager : MonoBehaviour
         FollowUI followUI=uiObj.GetComponent<FollowUI>();
         followUI.target = par;
         followUI.followTarget(par);
+        Transform healthSliderTransform = uiObj.transform.Find("Health_Slider");
+        Transform hptextTransform = uiObj.transform.Find("Hptext");
+
+     
+
+        if (hptextTransform != null)
+        {
+            // Destroy the Hptext
+            Destroy(hptextTransform.gameObject);
+        }
+    
+  
+
     }
 }
