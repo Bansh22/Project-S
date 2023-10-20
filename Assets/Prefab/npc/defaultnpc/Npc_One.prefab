@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - Hello
+  npcname: 
 --- !u!1001 &6880623817792710692
 PrefabInstance:
   m_ObjectHideFlags: 0
