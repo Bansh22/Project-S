@@ -14,6 +14,7 @@ public class closeThistotu : MonoBehaviour
         if (Input.anyKeyDown)
         {
             CloseCanvas();
+
         }
     }
 
