@@ -13,19 +13,20 @@ public class BookFarWP_town : MonoBehaviour
     public Text WPDamage;
     private float shootdamage;
     private float shootspeed;
+    public int modelIndex;
     // Start is called before the first frame update
     void Start()
     {
         mySR = GetComponent<Image>();
         ConfigReader reader = new ConfigReader("Player");
-        int modelIndex = reader.Search<int>("Model");
+        modelIndex = reader.Search<int>("Model");
         mySR.sprite = WP_Controller[modelIndex];
     }
     private void Update()
     {
-        readerShootingWappon = new ConfigReader("Shooting Wappon");
-        shootspeed = readerShootingWappon.Search<float>("speed");
-        shootdamage = readerShootingWappon.Search<float>("damage");
+        readerShootingWappon = new ConfigReader("Shooting Wappon" );
+        shootspeed = readerShootingWappon.Search<float>("speed" + modelIndex.ToString());
+        shootdamage = readerShootingWappon.Search<float>("damage" + modelIndex.ToString());
        
         shootspeed  = ((1 - shootspeed) * 10);
         string resultString = shootspeed.ToString("F0");

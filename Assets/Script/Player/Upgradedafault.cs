@@ -25,12 +25,12 @@ public class Upgradedafault : MonoBehaviour
     public void Awake()
     {
         readerplayer = new ConfigReader("Player");
-        model = readerplayer.Search<int>("model");
+        model = readerplayer.Search<int>("Model");
         playerHP = readerplayer.Search<int>("hp"+ model.ToString());
         HPtexts.text = "HP : " + playerHP.ToString() + " / 400 ";
 
         readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
+        playerSpeed = readerplayer.Search<int>("speed" + model.ToString() + model.ToString());
         playerspeedtexts.text = "Speed : " + playerSpeed.ToString() + " / 7 ";
     }
     public  void HPupgrade()
@@ -61,7 +61,7 @@ public class Upgradedafault : MonoBehaviour
     public void playerspeedup()
     {
         readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed");
+        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
         if (playerSpeed < 7)
         {
             
@@ -71,7 +71,7 @@ public class Upgradedafault : MonoBehaviour
                 temp = 7;
             }
             string stringtemp = temp.ToString();
-            readerplayer.UpdateData("speed", stringtemp);
+            readerplayer.UpdateData("speed" + model.ToString(), stringtemp);
             openconfirm();
             playerspeedtexts.text = "Speed : " + stringtemp + " / 7 ";
             paygold();
@@ -85,25 +85,25 @@ public class Upgradedafault : MonoBehaviour
     public void sapatkup()
     {
         readerSapWappon = new ConfigReader("Sap Wappon");
-        Sapdamage = readerSapWappon.Search<float>("damage");
+        Sapdamage = readerSapWappon.Search<float>("damage" + model.ToString());
         Debug.Log(Sapdamage);
         if (Sapdamage < 70)
         {
             float temp = Sapdamage + 5;
             string stringtemp = temp.ToString();
-            readerSapWappon.UpdateData("damage", stringtemp);
+            readerSapWappon.UpdateData("damage" + model.ToString(), stringtemp);
         }
         openconfirm();
     }
     public void sapcountup()
     {
         readerSapWappon = new ConfigReader("Sap Wappon");
-        Sapcount = readerSapWappon.Search<int>("Count");
+        Sapcount = readerSapWappon.Search<int>("Count"+model.ToString());
         if (Sapcount < 6)
         {
             float temp = Sapcount + 1;
             string stringtemp = temp.ToString();
-            readerSapWappon.UpdateData("Count", stringtemp);
+            readerSapWappon.UpdateData("Count"+model.ToString(), stringtemp);
         }
         openconfirm();
     }
@@ -111,12 +111,12 @@ public class Upgradedafault : MonoBehaviour
     {
 
         readerShootingWappon = new ConfigReader("Shooting Wappon");
-        shootspeed = readerShootingWappon.Search<float>("speed");
+        shootspeed = readerShootingWappon.Search<float>("speed" + model.ToString());
         if (shootspeed >0.6)
         {
             float temp = shootspeed - 0.1f;
             string stringtemp = temp.ToString();
-            readerShootingWappon.UpdateData("speed", stringtemp);
+            readerShootingWappon.UpdateData("speed" + model.ToString(), stringtemp);
 
         }
         openconfirm();
@@ -127,11 +127,11 @@ public class Upgradedafault : MonoBehaviour
         if (playerHP < 5000)
         {
             readerplayer = new ConfigReader("Player");
-            playerHP = readerplayer.Search<int>("hp");
+            playerHP = readerplayer.Search<int>("hp" + model.ToString());
 
             float temp = 9999f;
             string stringtemp = temp.ToString();
-            readerplayer.UpdateData("hp", stringtemp);
+            readerplayer.UpdateData("hp" + model.ToString(), stringtemp);
             HPtexts.text = "HP : " + stringtemp + " / " + stringtemp + " ";
             openconfirm();
         }

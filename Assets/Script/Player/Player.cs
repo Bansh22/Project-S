@@ -14,7 +14,7 @@ public class Player : PlayerParent
 
         //Enemy0 사전 열기
         reader = new ConfigReader("Player");
-        model = reader.Search<int>("model");
+        model = reader.Search<int>("Model");
         //속도 설정
         setSpeed(reader.Search<float>("speed" + model.ToString()));
         //MaxHp 설정
@@ -58,7 +58,7 @@ public class Player : PlayerParent
 
     private void FixedUpdate()
     {
-        getAnimator().SetFloat("Speed", inputVec.magnitude);
+        getAnimator().SetFloat("Speed" , inputVec.magnitude);
 
         Vector3 nextVec = inputVec.normalized * getSpeed() * Time.fixedDeltaTime;
         //합산된 벡터 계산, normalized의 경우 x,y 벡터의 합이 1이상이 되기때문에 1로 고정

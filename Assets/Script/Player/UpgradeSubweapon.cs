@@ -26,7 +26,7 @@ public class UpgradeSubweapon : MonoBehaviour
     public void Awake()
     {
         readerplayer = new ConfigReader("Player");
-        model = readerplayer.Search<int>("model");
+        model = readerplayer.Search<int>("Model");
         playerHP = readerplayer.Search<int>("hp" + model.ToString());
         HPtexts.text = "HP : " + playerHP.ToString() + " / 400 ";
 

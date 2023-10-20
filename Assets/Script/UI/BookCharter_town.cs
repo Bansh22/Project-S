@@ -21,7 +21,7 @@ public class BookCharter_town : MonoBehaviour
 
         mySR = GetComponent<Image>();
         ConfigReader reader = new ConfigReader("Player");
-        model = reader.Search<int>("model");
+        model = reader.Search<int>("Model");
 
         int modelIndex = reader.Search<int>("Model");
         mySR.sprite = CR_Controller[modelIndex];

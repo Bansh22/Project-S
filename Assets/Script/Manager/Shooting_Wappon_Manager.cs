@@ -17,6 +17,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     public static Action CountTarget; //액션 선언 
     public static Action DeleteWeapon; //액션 선언 
     public static Func<int,int> GetCount; //액션 선언
+    private int Model;
                                           //
     private float timer;
     private Player pler;
@@ -28,13 +29,16 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     {
         index = 0;
         // = GetComponent<Transform>();
+
+        reader = new ConfigReader("Player");
+        Model = reader.Search<int>("Model");
         reader = new ConfigReader("Shooting Wappon");
-        Damage = reader.Search<float>("damage");
-        Speed = reader.Search<float>("speed");
-        Count = reader.Search<int>("Count");
-        movespeed = reader.Search<float>("movespeed");
+        Damage = reader.Search<float>("damage"+Model.ToString());
+        Speed = reader.Search<float>("speed" + Model.ToString());
+        Count = reader.Search<int>("Count" + Model.ToString());
+        movespeed = reader.Search<float>("movespeed" + Model.ToString());
         PrefubId = reader.Search<int>("PrefubId");
-        targetLimit = reader.Search<int>("targetLimit");
+        targetLimit = reader.Search<int>("targetLimit" + Model.ToString());
         pler = GetComponentInParent<Player>();
         
 

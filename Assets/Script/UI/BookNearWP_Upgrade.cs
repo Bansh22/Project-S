@@ -13,13 +13,13 @@ public class BookNearWP_Upgrade : MonoBehaviour
     public Text WPDamage;
     private float Sapdamage;
     private int Sapcount;
-
+    int modelIndex;
     // Start is called before the first frame update
     void Start()
     {
         mySR = GetComponent<Image>();
         ConfigReader reader = new ConfigReader("Player");
-        int modelIndex = reader.Search<int>("Model");
+        modelIndex = reader.Search<int>("Model");
         mySR.sprite = WP_Controller[modelIndex];
 
     }
@@ -27,8 +27,8 @@ public class BookNearWP_Upgrade : MonoBehaviour
     {
        
         readerSapWappon = new ConfigReader("Sap Wappon");
-        Sapdamage = readerSapWappon.Search<float>("damage");
-        Sapcount = readerSapWappon.Search<int>("Count");
+        Sapdamage = readerSapWappon.Search<float>("damage"+ modelIndex.ToString());
+        Sapcount = readerSapWappon.Search<int>("Count" + modelIndex.ToString());
         WPLevel.text = "무기 레벨:"+ Sapcount.ToString();
         WPDamage.text = "무기 데미지:" + Sapdamage.ToString();
     }
