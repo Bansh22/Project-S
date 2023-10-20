@@ -62,7 +62,8 @@ public class EnemyParent : MonoBehaviour
     {
         setReader(new ConfigReader(key));
         //속도 설정
-        Speed=getReader().Search<float>("speed");
+        
+        Speed =getReader().Search<float>("speed");
         //MaxHp 설정
         MaxHp=getReader().Search<float>("hp");
         //Hp 설정
