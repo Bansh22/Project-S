@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UpgradePlayer : MonoBehaviour
 {
+    public GameObject activecan;
     private ConfigReader readerplayer;
     private ConfigReader readerSapWappon;
     private ConfigReader readerShootingWappon;
@@ -27,6 +28,7 @@ public class UpgradePlayer : MonoBehaviour
         string stringtemp = temp.ToString();
         readerplayer.UpdateData("hp", stringtemp);
         }
+        openconfirm();
     } 
     public void playerspeedup()
     {
@@ -38,6 +40,7 @@ public class UpgradePlayer : MonoBehaviour
             string stringtemp = temp.ToString();
             readerplayer.UpdateData("speed", stringtemp);
         }
+        openconfirm();
     }
     public void sapatkup()
     {
@@ -50,6 +53,7 @@ public class UpgradePlayer : MonoBehaviour
             string stringtemp = temp.ToString();
             readerSapWappon.UpdateData("damage", stringtemp);
         }
+        openconfirm();
     }
     public void sapcountup()
     {
@@ -61,18 +65,21 @@ public class UpgradePlayer : MonoBehaviour
             string stringtemp = temp.ToString();
             readerSapWappon.UpdateData("Count", stringtemp);
         }
+        openconfirm();
     }
     public void shootspeedup()
     {
 
         readerShootingWappon = new ConfigReader("Shooting Wappon");
         shootspeed = readerShootingWappon.Search<float>("speed");
-        if (shootspeed >0.3)
+        if (shootspeed >0.6)
         {
             float temp = shootspeed - 0.1f;
             string stringtemp = temp.ToString();
             readerShootingWappon.UpdateData("speed", stringtemp);
+
         }
+        openconfirm();
     }
     public void programmermode()
     {
@@ -82,9 +89,13 @@ public class UpgradePlayer : MonoBehaviour
             float temp = 9999f;
             string stringtemp = temp.ToString();
             readerplayer.UpdateData("hp", stringtemp);
-       
 
-       
+        openconfirm();
+
     }
 
+    public void openconfirm()
+    {
+        activecan.SetActive(true);
+    }
 }
