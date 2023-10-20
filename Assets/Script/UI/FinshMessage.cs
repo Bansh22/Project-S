@@ -5,7 +5,6 @@ using UnityEngine;
 public class FinshMessage : MonoBehaviour
 {
     Player player;
-    bool onetime = true;
     public GameObject Finsh;
     private void Start()
     {
@@ -15,16 +14,11 @@ public class FinshMessage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!player.getLive() && onetime)
+        if(!player.getLive() && Time.timeScale!=0)
         {
-            onetime = false;
             nearing_Wappon_Manager.DeleteWeapon();
             Shooting_Wappon_Manager.DeleteWeapon();
             StartCoroutine(DeadEvent());
-        }
-        else if(player.getLive())
-        {
-            onetime = true;
         }
         if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime) { 
             Finsh.SetActive(true);

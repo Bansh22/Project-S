@@ -26,6 +26,7 @@ public class SpeedBuffPotion : ItemParent
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.instance.uiManger.addUI(3, collision.gameObject);
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.SpeedBuff(getEffect());
             DeleteList(Drop_Manage.Drop.Speed);

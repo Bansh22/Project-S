@@ -198,6 +198,7 @@ public class PlayerParent : MonoBehaviour
         }
         if (hp <= 0) //0보다 작으면 
         {
+            hp = 0f;
             anim.SetTrigger("Dead");
             setLive(false);
             coll.enabled = false;//시체 충돌 무시
