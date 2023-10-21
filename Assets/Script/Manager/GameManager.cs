@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [Serializable]
@@ -34,8 +35,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Scene scene = SceneManager.GetActiveScene();
         reader = new ConfigReader("Timer");
-        maxGameTime = reader.Search<float>("maxTime");
+        for(int i = 1; i <= 3; i++)
+        {
+            if (scene.name == "Stage" + i)
+            {
+                maxGameTime = reader.Search<float>("StageMaxTime"+i);
+            }
+        }
         instance = this;
         gameTime = 0;
     }

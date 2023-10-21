@@ -29,6 +29,8 @@ public class WPDamageBuffPotion : ItemParent
             GameManager.instance.uiManger.addUI(2, collision.gameObject);
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
             weaponManager.DamageUp(getEffect());
+            Shooting_Wappon_Manager shootWeaponManager = collision.gameObject.GetComponentInChildren<Shooting_Wappon_Manager>();
+            shootWeaponManager.DamageUp(getEffect());
             DeleteList(Drop_Manage.Drop.WPDamage);
         }
     }

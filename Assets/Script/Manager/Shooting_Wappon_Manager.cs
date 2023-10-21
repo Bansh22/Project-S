@@ -127,4 +127,8 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     {
         return (int)Damage;
     }
+    public void DamageUp(float damage)
+    {
+        this.Damage += damage;
+    }
 }

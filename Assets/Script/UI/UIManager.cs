@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         GameObject uiObj = Instantiate(Prefabs[prefabNum], transform);
-        uiObj.transform.parent = MobHPs.transform;
+        uiObj.transform.SetParent(MobHPs.transform);
         FollowUI followUI=uiObj.GetComponent<FollowUI>();
         followUI.target = par;
         followUI.followTarget(par);
