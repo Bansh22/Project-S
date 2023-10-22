@@ -62,7 +62,8 @@ public class EnemyParent : MonoBehaviour
     {
         setReader(new ConfigReader(key));
         //속도 설정
-        Speed=getReader().Search<float>("speed");
+        
+        Speed =getReader().Search<float>("speed");
         //MaxHp 설정
         MaxHp=getReader().Search<float>("hp");
         //Hp 설정
@@ -98,17 +99,21 @@ public class EnemyParent : MonoBehaviour
         //충돌 대상의 Component에서 스크립트 소환 #아 삽한정으로 하면안되지 #수정필요
         Wappon scriptComponent = null;
 
-        if (collision.gameObject.GetComponent<SapWappon>() != null)
+        //if (collision.gameObject.GetComponent<SapWappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<SapWappon>();
+        //}
+        //else if (collision.gameObject.GetComponent<Shooting_Wappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<Shooting_Wappon>();
+        //}
+        //else if (collision.gameObject.GetComponent<Magic_Wappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<Magic_Wappon>();
+        //}
+        if (collision.gameObject.GetComponent<Wappon>() != null)
         {
-            scriptComponent = collision.gameObject.GetComponent<SapWappon>();
-        }
-        else if (collision.gameObject.GetComponent<Shooting_Wappon>() != null)
-        {
-            scriptComponent = collision.gameObject.GetComponent<Shooting_Wappon>();
-        }
-        else if (collision.gameObject.GetComponent<Magic_Wappon>() != null)
-        {
-            scriptComponent = collision.gameObject.GetComponent<Magic_Wappon>();
+            scriptComponent = collision.gameObject.GetComponent<Wappon>();
         }
 
         GameManager.instance.AudioManager.PlaySfx(AudioManageer.Sfx.Hit);
@@ -125,15 +130,7 @@ public class EnemyParent : MonoBehaviour
     {
         if (!IsLive)
             return;
-        try
-        {
-            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
-                return;
-        }
-        catch
-        {
-            return;
-        }
+
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
@@ -212,6 +209,7 @@ public class EnemyParent : MonoBehaviour
             for (int i = 0; i < dropList.Length; i++)
             {
                 float randomValue = Random.Range(0f, 100f);
+                fixedProbability=GameManager.instance.DropManage.dropPrefabs[i].GetComponent<ItemParent>().getChance();
                 if (randomValue <= fixedProbability && onetime) {
                     onetime = false;
                     bool dropResult = GameManager.instance.DropManage.DropItem((Drop_Manage.Drop)i, trans.position);

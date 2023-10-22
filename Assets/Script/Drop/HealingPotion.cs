@@ -28,6 +28,7 @@ public class HealingPotion : ItemParent
     {
         if (collision.gameObject.CompareTag("Player") && !oneTime)
         {
+            GameManager.instance.uiManger.addUI(1, collision.gameObject);
             oneTime = true;
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.Healing(getEffect());

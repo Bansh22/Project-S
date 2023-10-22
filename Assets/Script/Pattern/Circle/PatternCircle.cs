@@ -13,7 +13,6 @@ public class PatternCircle : MonoBehaviour
     Color color;
 
     public float showTimer=1;
-    bool onetime =false;
 
     // Start is called before the first frame update
     void Start()

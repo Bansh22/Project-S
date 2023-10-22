@@ -33,6 +33,7 @@ public class Shooting_Wappon: Wappon
     IEnumerator TimeOut()
     {
         yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 
 }

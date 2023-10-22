@@ -11,36 +11,53 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     [HideInInspector] public int Count;
     private float Speed;
     private float movespeed;
+    private int targetLimit;
     Transform scrptTrsfrom;
     private GameObject[] arraygameobj;
     public static Action CountTarget; //액션 선언 
     public static Action DeleteWeapon; //액션 선언 
     public static Func<int,int> GetCount; //액션 선언
+    private int Model;
                                           //
     private float timer;
     private Player pler;
-   
-    private void Start()
-    { 
-        // = GetComponent<Transform>();
-        reader = new ConfigReader("Shooting Wappon");
-        Damage = reader.Search<float>("damage");
-        Speed = reader.Search<float>("speed");
-        Count = reader.Search<int>("Count");
-        movespeed = reader.Search<float>("movespeed");
-        PrefubId = reader.Search<int>("PrefubId");
-        pler = GetComponentInParent<Player>();
+    public float fireDelay = 0.1f;
+    public int index;
 
+    private bool stop = false;
+    private void Start()
+    {
+        index = 0;
+        // = GetComponent<Transform>();
+
+        reader = new ConfigReader("Player");
+        Model = reader.Search<int>("Model");
+        reader = new ConfigReader("Shooting Wappon");
+        Damage = reader.Search<float>("damage"+Model.ToString());
+        Speed = reader.Search<float>("speed" + Model.ToString());
+        Count = reader.Search<int>("Count" + Model.ToString());
+        movespeed = reader.Search<float>("movespeed" + Model.ToString());
+        PrefubId = reader.Search<int>("PrefubId");
+        targetLimit = reader.Search<int>("targetLimit" + Model.ToString());
+        pler = GetComponentInParent<Player>();
+        
 
     }
     private void Awake()
     {
        //액션 실행시 작동하는거 
         GetCount=(int a)=> {
-            return getCount();
+            if (a == 0)
+            {
+                return getCount();
+            }
+            else
+            {
+                return GetDamage();
+            }
         };
         DeleteWeapon = () => {
-            DestoryWeapon();
+            StopWeapon();
         };
     }
 
@@ -49,10 +66,12 @@ public class Shooting_Wappon_Manager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > Speed)
+        if(timer > Speed && !stop)
         {
             timer = 0;
-            FireShhooting();
+           
+                FireShhooting();
+         
         }
 
 
@@ -60,42 +79,56 @@ public class Shooting_Wappon_Manager : MonoBehaviour
 
 
    
-    public void DestoryWeapon()
+    public void StopWeapon()
     {
-       foreach(GameObject child in arraygameobj)
-        {
-            Destroy(child);
-        }
-        
+        stop = true; 
     }
 
     public void FireShhooting()
     {
-      
-        if (!pler.mobscan.nearestTarget)
+        if (pler.mobscan.nearestTarget == null)
         {
             return;
         }
+        int numberOfProjectiles = targetLimit; // 발사되는 탄환 수
+        float angleInterval = 90f / (numberOfProjectiles - 1); // 탄환 각도 간격 계산
 
-        Vector3 targetpos = pler.mobscan.nearestTarget.position;
-        Vector3 dir = targetpos - transform.position;
-        dir = dir.normalized;
+        for (int i = 0; i < numberOfProjectiles; i++)
+        {
+            // 타겟을 향하는 각도 계산
+            float targetAngle = Mathf.Atan2(pler.mobscan.nearestTarget.position.y - transform.position.y, pler.mobscan.nearestTarget.position.x - transform.position.x) * Mathf.Rad2Deg;
 
-        Transform bullset = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
-        
-        bullset.position = transform.position;
-        bullset.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        bullset.GetComponent<Shooting_Wappon>().Init(Damage ,dir , movespeed);
-      
+            // 탄환의 각도 계산
+            float bulletAngle = targetAngle - 45f + (angleInterval * i);
+
+            // 각도를 라디안으로 변환
+            float radians = bulletAngle * Mathf.Deg2Rad;
+
+            // 새로운 방향 벡터를 계산
+            Vector3 newDir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
+
+            Transform bullset = GameManager.instance.WaPolManage.GetPoolsPrefabs(PrefubId).transform;
+            
+            bullset.position = transform.position;
+            bullset.rotation = Quaternion.FromToRotation(Vector3.up, newDir);
+            bullset.GetComponent<Shooting_Wappon>().Init(Damage, newDir, movespeed);
+
+
+        }
     }
+ 
 
     public int getCount()
     {
-        return Count;
+        return (int)Speed;
     }
 
-    public float GetDamage()
+    public int GetDamage()
     {
-        return Damage;
+        return (int)Damage;
+    }
+    public void DamageUp(float damage)
+    {
+        this.Damage += damage;
     }
 }

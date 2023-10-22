@@ -15,14 +15,18 @@ public class nearing_Wappon_Manager : MonoBehaviour
     public static Action CountTarget; //액션 선언 
     public static Action DeleteWeapon; //액션 선언 
     public static Func<int,int> GetCount; //액션 선언 
+    private int Model;
+
 
     private void Start()
-    { 
+    {
+        reader = new ConfigReader("Player");
+        Model = reader.Search<int>("Model");
         // = GetComponent<Transform>();
         reader = new ConfigReader("Sap Wappon");
-        Damage = reader.Search<float>("damage");
-        Speed = reader.Search<float>("speed");
-        Count = reader.Search<int>("Count");
+        Damage = reader.Search<float>("damage" + Model.ToString());
+        Speed = reader.Search<float>("speed" + Model.ToString());
+        Count = reader.Search<int>("Count" + Model.ToString());
         PrefubId = reader.Search<int>("PrefubId");
         Init();
 
@@ -34,7 +38,14 @@ public class nearing_Wappon_Manager : MonoBehaviour
             CountUp();
         }; //액션 실행시 작동하는거 
         GetCount=(int a)=> {
-            return getCount();
+            if (a == 0)
+            {
+                return getCount();
+            }
+            else
+            {
+                return getDamage();
+            }
         };
         DeleteWeapon = () => {
             DestoryWeapon();
@@ -116,5 +127,9 @@ public class nearing_Wappon_Manager : MonoBehaviour
     public int getCount()
     {
         return Count;
+    }
+    public int getDamage()
+    {
+        return (int)Damage;
     }
 }

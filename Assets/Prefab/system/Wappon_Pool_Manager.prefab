@@ -47,4 +47,6 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 1838149070595017693, guid: 752167ceac99c5b44a7e703b791a7633, type: 3}
   - {fileID: 6981167425694023349, guid: d2561ccf36529ba4c9adc39aa11db689, type: 3}
+  - {fileID: 1838149070595017693, guid: 7d4a9aaab74810344a71bc1320fa6ba9, type: 3}
+  - {fileID: 6981167425694023349, guid: 9d6329df4b497de4d8cdad2b0de9bca1, type: 3}
   WapponPoints: []

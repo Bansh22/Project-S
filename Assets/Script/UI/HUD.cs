@@ -7,6 +7,7 @@ public class HUD : MonoBehaviour
 {
     public enum InfoType {Level,Kill,Time,Health,Result}
     public InfoType type;
+    public Text Hptext; 
 
     RectTransform rect;
     Text myText;
@@ -63,6 +64,9 @@ public class HUD : MonoBehaviour
                 {
                     Player player = GameManager.instance.player;
                     mySlilder.value = player.getHp() / player.getMaxHp();
+                    int currentHp = Mathf.RoundToInt(player.getHp());
+                    int maxHp = Mathf.RoundToInt(player.getMaxHp());
+                    Hptext.text = currentHp.ToString() + " /  " + maxHp.ToString();
                     return;
                 }
                 switch (parentUI.target.tag)
@@ -73,6 +77,7 @@ public class HUD : MonoBehaviour
                         {
                             FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
                             follow.destroythis();
+                           
                             return;
                         }
                         bool live = enemy.IsLive;
@@ -80,11 +85,14 @@ public class HUD : MonoBehaviour
                         {
                             FollowUI follow = gameObject.GetComponentInParent<FollowUI>();
                             follow.destroythis();
+                           
                             return;
                         }
                         else
                         {
+                            
                             mySlilder.value = enemy.Hp / enemy.MaxHp;
+                           
                         }
                         break;
                     case "Player":
@@ -98,6 +106,9 @@ public class HUD : MonoBehaviour
                         else
                         {
                             mySlilder.value = player.getHp() / player.getMaxHp();
+                            int currentHp = Mathf.RoundToInt(player.getHp());
+                            int maxHp = Mathf.RoundToInt(player.getMaxHp());
+                            Hptext.text = currentHp.ToString() + " /  " + maxHp.ToString();
                         }
                         break;
                 }

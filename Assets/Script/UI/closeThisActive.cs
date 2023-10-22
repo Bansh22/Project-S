@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class closeThisActive : MonoBehaviour
 {
-    public Text buttontext;
-    public GameObject actioncanvas;
-
+ 
 
     public void Update()
     {
@@ -16,7 +14,7 @@ public class closeThisActive : MonoBehaviour
 
     public void ActionCanvas()
     {
-        actioncanvas.SetActive(true);
+       
         CloseCanvas();
     }
 
