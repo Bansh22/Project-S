@@ -25,7 +25,7 @@ public class PlayerParent : MonoBehaviour
     public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas 4pause
     
     public GameObject textmessage;
-   
+    private Material npcMaterial;
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     //player 스피드
     private float speed; //(config 등록)
@@ -165,18 +165,32 @@ public class PlayerParent : MonoBehaviour
                         {
                             int randomIndex = Random.Range(0, messages.Length);
                             string randomMessage = messages[randomIndex];
+                            int ranval = Random.Range(50, 101);
                             try
                             {
                                 canvases[0].SetActive(true); //messagecanvas
+
+                                if (randomMessage.Contains("Gold"))
+                                {
+                                    ConfigReader reader = new ConfigReader("Player");
+                                    int goldnum = reader.Search<int>("gold");
+                                    goldnum += ranval;
+                                    reader.UpdateData("gold" , goldnum.ToString());
+                                  
+
+                                    npc.gameObject.transform.parent.gameObject.SetActive(false);
+                                }
                             }
                             catch
                             {
+                                npc.gameObject.transform.parent.gameObject.SetActive(false);
                                 Debug.LogError("캔버스 0없음 ");
                             }
                             Text textmes = textmessage.GetComponent<Text>();
-                            textmes.text = randomMessage;
+                            textmes.text = randomMessage + "\n" + ranval.ToString() +"Gold Get!" ;
                             //Debug.Log(randomMessage);
                         }
+
                     }
                     else if(messages.Length == 0)
                     {
@@ -197,6 +211,11 @@ public class PlayerParent : MonoBehaviour
             }
         }
     }
+ 
+
+
+
+
 
     private IEnumerator EnableInteractAfterCooldown()
     {

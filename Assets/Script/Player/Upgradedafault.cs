@@ -4,143 +4,105 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-public class Upgradedafault : MonoBehaviour
+public class Upgrademainweapon : MonoBehaviour
 {
     public GameObject activecan;
     public Text activecantext;
-    public Text HPtexts;
-    public Text playerspeedtexts;
+    public Text Damagetexts;
+    
+    public Text counttexts;
     private ConfigReader readerplayer;
     private ConfigReader readerSapWappon;
     private ConfigReader readerShootingWappon;
     private int shootdamage;
     private float shootspeed;
+    private int shootcount;
     private float Sapdamage;
     private int Sapcount;
     private int model;
     private int playerHP;
     private int playerSpeed;
+    private int gold;
     // Start is called before the first frame update
 
     public void Awake()
     {
         readerplayer = new ConfigReader("Player");
         model = readerplayer.Search<int>("Model");
-        playerHP = readerplayer.Search<int>("hp"+ model.ToString());
-        HPtexts.text = "HP : " + playerHP.ToString() + " / 400 ";
+        readerSapWappon = new ConfigReader("Sap Wappon");
+        shootdamage = readerSapWappon.Search<int>("damage" + model.ToString());
+        Damagetexts.text = "Damage : " + shootdamage.ToString() + " / 70 ";
 
-        readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed" + model.ToString() + model.ToString());
-        playerspeedtexts.text = "Speed : " + playerSpeed.ToString() + " / 7 ";
-    }
-    public  void HPupgrade()
-    {
-        readerplayer = new ConfigReader("Player");
-        playerHP = readerplayer.Search<int>("hp" + model.ToString());
-      
-        if (playerHP < 391)
-        {
-            
-            float temp = playerHP + 10;
-            if(temp >= 400)
-            {
-                temp = 400;
-            }
-            string stringtemp = temp.ToString();
-            readerplayer.UpdateData("hp" + model.ToString(), stringtemp);
-            openconfirm();
-            HPtexts.text = "HP : " + stringtemp + " / 400 " ;
-            paygold();
-        }
-        else
-        {
-            maxopen();
-        }
+
        
-    } 
-    public void playerspeedup()
+
+        shootcount = readerSapWappon.Search<int>("Count" + model.ToString());
+        counttexts.text = "Count : " + shootcount.ToString() + " / 6 ";
+    }
+    public void mainDamageupgrade()
     {
-        readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
-        if (playerSpeed < 7)
+        readerSapWappon = new ConfigReader("Sap Wappon");
+        shootdamage = readerSapWappon.Search<int>("damage" + model.ToString());
+
+        if (shootdamage < 70)
         {
-            
-            float temp = playerSpeed + 1;
-            if (temp >= 7)
+            if (paygold(2000))
             {
-                temp = 7;
+                float temp = shootdamage + 10;
+                if (temp >= 70)
+                {
+                    temp = 70;
+                }
+                string stringtemp = temp.ToString();
+
+                readerSapWappon = new ConfigReader("Sap Wappon");
+                readerSapWappon.UpdateData("damage" + model.ToString(), stringtemp);
+                openconfirm();
+                Damagetexts.text = "Damage : " + stringtemp + " / 70 ";
             }
-            string stringtemp = temp.ToString();
-            readerplayer.UpdateData("speed" + model.ToString(), stringtemp);
-            openconfirm();
-            playerspeedtexts.text = "Speed : " + stringtemp + " / 7 ";
-            paygold();
+            else
+            {
+                goldless();
+            }
+        }
+        else
+        {
+            maxopen();
+        }
+
+    }
+    
+    public void maincountup()
+    {
+        readerSapWappon = new ConfigReader("Sap Wappon");
+        shootcount = readerSapWappon.Search<int>("Count" + model.ToString());
+        if (shootcount < 6)
+        {
+            if (paygold(2000))
+            {
+                float temp = shootcount + 1;
+                if (temp >= 6)
+                {
+                    temp = 6;
+                }
+                string stringtemp = temp.ToString();
+                readerSapWappon = new ConfigReader("Sap Wappon");
+                readerSapWappon.UpdateData("Count" + model.ToString(), stringtemp);
+                openconfirm();
+                counttexts.text = "Count : " + stringtemp + " / 6 ";
+            }
+            else
+            {
+                goldless();
+            }
         }
         else
         {
             maxopen();
         }
     }
-   
-    public void sapatkup()
-    {
-        readerSapWappon = new ConfigReader("Sap Wappon");
-        Sapdamage = readerSapWappon.Search<float>("damage" + model.ToString());
-        Debug.Log(Sapdamage);
-        if (Sapdamage < 70)
-        {
-            float temp = Sapdamage + 5;
-            string stringtemp = temp.ToString();
-            readerSapWappon.UpdateData("damage" + model.ToString(), stringtemp);
-        }
-        openconfirm();
-    }
-    public void sapcountup()
-    {
-        readerSapWappon = new ConfigReader("Sap Wappon");
-        Sapcount = readerSapWappon.Search<int>("Count"+model.ToString());
-        if (Sapcount < 6)
-        {
-            float temp = Sapcount + 1;
-            string stringtemp = temp.ToString();
-            readerSapWappon.UpdateData("Count"+model.ToString(), stringtemp);
-        }
-        openconfirm();
-    }
-    public void shootspeedup()
-    {
 
-        readerShootingWappon = new ConfigReader("Shooting Wappon");
-        shootspeed = readerShootingWappon.Search<float>("speed" + model.ToString());
-        if (shootspeed >0.6)
-        {
-            float temp = shootspeed - 0.1f;
-            string stringtemp = temp.ToString();
-            readerShootingWappon.UpdateData("speed" + model.ToString(), stringtemp);
 
-        }
-        openconfirm();
-    }
-
-    public void programmermode()
-    {
-        if (playerHP < 5000)
-        {
-            readerplayer = new ConfigReader("Player");
-            playerHP = readerplayer.Search<int>("hp" + model.ToString());
-
-            float temp = 9999f;
-            string stringtemp = temp.ToString();
-            readerplayer.UpdateData("hp" + model.ToString(), stringtemp);
-            HPtexts.text = "HP : " + stringtemp + " / " + stringtemp + " ";
-            openconfirm();
-        }
-        else
-        {
-            programopen();
-        }
-
-    }
     public void openconfirm()
     {
         activecan.SetActive(true);
@@ -151,13 +113,30 @@ public class Upgradedafault : MonoBehaviour
         activecan.SetActive(true);
         activecantext.text = "업그레이드 최대치입니다!";
     }
+    public void goldless()
+    {
+        activecan.SetActive(true);
+        activecantext.text = "골드가 모자릅니다!!";
+    }
     public void programopen()
     {
         activecan.SetActive(true);
         activecantext.text = "이미 프로그래머 모드입니다!";
     }
-    public void paygold()
+    public bool paygold(int goldval)
     {
+        readerplayer = new ConfigReader("Player");
+        gold = readerplayer.Search<int>("gold");
 
+        if (gold < goldval)
+        {
+            return false;
+        }
+        int temp = gold - goldval;
+
+        string stringtemp = temp.ToString();
+        readerplayer.UpdateData("gold", stringtemp);
+
+        return true;
     }
 }

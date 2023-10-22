@@ -8,13 +8,15 @@ public class UpgradeSubweapon : MonoBehaviour
 {
     public GameObject activecan;
     public Text activecantext;
-    public Text HPtexts;
-    public Text playerspeedtexts;
+    public Text Damagetexts;
+    public Text cooltexts;
+    public Text counttexts;
     private ConfigReader readerplayer;
     private ConfigReader readerSapWappon;
     private ConfigReader readerShootingWappon;
     private int shootdamage;
     private float shootspeed;
+    private int shootcount;
     private float Sapdamage;
     private int Sapcount;
     private int model;
@@ -27,31 +29,37 @@ public class UpgradeSubweapon : MonoBehaviour
     {
         readerplayer = new ConfigReader("Player");
         model = readerplayer.Search<int>("Model");
-        playerHP = readerplayer.Search<int>("hp" + model.ToString());
-        HPtexts.text = "HP : " + playerHP.ToString() + " / 400 ";
+        readerShootingWappon = new ConfigReader("Shooting Wappon");
+        shootdamage = readerShootingWappon.Search<int>("damage" + model.ToString());
+        Damagetexts.text = "Damage : " + shootdamage.ToString() + " / 70 ";
 
-        readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
-        playerspeedtexts.text = "Speed : " + playerSpeed.ToString() + " / 7 ";
+    
+        shootspeed = readerShootingWappon.Search<float>("speed" + model.ToString());
+        cooltexts.text = "Col : " + shootspeed.ToString() + " / 0.3 ";
+
+        shootcount = readerShootingWappon.Search<int>("Count" + model.ToString());
+        counttexts.text = "Count : " + shootcount.ToString() + " / 7 ";
     }
-    public void HPupgrade()
+    public void SubDamageupgrade()
     {
-        readerplayer = new ConfigReader("Player");
-        playerHP = readerplayer.Search<int>("hp" + model.ToString());
+        readerShootingWappon = new ConfigReader("Shooting Wappon");
+        shootdamage = readerShootingWappon.Search<int>("damage" + model.ToString());
 
-        if (playerHP < 391)
+        if (shootdamage < 70)
         {
             if (paygold(2000))
             {
-                float temp = playerHP + 10;
-                if (temp >= 400)
+                float temp = shootdamage + 10;
+                if (temp >= 70)
                 {
-                    temp = 400;
+                    temp = 70;
                 }
                 string stringtemp = temp.ToString();
-                readerplayer.UpdateData("hp" + model.ToString(), stringtemp);
+                
+                readerShootingWappon = new ConfigReader("Shooting Wappon");
+                readerShootingWappon.UpdateData("damage" + model.ToString(), stringtemp);
                 openconfirm();
-                HPtexts.text = "HP : " + stringtemp + " / 400 ";
+                Damagetexts.text = "Damage : " + stringtemp + " / 70 ";
             }
             else
             {
@@ -64,23 +72,54 @@ public class UpgradeSubweapon : MonoBehaviour
         }
 
     }
-    public void playerspeedup()
+    public void subcoolup()
     {
-        readerplayer = new ConfigReader("Player");
-        playerSpeed = readerplayer.Search<int>("speed" + model.ToString());
-        if (playerSpeed < 7)
+        readerShootingWappon = new ConfigReader("Shooting Wappon");
+        shootspeed = readerShootingWappon.Search<float>("speed" + model.ToString());
+        if (shootspeed > 0.3)
         {
-            if (paygold(1000))
+            if (paygold(4000))
             {
-                float temp = playerSpeed + 1;
+                float temp = shootspeed - 0.1f;
+                if (temp <= 0.3f)
+                {
+                    temp =0.3f;
+                }
+                string stringtemp = temp.ToString("F1");
+
+                readerShootingWappon = new ConfigReader("Shooting Wappon");
+                readerShootingWappon.UpdateData("speed" + model.ToString(), stringtemp);
+                openconfirm();
+                cooltexts.text = "Col : " + stringtemp + " / 0.3 ";
+            }
+            else
+            {
+                goldless();
+            }
+        }
+        else
+        {
+            maxopen();
+        }
+    }
+    public void subcountup()
+    {
+        readerShootingWappon = new ConfigReader("Shooting Wappon");
+        shootcount = readerShootingWappon.Search<int>("Count" + model.ToString());
+        if (shootcount < 7)
+        {
+            if (paygold(4000))
+            {
+                float temp = shootcount + 1;
                 if (temp >= 7)
                 {
                     temp = 7;
                 }
                 string stringtemp = temp.ToString();
-                readerplayer.UpdateData("speed" + model.ToString(), stringtemp);
+                readerShootingWappon = new ConfigReader("Shooting Wappon");
+                readerShootingWappon.UpdateData("Count" + model.ToString(), stringtemp);
                 openconfirm();
-                playerspeedtexts.text = "Speed : " + stringtemp + " / 7 ";
+                counttexts.text = "Count : " + stringtemp + " / 7 ";
             }
             else
             {
@@ -93,26 +132,7 @@ public class UpgradeSubweapon : MonoBehaviour
         }
     }
 
-
-    public void programmermode()
-    {
-        if (playerHP < 5000)
-        {
-            readerplayer = new ConfigReader("Player");
-            playerHP = readerplayer.Search<int>("hp" + model.ToString());
-
-            float temp = 9999f;
-            string stringtemp = temp.ToString();
-            readerplayer.UpdateData("hp" + model.ToString(), stringtemp);
-            HPtexts.text = "HP : " + stringtemp + " / " + stringtemp + " ";
-            openconfirm();
-        }
-        else
-        {
-            programopen();
-        }
-
-    }
+ 
     public void openconfirm()
     {
         activecan.SetActive(true);
@@ -137,11 +157,13 @@ public class UpgradeSubweapon : MonoBehaviour
     {
         readerplayer = new ConfigReader("Player");
         gold = readerplayer.Search<int>("gold");
-        int temp = gold - goldval;
-        if (temp < 0)
+       
+        if (gold < goldval)
         {
             return false;
         }
+        int temp = gold - goldval;
+
         string stringtemp = temp.ToString();
         readerplayer.UpdateData("gold", stringtemp);
 
