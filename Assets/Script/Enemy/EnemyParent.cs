@@ -130,7 +130,15 @@ public class EnemyParent : MonoBehaviour
     {
         if (!IsLive)
             return;
-
+        try
+        {
+            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
+                return;
+        }
+        catch
+        {
+            return;
+        }
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동

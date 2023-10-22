@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float gameTime=0;
     [HideInInspector] public float Level1=0;
     [HideInInspector] public float Level2=0;
+    [HideInInspector] public float coolTime=1;
+    [HideInInspector] public float coolTimer=0;
     public int mobLevel;
     private ConfigReader reader;
 
