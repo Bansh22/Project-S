@@ -174,7 +174,8 @@ PrefabInstance:
       value: Health_Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3232601603120844727, guid: e423d328d1c288646accf59c16194fd6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e423d328d1c288646accf59c16194fd6, type: 3}

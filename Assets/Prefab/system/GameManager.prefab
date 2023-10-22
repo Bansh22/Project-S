@@ -53,10 +53,13 @@ MonoBehaviour:
   AudioManager: {fileID: 1396068595862959124}
   uiManger: {fileID: 0}
   DropManage: {fileID: 3646168414582643343}
-  player: {fileID: 6951114841843615592, guid: 808aff59bd1f2cd45a6c40caf355d26a, type: 3}
+  player: {fileID: 0}
   catchEnemy: 0
   maxGameTime: 0
   gameTime: 0
+  Level1: 0
+  Level2: 0
+  mobLevel: 0
 --- !u!1001 &4118570123507358147
 PrefabInstance:
   m_ObjectHideFlags: 0
