@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - MobHP
+  - BattleUI
   - Bullets
   - 
   - Enermy

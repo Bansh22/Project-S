@@ -5,9 +5,12 @@ using UnityEngine;
 public class StatusUI : MonoBehaviour
 {
     public GameObject status;
-    public bool on=false;
+    private bool on=false;
     public void OnStatus()
     {
+        if (!GameManager.instance.player.getLive())
+            return;
+
         if (!on)
         {
             Time.timeScale = 0f;
