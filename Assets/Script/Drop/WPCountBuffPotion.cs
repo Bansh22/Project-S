@@ -26,7 +26,10 @@ public class WPCountBuffPotion : ItemParent
         if (collision.gameObject.CompareTag("Player"))
         {
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
-            weaponManager.CountUp();
+            if (weaponManager != null)
+            {
+                weaponManager.CountUp();
+            }
             DeleteList(Drop_Manage.Drop.WPCount);
         }
     }

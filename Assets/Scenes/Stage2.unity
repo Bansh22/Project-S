@@ -366,6 +366,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
         type: 3}
+      propertyPath: ScanRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
+      propertyPath: areaRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
+      propertyPath: groupRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255365097926706802, guid: 808aff59bd1f2cd45a6c40caf355d26a,
+        type: 3}
       propertyPath: targetLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}

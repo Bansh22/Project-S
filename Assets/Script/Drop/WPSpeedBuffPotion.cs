@@ -27,7 +27,10 @@ public class WPSpeedBuffPotion : ItemParent
         if (collision.gameObject.CompareTag("Player"))
         {
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
-            weaponManager.SpeedUp(getEffect());
+            if (weaponManager != null)
+            {
+                weaponManager.SpeedUp(getEffect());
+            }
             DeleteList(Drop_Manage.Drop.WPSpeed);
         }
     }

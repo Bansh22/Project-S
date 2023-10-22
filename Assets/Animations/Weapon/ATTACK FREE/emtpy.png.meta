@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 008dc20239f8292448229112962c9266
+guid: b010e5110fe98b743ac7243761df9d0a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -160,7 +160,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BigSlashV 1_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 49
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3444df40d616ba448a9a4c2476f51689
+      internalID: 1803987909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -171,7 +192,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BigSlashV 1_0: 1803987909
+      BigSlashV_0: -825089639
+      BigSlashV_1: 1695593102
+      BigSlashV_2: 1403911877
+      BigSlashV_3: 1618992604
+      BigSlashV_4: 2069994139
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

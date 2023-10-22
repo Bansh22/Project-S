@@ -99,17 +99,21 @@ public class EnemyParent : MonoBehaviour
         //충돌 대상의 Component에서 스크립트 소환 #아 삽한정으로 하면안되지 #수정필요
         Wappon scriptComponent = null;
 
-        if (collision.gameObject.GetComponent<SapWappon>() != null)
+        //if (collision.gameObject.GetComponent<SapWappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<SapWappon>();
+        //}
+        //else if (collision.gameObject.GetComponent<Shooting_Wappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<Shooting_Wappon>();
+        //}
+        //else if (collision.gameObject.GetComponent<Magic_Wappon>() != null)
+        //{
+        //    scriptComponent = collision.gameObject.GetComponent<Magic_Wappon>();
+        //}
+        if (collision.gameObject.GetComponent<Wappon>() != null)
         {
-            scriptComponent = collision.gameObject.GetComponent<SapWappon>();
-        }
-        else if (collision.gameObject.GetComponent<Shooting_Wappon>() != null)
-        {
-            scriptComponent = collision.gameObject.GetComponent<Shooting_Wappon>();
-        }
-        else if (collision.gameObject.GetComponent<Magic_Wappon>() != null)
-        {
-            scriptComponent = collision.gameObject.GetComponent<Magic_Wappon>();
+            scriptComponent = collision.gameObject.GetComponent<Wappon>();
         }
 
         GameManager.instance.AudioManager.PlaySfx(AudioManageer.Sfx.Hit);
@@ -126,15 +130,7 @@ public class EnemyParent : MonoBehaviour
     {
         if (!IsLive)
             return;
-        try
-        {
-            if (getAnimator().GetCurrentAnimatorStateInfo(0).IsTag("Hit"))
-                return;
-        }
-        catch
-        {
-            return;
-        }
+
         hp -= damage; // 데미지 받는다
 
         //변수에 따라 넉백 작동
