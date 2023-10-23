@@ -176,8 +176,8 @@ public class PlayerParent : MonoBehaviour
                                     int goldnum = reader.Search<int>("gold");
                                     goldnum += ranval;
                                     reader.UpdateData("gold" , goldnum.ToString());
-                                  
-
+                                    Text textmes = textmessage.GetComponent<Text>();
+                                    textmes.text = randomMessage + "\n" + ranval.ToString() + "Gold Get!";
                                     npc.gameObject.transform.parent.gameObject.SetActive(false);
                                 }
                             }
@@ -186,8 +186,8 @@ public class PlayerParent : MonoBehaviour
                                 npc.gameObject.transform.parent.gameObject.SetActive(false);
                                 Debug.LogError("캔버스 0없음 ");
                             }
-                            Text textmes = textmessage.GetComponent<Text>();
-                            textmes.text = randomMessage + "\n" + ranval.ToString() +"Gold Get!" ;
+                         
+                          
                             //Debug.Log(randomMessage);
                         }
 
