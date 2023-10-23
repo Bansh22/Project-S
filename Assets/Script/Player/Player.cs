@@ -46,6 +46,7 @@ public class Player : PlayerParent
     {
 
         base.Update();
+
         if (!getLive())
         {
             inputVec = Vector3.zero;
