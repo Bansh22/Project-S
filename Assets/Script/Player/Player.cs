@@ -7,18 +7,20 @@ public class Player : PlayerParent
     ConfigReader reader;
     public Vector3 inputVec;
     public MobScanner mobscan;
-    
-   
+    private int model;
+
     public Player()
     {
+
         //Enemy0 사전 열기
         reader = new ConfigReader("Player");
+        model = reader.Search<int>("Model");
         //속도 설정
-        setSpeed(reader.Search<float>("speed"));
+        setSpeed(reader.Search<float>("speed" + model.ToString()));
         //MaxHp 설정
-        setMaxHp(reader.Search<float>("hp"));
+        setMaxHp(reader.Search<float>("hp" + model.ToString()));
         //Hp 설정
-        setHp(reader.Search<float>("hp"));
+        setHp(reader.Search<float>("hp" + model.ToString()));
         //현재 살아있는 상태 설정
         setLive(true);
        
@@ -26,6 +28,7 @@ public class Player : PlayerParent
     // Start is called before the first frame update
     void Start()
     {
+
         mobscan = GetComponent<MobScanner>();
         //시작 설정 함수 실행
         startfun();
@@ -43,6 +46,7 @@ public class Player : PlayerParent
     {
 
         base.Update();
+
         if (!getLive())
         {
             inputVec = Vector3.zero;
@@ -55,13 +59,13 @@ public class Player : PlayerParent
 
     private void FixedUpdate()
     {
-        getAnimator().SetFloat("Speed", inputVec.magnitude);
+        getAnimator().SetFloat("Speed" , inputVec.magnitude);
 
         Vector3 nextVec = inputVec.normalized * getSpeed() * Time.fixedDeltaTime;
         //합산된 벡터 계산, normalized의 경우 x,y 벡터의 합이 1이상이 되기때문에 1로 고정
         //fixedDeltaTime의 경우 달라지는 프레임 대비
         getTransform().Translate(nextVec);
-        if (inputVec.normalized != Vector3.zero)
+        if (inputVec.x != 0)
         {
             getSpriteRenderer().flipX = inputVec.x <= 0;
         }

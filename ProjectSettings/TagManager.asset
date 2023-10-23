@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - MobHP
+  - BattleUI
   - Bullets
   - 
   - Enermy
@@ -56,4 +56,10 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: Layer 4
+    uniqueID: 2711040169
+    locked: 0
+  - name: Layer 5
+    uniqueID: 2330650107
     locked: 0

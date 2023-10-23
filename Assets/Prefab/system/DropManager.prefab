@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefabs:
-  - {fileID: 5853008515373876048, guid: 5d4034765c568794fbe744a85ba597d7, type: 3}
+  - {fileID: 5853008515373876048, guid: 997b71b207bf110438ce9c1b03a63862, type: 3}
   - {fileID: 5853008515373876048, guid: 24591eef5126a1242942c2a24b0dbd06, type: 3}
   - {fileID: 5853008515373876048, guid: 4a734bf437cdf154d8ac75d4ce57cb04, type: 3}
   - {fileID: 5853008515373876048, guid: 878e16f50511c2a409a398346a2b2d49, type: 3}

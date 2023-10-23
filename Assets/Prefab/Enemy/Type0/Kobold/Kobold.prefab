@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1017694675424126773}
   - component: {fileID: 119995835573760864}
   - component: {fileID: -1923650302099716049}
-  - component: {fileID: 6152852796363044124}
+  - component: {fileID: 1267547776874720551}
   m_Layer: 0
   m_Name: Kobold
   m_TagString: Untagged
@@ -172,7 +172,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.15}
   m_Size: {x: 0.22, y: 0.3}
   m_Direction: 0
---- !u!114 &6152852796363044124
+--- !u!114 &1267547776874720551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d609996e158b9274fbe5ad635e5063ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 90
+  projectil: {fileID: 0}
 --- !u!1001 &3622990707635323188
 PrefabInstance:
   m_ObjectHideFlags: 0

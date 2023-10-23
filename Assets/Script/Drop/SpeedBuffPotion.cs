@@ -13,14 +13,23 @@ public class SpeedBuffPotion : ItemParent
         setChance(reader.Search<float>("Chance"));
         setWorldLimit(true);
     }
+    private void Awake()
+    {
+
+        childAnim = child.GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
+        coll = GetComponent<Collider2D>();
+        color = render.material.color;
+        startA = color.a;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.instance.uiManger.addUI(3, collision.gameObject);
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.SpeedBuff(getEffect());
             DeleteList(Drop_Manage.Drop.Speed);
-            Destroy(gameObject);
         }
     }
 }

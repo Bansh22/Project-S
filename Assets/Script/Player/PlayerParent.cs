@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [SerializeField]
 public class PlayerParent : MonoBehaviour
 {
+    //캐릭터변경
+    public  RuntimeAnimatorController[] Player_Controller;
     //컴포넌트 기능 Get함수로 반환
     private GameObject mine;
     private Transform trans;
@@ -14,13 +16,16 @@ public class PlayerParent : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
     private Collider2D coll;
+    
     //npc 관련 변수
     private Collider2D npc;
     private bool Innpc;
     private bool canInteract = true; // E 키 입력을 받을 수 있는 상태인지를 나타내는 변수
     private float interactCooldown = 0.5f; // E 키 입력 간격을 제어하는 변수
-    public GameObject messagecanvas;
+    public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas 4pause
+    
     public GameObject textmessage;
+    private Material npcMaterial;
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     //player 스피드
     private float speed; //(config 등록)
@@ -41,15 +46,22 @@ public class PlayerParent : MonoBehaviour
     //fixedUpdate 시간만큼 기다리는 변수
     WaitForFixedUpdate wait;
     float hitTime=0;
+   
     //
     //TakeDamage 변수 : damage  받아서, hp를 깎는다 
     //hp 가 0보다 작으면  gameobject 를 비활성화 시킨다 
     //hp 가 0보다 크면 hit 애니메이션 작동 후 일정 거리 넉백한다.
 
-    private void Start()
+    public void Awake()
     {
         Innpc = false;
+        // ConfigReader 초기화
+        ConfigReader reader = new ConfigReader("Player");
+        int modelIndex = reader.Search<int>("Model");
+        Animator change = GetComponent<Animator>();
+        change.runtimeAnimatorController = Player_Controller[modelIndex];
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -74,27 +86,123 @@ public class PlayerParent : MonoBehaviour
 
     public void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            canvases[4].SetActive(true);
+        }
         
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
+            
+         
             if (Innpc)
             {
                 RelObject_keydownE relObject = npc.GetComponent<RelObject_keydownE>();
                 if (relObject != null)
                 {
+                  
                     // 랜덤한 메시지 가져오기
                     string[] messages = relObject.message;
                     if (messages.Length > 0)
                     {
-                        int randomIndex = Random.Range(0, messages.Length);
-                        string randomMessage = messages[randomIndex];
+                        if (messages.Length > 4)
+                        {
+                            if (relObject.npcname != null)
+                            {
+                                if ("charator" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[2].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 2없음 ");
+                                    }
+                                }
+                                if ("hpshop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[3].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 3없음 ");
+                                    }
+                                }
+                                if ("magicshop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[5].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 5없음 ");
+                                    }
+                                }
+                                if ("weaponshop" == relObject.npcname)
+                                {
+                                    try
+                                    {
+                                        canvases[6].SetActive(true); //charator 
+                                    }
+                                    catch
+                                    {
+                                        Debug.LogError("캔버스 6없음 ");
+                                    }
+                                }
 
-                        messagecanvas.SetActive(true);
-                        Text textmes =  textmessage.GetComponent<Text>();
-                        textmes.text = randomMessage;
-                        //Debug.Log(randomMessage);
+                            }
+                            else
+                            {
+                                Debug.LogError("npc이름 없음!");
+                            }
+                        }
+                        else
+                        {
+                            int randomIndex = Random.Range(0, messages.Length);
+                            string randomMessage = messages[randomIndex];
+                            int ranval = Random.Range(50, 101);
+                            try
+                            {
+                                canvases[0].SetActive(true); //messagecanvas
+
+                                if (randomMessage.Contains("Gold"))
+                                {
+                                    ConfigReader reader = new ConfigReader("Player");
+                                    int goldnum = reader.Search<int>("gold");
+                                    goldnum += ranval;
+                                    reader.UpdateData("gold" , goldnum.ToString());
+                                  
+
+                                    npc.gameObject.transform.parent.gameObject.SetActive(false);
+                                }
+                            }
+                            catch
+                            {
+                                npc.gameObject.transform.parent.gameObject.SetActive(false);
+                                Debug.LogError("캔버스 0없음 ");
+                            }
+                            Text textmes = textmessage.GetComponent<Text>();
+                            textmes.text = randomMessage + "\n" + ranval.ToString() +"Gold Get!" ;
+                            //Debug.Log(randomMessage);
+                        }
 
                     }
+                    else if(messages.Length == 0)
+                    {
+                        try
+                        {
+                            canvases[1].SetActive(true);
+                        }
+                        catch
+                    {
+                        Debug.LogError("캔버스 1없음 ");
+                    }
+                }
                 }
 
                 // 입력 간격 동안 비활성화
@@ -103,6 +211,11 @@ public class PlayerParent : MonoBehaviour
             }
         }
     }
+ 
+
+
+
+
 
     private IEnumerator EnableInteractAfterCooldown()
     {
@@ -110,6 +223,12 @@ public class PlayerParent : MonoBehaviour
         canInteract = true;
     }
 
+    public void ChangeCharacterSprite(int index)
+    {
+        ConfigReader reader = new ConfigReader("Player");
+        reader.UpdateData("Model", index.ToString());
+        GameManager.instance.player.getAnimator().runtimeAnimatorController= GameManager.instance.player.Player_Controller[index];
+    }
 
     public void takeDamage(float damage)
     {
@@ -120,6 +239,7 @@ public class PlayerParent : MonoBehaviour
         }
         if (hp <= 0) //0보다 작으면 
         {
+            hp = 0f;
             anim.SetTrigger("Dead");
             setLive(false);
             coll.enabled = false;//시체 충돌 무시

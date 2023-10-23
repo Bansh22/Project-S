@@ -12,14 +12,25 @@ public class WPCountBuffPotion : ItemParent
         setChance(reader.Search<float>("Chance"));
         setWorldLimit(true);
     }
+    private void Awake()
+    {
+
+        childAnim = child.GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
+        coll = GetComponent<Collider2D>();
+        color = render.material.color;
+        startA = color.a;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             nearing_Wappon_Manager weaponManager = collision.gameObject.GetComponentInChildren<nearing_Wappon_Manager>();
-            weaponManager.CountUp();
+            if (weaponManager != null)
+            {
+                weaponManager.CountUp();
+            }
             DeleteList(Drop_Manage.Drop.WPCount);
-            Destroy(gameObject);
         }
     }
 }

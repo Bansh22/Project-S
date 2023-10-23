@@ -44,15 +44,15 @@ public class AudioManageer : MonoBehaviour
         {
             PlayBgm(AudioManageer.Bgm.Village);
         }
-        else if (scene.name == "")
+        else if (scene.name == "Stage1")
         {
             PlayBgm(AudioManageer.Bgm.Battle1);
         }
-        else if (scene.name == "")
+        else if (scene.name == "Stage2")
         {
             PlayBgm(AudioManageer.Bgm.Battle2);
         }
-        else if (scene.name == "")
+        else if (scene.name == "Stage3")
         {
             PlayBgm(AudioManageer.Bgm.Battle3);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatternShoot : MonoBehaviour
 {
     Rigidbody2D rigid;
-    public float damage;
+    private float damage;
     private float start;
     private float timer=5;
     // Start is called before the first frame update
@@ -35,6 +35,12 @@ public class PatternShoot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.instance.player.takeDamage(damage);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyParent enemyInfo=collision.gameObject.GetComponent<EnemyParent>();
+            
+            enemyInfo.takeDamage(damage);
         }
     }
 

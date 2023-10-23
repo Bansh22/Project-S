@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638333296631853455
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: water-projectile_Frame_0
     originalName: 
-    pivot: {x: 0.52, y: -0.3}
+    pivot: {x: 0.53846157, y: -0.18181819}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 25
-      height: 10
+      width: 26
+      height: 11
     spriteID: 22ea99fa87db8284ba6e6614241af743
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: water-projectile_Frame_1
     originalName: 
-    pivot: {x: 0.48, y: -0.3}
+    pivot: {x: 0.5, y: -0.18181819}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 22
-      width: 25
-      height: 10
+      y: 23
+      width: 26
+      height: 11
     spriteID: 3507570bfd85d37468c60034f027495e
     spriteBone: []
     spriteOutline: []
@@ -158,17 +158,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 22}
+    uvTransform: {x: 4, y: 23}
   - name: water-projectile_Frame_2
     originalName: 
-    pivot: {x: 0.52380955, y: -0.18181819}
+    pivot: {x: 0.54545456, y: -0.18181819}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 40
-      width: 21
+      x: 38
+      y: 4
+      width: 22
       height: 11
     spriteID: aa2565cf26ff8df4394f1aec80937088
     spriteBone: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 40}
+    uvTransform: {x: 38, y: 4}
   - name: water-projectile_Frame_3
     originalName: 
-    pivot: {x: 0.625, y: -0.22222222}
+    pivot: {x: 0.64705884, y: -0.09090909}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 37
-      y: 4
-      width: 16
-      height: 9
+      x: 38
+      y: 23
+      width: 17
+      height: 11
     spriteID: cc9c0f28ecfce1e468cd7a80de96bea9
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 37, y: 4}
+    uvTransform: {x: 38, y: 23}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -211,38 +211,122 @@ ScriptedImporter:
     - name: water-projectile_Frame_0
       frameIndex: 0
       cellRect:
-        x: 3
-        y: 3
-        width: 25
-        height: 10
+        x: 2
+        y: 2
+        width: 26
+        height: 11
       spriteId: 22ea99fa87db8284ba6e6614241af743
     - name: water-projectile_Frame_1
       frameIndex: 1
       cellRect:
-        x: 4
-        y: 3
-        width: 25
-        height: 10
+        x: 3
+        y: 2
+        width: 26
+        height: 11
       spriteId: 3507570bfd85d37468c60034f027495e
     - name: water-projectile_Frame_2
       frameIndex: 2
       cellRect:
-        x: 5
+        x: 4
         y: 2
-        width: 21
+        width: 22
         height: 11
       spriteId: aa2565cf26ff8df4394f1aec80937088
     - name: water-projectile_Frame_3
       frameIndex: 3
       cellRect:
-        x: 6
-        y: 2
-        width: 16
-        height: 9
+        x: 5
+        y: 1
+        width: 17
+        height: 11
       spriteId: cc9c0f28ecfce1e468cd7a80de96bea9
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Windows Store Apps
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 16}

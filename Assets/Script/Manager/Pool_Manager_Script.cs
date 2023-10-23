@@ -34,6 +34,26 @@ public class Pool_Manager_Script : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //몹 변경 코드(시간)
+        if (pageTime > GameManager.instance.gameTime % lineTime)
+        {
+            pageTime = 0;
+            for (int i = 0; i < Prefabs.Length; i++)
+            {
+                EnemyParent enemyInfo;
+                if (Prefabs[i].TryGetComponent<EnemyParent>(out enemyInfo))
+                {
+                    enemyInfo.setRegen(enemyInfo.getRegen() * (1 - 0.2f));
+                }
+            }
+            pageTime = GameManager.instance.gameTime % lineTime;
+            GameManager.instance.Level2++;
+        }
+        else
+        {
+            pageTime = GameManager.instance.gameTime % lineTime;
+        }
+
         //몹 강화 코드(시간)
         if (pageTime > GameManager.instance.gameTime % lineTime)
         {
@@ -124,6 +144,21 @@ public class Pool_Manager_Script : MonoBehaviour
         }
 
         return Select;
+    }
+    public void DeletePoolsPrefabs(int index)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            for (int j=0; j<Pools[i].Count;j++)
+            {
+                if (Pools[i][j].activeSelf == false)
+                {
+                    Destroy(Pools[i][j]);
+                    Pools[i].RemoveAt(j);
+                    j--;
+                }
+            }
+        }
     }
 
     private void OnApplicationQuit()

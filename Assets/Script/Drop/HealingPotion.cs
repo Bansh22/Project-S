@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealingPotion : ItemParent
 {
     private readonly ConfigReader reader;
-
+    private bool oneTime=false;
     public HealingPotion()
     {
         reader = new ConfigReader("HealPotion");
@@ -14,14 +14,25 @@ public class HealingPotion : ItemParent
         setChance(reader.Search<float>("Chance"));
         setWorldLimit(false);
     }
+    private void Awake()
+    {
+
+        childAnim = child.GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
+        coll = GetComponent<Collider2D>();
+        color = render.material.color;
+        startA = color.a;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !oneTime)
         {
+            GameManager.instance.uiManger.addUI(1, collision.gameObject);
+            oneTime = true;
             PlayerParent player = collision.gameObject.GetComponent<PlayerParent>();
             player.Healing(getEffect());
             DeleteList(Drop_Manage.Drop.Heal);
-            Destroy(gameObject);
         }
     }
 }

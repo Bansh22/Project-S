@@ -7,7 +7,10 @@ public class Spawner_Manager : MonoBehaviour
 {
     public Transform[] SpawnerPoint;
     float[] timers;
-  
+    int start = 0;
+    int end = 2;
+    int delta = 0;
+    int mobTime = 1;
 
     // Update is called once per frame
     private void Awake()
@@ -37,12 +40,24 @@ public class Spawner_Manager : MonoBehaviour
         {
             timers[i] = 0f;
         }
+        mobTime = GameManager.instance.mobLevel;
     }
 
 
     void FixedUpdate() // 시간에 따른 몹생성 
     {
-        for(int i = 0; i < timers.Length; i++)
+        int mobLevel = (int)GameManager.instance.gameTime / mobTime;
+        if (delta != mobLevel)
+        {
+            delta = mobLevel;
+            if(timers.Length >= end + mobLevel + 2)
+            {
+                start = end;
+                end = start + mobLevel + 2;
+                DestoryMod(start);
+            }
+        }
+        for (int i = start; i < end; i++)
         {
             if (GameManager.instance.gameTime-timers[i] > GameManager.instance.PolManage.Prefabs[i].GetComponent<EnemyParent>().getRegen()) //0.2초에 1번! 1번몹 생성! 0.02보다 빨라지면 문제생김
             {
@@ -50,13 +65,19 @@ public class Spawner_Manager : MonoBehaviour
                 timers[i] = GameManager.instance.gameTime;
             }
         }
+        
     }
 
     void SpawnMod(int number) //실제 몹생성 코드 (number에 값 여러개 넣어서 써라!)
     {
         Vector3 pos = SpawnerPoint[Random.Range(1, SpawnerPoint.Length)].position;
+        
         GameObject enemy =   GameManager.instance.PolManage.GetPoolsPrefabs(number, pos);
         enemy.transform.position = pos;
         
+    }
+    void DestoryMod(int number)
+    {
+        GameManager.instance.PolManage.DeletePoolsPrefabs(number);
     }
 }
