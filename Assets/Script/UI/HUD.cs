@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -117,7 +118,7 @@ public class HUD : MonoBehaviour
                 }
                 break;
             case InfoType.Coin:
-                if (coinTrigger)
+                if (coinTrigger && SceneManager.GetActiveScene().name!="Town")
                     return;
                 coinTrigger = true;
                 ConfigReader reader = new ConfigReader("Player");
