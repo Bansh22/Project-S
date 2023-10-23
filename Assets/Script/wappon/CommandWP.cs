@@ -70,6 +70,11 @@ public class CommandWP : Wappon
                 cool = false; 
                 timer = 0;
             }
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Skill"))
+            {
+                GameManager.instance.coolTime = coolTime;
+                GameManager.instance.coolTimer = timer;
+            }
         }
     }
 
