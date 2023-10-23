@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BattleMap : MonoBehaviour
 {
+    public GameObject canvassss;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,16 @@ public class BattleMap : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-            SceneManager.LoadScene("Stage1");
+
+            canvassss.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            canvassss.SetActive(false);
         }
     }
 }
