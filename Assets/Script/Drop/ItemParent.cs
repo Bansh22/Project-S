@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [SerializeField]
 public class ItemParent : MonoBehaviour
@@ -14,11 +15,14 @@ public class ItemParent : MonoBehaviour
     //set,get있음
     //효과 
     private float effect;
+    private Transform tr ;
     //set,get있음
     //월드에 있을 수 있는 제한시키는 변수
     //true: 제한이 1인 상태에서 1개를 먹으면 1개가 다시 안 떨어짐
     //false: 제한 1인 상태에서 1개를 먹어도 1개가 다시 떨어질수있음
     private bool worldLimit;
+    public float moveSpeed; // 이동 속도
+    public float stoppingDistance; // 멈추는 거리
 
     public GameObject child;
     public GameObject[] kira;
@@ -39,6 +43,28 @@ public class ItemParent : MonoBehaviour
         color.a = 0;
         render.color = color;
         StartCoroutine(Appear());
+    }
+    protected void Initialize()
+    {
+        tr = GetComponent<Transform>();
+        moveSpeed = 0.5f;
+        stoppingDistance = 10.0f;
+    }
+
+
+
+   
+
+    public void Update()
+    {
+        float distance = Vector3.Distance(tr.position, GameManager.instance.player.transform.position);
+
+        // 만약 현재 위치와 목표 위치 간의 거리가 특정 임계값보다 크다면 이동
+        if (distance > stoppingDistance)
+        {
+            // Lerp를 사용하여 부드럽게 이동
+            tr.position = Vector3.MoveTowards(tr.position, GameManager.instance.player.transform.position, moveSpeed * Time.deltaTime);
+        }
     }
     IEnumerator Appear()
     {
