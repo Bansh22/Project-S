@@ -15,7 +15,7 @@ public class WPDamageBuffPotion : ItemParent
     }
     private void Awake()
     {
-
+        Initialize();
         childAnim = child.GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
         coll = GetComponent<Collider2D>();
