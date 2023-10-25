@@ -25,6 +25,8 @@ public class PlayerParent : MonoBehaviour
     public GameObject[] canvases; // 0 messagecanvas 1 totucanvas 2 charcanvas 3 upgradecanvas 4pause
     
     public GameObject textmessage;
+    public GameObject accanvas;
+    public Text accantext;
     private Material npcMaterial;
     //Set ,Get 있는 친구들 , 꺼내오고 , 값을 수정하는 함수가 있다 
     //player 스피드
@@ -228,7 +230,12 @@ public class PlayerParent : MonoBehaviour
         ConfigReader reader = new ConfigReader("Player");
         reader.UpdateData("Model", index.ToString());
         GameManager.instance.player.getAnimator().runtimeAnimatorController= GameManager.instance.player.Player_Controller[index];
+
+
+
     }
+
+
 
     public void takeDamage(float damage)
     {

@@ -205,6 +205,10 @@ MonoBehaviour:
   canvases: []
   textmessage: {fileID: 9085994943220750958, guid: e372170057a000f4a81b1a56f74b8249,
     type: 3}
+  accanvas: {fileID: 1907944666134833545, guid: d1d5b7045d950894ca5651934cd391c3,
+    type: 3}
+  accantext: {fileID: 8563987584324264093, guid: 96264edeade8dde4faded9e53d68f032,
+    type: 3}
   inputVec: {x: 0, y: 0, z: 0}
   mobscan: {fileID: 0}
 --- !u!114 &4255365097926706802
