@@ -90,7 +90,7 @@ public class Shooting_Wappon_Manager : MonoBehaviour
         {
             return;
         }
-        int numberOfProjectiles = targetLimit; // 발사되는 탄환 수
+        int numberOfProjectiles = Count; // 발사되는 탄환 수
         float angleInterval = 90f / (numberOfProjectiles - 1); // 탄환 각도 간격 계산
 
         for (int i = 0; i < numberOfProjectiles; i++)
